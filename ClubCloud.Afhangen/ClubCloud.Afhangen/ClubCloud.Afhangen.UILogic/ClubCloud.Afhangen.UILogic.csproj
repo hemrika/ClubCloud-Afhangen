@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEB41983-C6A2-445C-8762-9FD2E43FE189}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClubCloud.Afhangen.UILogic</RootNamespace>
+    <AssemblyName>ClubCloud.Afhangen.UILogic</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Models\AccuDetail.cs" />
+    <Compile Include="Models\Actuals.cs" />
+    <Compile Include="Models\AdminArea.cs" />
+    <Compile Include="Models\Advisory.cs" />
+    <Compile Include="Models\Afhang.cs" />
+    <Compile Include="Models\AirQualityForecast.cs" />
+    <Compile Include="Models\Alarm.cs" />
+    <Compile Include="Models\AlarmType.cs" />
+    <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\AlertArea.cs" />
+    <Compile Include="Models\AlertAreaModel.cs" />
+    <Compile Include="Models\AlertDescription.cs" />
+    <Compile Include="Models\AlertLastAction.cs" />
+    <Compile Include="Models\AlertModel.cs" />
+    <Compile Include="Models\AlertsGroup.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Baan.cs" />
+    <Compile Include="Models\CardUpdatedEvent.cs" />
+    <Compile Include="Models\WeatherUpdatedEvent .cs" />
+    <Compile Include="Models\CurrentConditions.cs" />
+    <Compile Include="Models\CurrentConditionsModel.cs" />
+    <Compile Include="Models\DailyActuals.cs" />
+    <Compile Include="Models\DailyAlarm.cs" />
+    <Compile Include="Models\DailyForecast.cs" />
+    <Compile Include="Models\DailyNormals.cs" />
+    <Compile Include="Models\DailyRecords.cs" />
+    <Compile Include="Models\DegreeDaySummary.cs" />
+    <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\Entities\CloudCoverType.cs" />
+    <Compile Include="Models\Entities\DataDensityType.cs" />
+    <Compile Include="Models\Entities\ErrorCodeType.cs" />
+    <Compile Include="Models\Entities\ErrorMessages.cs" />
+    <Compile Include="Models\Entities\ForecastType.cs" />
+    <Compile Include="Models\Entities\HalfDayForecastType.cs" />
+    <Compile Include="Models\Entities\LanguageType.cs" />
+    <Compile Include="Models\Entities\LocationType.cs" />
+    <Compile Include="Models\Entities\MapOverlayType.cs" />
+    <Compile Include="Models\Entities\MapTileBaseType.cs" />
+    <Compile Include="Models\Entities\MapTileLayerType.cs" />
+    <Compile Include="Models\Entities\RendererState.cs" />
+    <Compile Include="Models\Entities\TrackingEventType.cs" />
+    <Compile Include="Models\Entities\UnitsType.cs" />
+    <Compile Include="Models\Entities\WeatherAlarmType.cs" />
+    <Compile Include="Models\Entities\WeatherUnitTypes.cs" />
+    <Compile Include="Models\ForecastModel.cs" />
+    <Compile Include="Models\ForecastPosition.cs" />
+    <Compile Include="Models\ForecastSummary.cs" />
+    <Compile Include="Models\HalfDayForecast.cs" />
+    <Compile Include="Models\HalfDayForecastModel.cs" />
+    <Compile Include="Models\Headline.cs" />
+    <Compile Include="Models\HourlyForecast.cs" />
+    <Compile Include="Models\HourlyModel.cs" />
+    <Compile Include="Models\Index.cs" />
+    <Compile Include="Models\IndexBase.cs" />
+    <Compile Include="Models\IndexGroupMetadata.cs" />
+    <Compile Include="Models\IndexGroupTypes.cs" />
+    <Compile Include="Models\IndexMetadata.cs" />
+    <Compile Include="Models\LanguageModel.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationBase.cs" />
+    <Compile Include="Models\LocationDetail.cs" />
+    <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\LocationModelComparer.cs" />
+    <Compile Include="Models\Measurement.cs" />
+    <Compile Include="Models\Measurements.cs" />
+    <Compile Include="Models\Moon.cs" />
+    <Compile Include="Models\Normals.cs" />
+    <Compile Include="Models\Observation.cs" />
+    <Compile Include="Models\Period.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\PrecipitationSummary.cs" />
+    <Compile Include="Models\PressureTendency.cs" />
+    <Compile Include="Models\Records.cs" />
+    <Compile Include="Models\RecordsTemperatureSummary.cs" />
+    <Compile Include="Models\Reference.cs" />
+    <Compile Include="Models\SettingsModel.cs" />
+    <Compile Include="Models\Source.cs" />
+    <Compile Include="Models\Storm.cs" />
+    <Compile Include="Models\StormBase.cs" />
+    <Compile Include="Models\StormPosition.cs" />
+    <Compile Include="Models\Sun.cs" />
+    <Compile Include="Models\SupplementalArea.cs" />
+    <Compile Include="Models\TemperatureRange.cs" />
+    <Compile Include="Models\TemperatureSummary.cs" />
+    <Compile Include="Models\TemporalMeasurements.cs" />
+    <Compile Include="Models\TimerEvent.cs" />
+    <Compile Include="Models\TimeZoneDetail.cs" />
+    <Compile Include="Models\UnitTypes.cs" />
+    <Compile Include="Models\Wind.cs" />
+    <Compile Include="Repositories\AlertRepository.cs" />
+    <Compile Include="Repositories\IAlertRepository.cs" />
+    <Compile Include="Repositories\ILocationRepository.cs" />
+    <Compile Include="Repositories\IWeatherRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\WeatherRepository.cs" />
+    <Compile Include="Service References\ClubCloudService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AlertMessageService.cs" />
+    <Compile Include="Models\ComboBoxItemValue.cs" />
+    <Compile Include="Models\Foto.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Reservering.cs" />
+    <Compile Include="Models\BaanUpdatedEvent.cs" />
+    <Compile Include="Repositories\ISpelerRepository.cs" />
+    <Compile Include="Repositories\IBaanRepository.cs" />
+    <Compile Include="Repositories\BaanRepository.cs" />
+    <Compile Include="Repositories\SpelerRepository.cs" />
+    <Compile Include="Services\ApiServiceProvider.cs" />
+    <Compile Include="Services\BaanServiceProxy.cs" />
+    <Compile Include="Services\DailyForecastQuery.cs" />
+    <Compile Include="Services\DialogCommand.cs" />
+    <Compile Include="Services\HourlyForecastQuery.cs" />
+    <Compile Include="Services\IAlertMessageService.cs" />
+    <Compile Include="Services\IBaanService.cs" />
+    <Compile Include="Services\ILocationService.cs" />
+    <Compile Include="Services\IWeatherService.cs" />
+    <Compile Include="Services\LabelAttribute.cs" />
+    <Compile Include="Services\LocationServiceProxy.cs" />
+    <Compile Include="Services\WeatherDataQuery.cs" />
+    <Compile Include="Services\WeatherServiceProxy.cs" />
+    <Compile Include="ViewModels\CardPageViewModel.cs" />
+    <Compile Include="ViewModels\FormStatus.cs" />
+    <Compile Include="ViewModels\ICardUserControlViewModel.cs" />
+    <Compile Include="ViewModels\IKlokUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ISpelerUserControlViewModel.cs" />
+    <Compile Include="ViewModels\IWeerUserControlViewModel.cs" />
+    <Compile Include="ViewModels\KlokUserControlViewModel.cs" />
+    <Compile Include="ViewModels\SpelerUserControlViewModel.cs" />
+    <Compile Include="ViewModels\BaanUserControlViewModel.cs" />
+    <Compile Include="ViewModels\IBaanUserControlViewModel.cs" />
+    <Compile Include="ViewModels\IReserveringUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ReserveringUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ReserveringViewModel.cs" />
+    <Compile Include="Models\VerenigingUpdatedEvent.cs" />
+    <Compile Include="Models\ReserveringUpdatedEvent.cs" />
+    <Compile Include="Models\Vereniging.cs" />
+    <Compile Include="Models\Speler.cs" />
+    <Compile Include="Models\SpelerUpdatedEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IVerenigingRepository.cs" />
+    <Compile Include="Repositories\VerenigingRepository.cs" />
+    <Compile Include="Repositories\ReserveringRepository.cs" />
+    <Compile Include="Repositories\IReserveringRepository .cs" />
+    <Compile Include="Services\ICacheService.cs" />
+    <Compile Include="Services\IVerenigingService.cs" />
+    <Compile Include="Services\ISpelerService.cs" />
+    <Compile Include="Services\IReserveringService.cs" />
+    <Compile Include="Services\SpelerServiceProxy.cs" />
+    <Compile Include="Services\VerenigingServiceProxy.cs" />
+    <Compile Include="Services\ReserveringServiceProxy.cs" />
+    <Compile Include="Services\TemporaryFolderCacheService.cs" />
+    <Compile Include="ViewModels\BanenPageViewModel.cs" />
+    <Compile Include="ViewModels\OptionsFlyoutViewModel.cs" />
+    <Compile Include="ViewModels\AboutFlyoutViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\ReserveringPageViewModel.cs" />
+    <Compile Include="ViewModels\SpelersPageViewModel.cs" />
+    <Compile Include="ViewModels\WeerUserControlViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClubCloud.Afhangen.UILogic_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Afhang.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Foto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Gebruiker.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Vereniging.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloudAfhangen.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm">
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm.Store">
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.PubSubEvents">
+      <HintPath>..\..\packages\Prism.PubSubEvents.1.1.2\lib\portable-sl5+windowsphone8+windows8+net40+wpa81\Microsoft.Practices.Prism.PubSubEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.SharedInterfaces">
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.SharedInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.StoreApps.2.0.0\lib\windows8\Microsoft.Practices.Prism.StoreApps.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps.Windows">
+      <HintPath>..\..\packages\Prism.StoreApps.2.0.0\lib\windows8\Microsoft.Practices.Prism.StoreApps.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\win8\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\..\packages\WinRTXamlToolkit.Windows.1.7.4.0\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ClubCloudService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ClubCloud.Afhangen.UILogic_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Views="using:ClubCloud.Afhangen.Views"
+                    xmlns:local="using:ClubCloud.Afhangen.Themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Converters/ConverterResources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <!--    -->
+
+    <ResourceDictionary.ThemeDictionaries>
+
+        <ResourceDictionary x:Key="Default">
+            <Color x:Key="AccentColor1">#FF2582D3</Color>
+            <Color x:Key="AccentColor2">#FF385A72</Color>
+            <Color x:Key="AccentColor3">#FF003455</Color>
+            <Color x:Key="AccentColor4">#FFA10518</Color>
+            <Color x:Key="AccentColor5">#FF212121</Color>
+            <Color x:Key="AccentColor6">#FF404040</Color>
+
+            <SolidColorBrush x:Key="SplashScreenBackgroundThemeBrush" Color="{StaticResource AccentColor1}" />
+            <SolidColorBrush x:Key="SplashScreenProgressForegorundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="ApplicationAccentThemeBrush" Color="{StaticResource AccentColor4}" />
+            <SolidColorBrush x:Key="SettingsFlyoutBackgroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="ApplicationFlyoutBorderBrush" Color="{StaticResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="ClubCloudHeaderBackground" Color="{StaticResource AccentColor1}" />
+        </ResourceDictionary>
+
+    </ResourceDictionary.ThemeDictionaries>
+
+    <Style x:Key="BasicTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource ApplicationForegroundThemeBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="TextTrimming" Value="WordEllipsis" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Typography.StylisticSet20" Value="True" />
+        <Setter Property="Typography.DiscretionaryLigatures" Value="True" />
+        <Setter Property="Typography.CaseSensitiveForms" Value="True" />
+    </Style>
+
+    <Style TargetType="SettingsFlyout">
+        <Setter Property="HeaderBackground" Value="{ThemeResource SplashScreenBackgroundThemeBrush}" />
+    </Style>
+
+</ResourceDictionary>
