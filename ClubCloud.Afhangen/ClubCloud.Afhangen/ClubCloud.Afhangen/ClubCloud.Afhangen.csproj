@@ -148,6 +148,7 @@
     <Compile Include="Converters\TextToHeaderVisibilityConverter.cs" />
     <Compile Include="DesignViewModels\CardPageDesignViewModel.cs" />
     <Compile Include="DesignViewModels\CardUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\ReserveringPageDesignViewModel.cs" />
     <Compile Include="DesignViewModels\WeatherUserControlDesignViewModel.cs" />
     <Compile Include="DesignViewModels\KlokUserControlDesignViewModel.cs" />
     <Compile Include="DesignViewModels\SpelersPageDesignViewModel.cs" />

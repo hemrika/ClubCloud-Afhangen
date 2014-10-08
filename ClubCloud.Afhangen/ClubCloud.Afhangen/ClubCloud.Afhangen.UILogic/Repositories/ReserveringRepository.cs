@@ -72,7 +72,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             return _cachedReservering;
         }
 
-        public async Task<Reservering> GetReserveringenByIdAsync(Guid reserveringId)
+        public async Task<Reservering> GetReserveringByIdAsync(Guid reserveringId)
         {
             if (_cachedReservering != null && _reserveringId == reserveringId) return _cachedReservering;
 
@@ -267,7 +267,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         }
 
-        public async Task DeleteReserveringAsync(Guid reserveringId)
+        public async Task<bool> DeleteReserveringAsync(Guid reserveringId)
         {
             
             Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
@@ -287,6 +287,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 catch { }
                 RaiseReserveringUpdated();
             }
+            return succes;
         }
 
         private void RaiseReserveringUpdated()

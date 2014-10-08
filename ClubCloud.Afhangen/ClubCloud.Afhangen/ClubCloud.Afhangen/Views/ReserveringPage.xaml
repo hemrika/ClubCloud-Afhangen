@@ -13,6 +13,8 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="ReserveringPage"
                             x:Name="Reservering"
+                            d:DataContext="{d:DesignInstance designViewModels:ReserveringPageDesignViewModel,
+                                                             IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
 
@@ -183,6 +185,8 @@
                             AutomationProperties.AutomationId="VerwijderenButton"
                             Background="{StaticResource ClubCloudHeaderBackground}"
                             Command="{Binding VerwijderenCommand}"
+                            CommandParameter="{Binding Id,
+                                                       Converter={StaticResource NullToGuidConverter}}"
                             Content="Verwijderen"
                             FontSize="32"
                             Foreground="White" />
@@ -194,15 +198,11 @@
                             AutomationProperties.AutomationId="BevestigenButton"
                             Background="{StaticResource ClubCloudHeaderBackground}"
                             Command="{Binding BevestigenCommand}"
+                            CommandParameter="{Binding Id,
+                                                       Converter={StaticResource NullToGuidConverter}}"
                             Content="Bevestigen"
                             FontSize="32"
-                            Foreground="White">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:InvokeCommandAction Command="{Binding Action}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
+                            Foreground="White" />
                     <Button x:Uid="AnnulerenButton"
                             x:Name="AnnulerenButton"
                             Height="80"
@@ -210,7 +210,8 @@
                             HorizontalAlignment="Stretch"
                             AutomationProperties.AutomationId="AnnulerenButton"
                             Background="{StaticResource ClubCloudHeaderBackground}"
-                            Command="{Binding AnnulerenCommand}"
+                            Command="{Binding AnnulerenCommand,
+                                              Converter={StaticResource NullToGuidConverter}}"
                             Content="Stoppen"
                             FontSize="32"
                             Foreground="White" />

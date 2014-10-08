@@ -1,12 +1,8 @@
-﻿using ClubCloud.Afhangen.UILogic.ViewModels;
-using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Mvvm;
+﻿using Microsoft.Practices.Prism.Commands;
 using System;
-using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml.Media.Imaging;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ClubCloud.Afhangen.DesignViewModels
 {

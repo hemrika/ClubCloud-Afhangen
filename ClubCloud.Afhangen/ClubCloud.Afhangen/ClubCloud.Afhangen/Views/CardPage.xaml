@@ -58,6 +58,7 @@
                        Text="{StaticResource AppName}"
                        TextWrapping="NoWrap" />
         </Grid>
+
         <StackPanel x:Name="CardStack"
                     Grid.Row="1"
                     Grid.Column="0"

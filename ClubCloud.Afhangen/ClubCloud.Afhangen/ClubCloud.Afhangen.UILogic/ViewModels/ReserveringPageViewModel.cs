@@ -39,40 +39,87 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             _alertMessageService = alertMessageService;
             _eventAggregator = eventAggregator;
 
-            BevestigenCommand = new DelegateCommand(ReserveringBevestigen);
+            BevestigenCommand = new DelegateCommand<Nullable<Guid>>(ReserveringBevestigen);
             AnnulerenCommand = new DelegateCommand(ReserveringAnnuleren);
-            VerwijderenCommand = new DelegateCommand(ReserveringVerwijderen);
+            VerwijderenCommand = new DelegateCommand<Nullable<Guid>>(ReserveringVerwijderen);
 
-            // Subscribe to the ShoppingCartUpdated event
             if (eventAggregator != null)
             {
                 eventAggregator.GetEvent<ReserveringUpdatedEvent>().Subscribe(UpdateReserveringAsync);
             }
+
             UpdateReserveringAsync(null);
         }
         
-        private async void ReserveringVerwijderen()
+        private async void ReserveringVerwijderen(Nullable<Guid> reserveringId)
         {
-            throw new NotImplementedException();
+            if(reserveringId.Value == Guid.Empty)
+            {
+                await _reserveringRepository.ClearReserveringAsync();
+
+                Action navigateAction = null;
+                var navigationServiceReference = _navigationService;
+
+                navigateAction = () => navigationServiceReference.Navigate("Main", null);
+                navigateAction = async () =>
+                {
+                    navigationServiceReference.Navigate("Main", null);
+                };
+
+                navigateAction();
+            }
+            else
+            {
+                bool deleted = await _reserveringRepository.DeleteReserveringAsync(reserveringId.Value);
+                if(deleted)
+                {
+                    await _reserveringRepository.ClearReserveringAsync();
+
+                    Action navigateAction = null;
+                    var navigationServiceReference = _navigationService;
+
+                    navigateAction = () => navigationServiceReference.Navigate("Main", null);
+                    navigateAction = async () =>
+                    {
+                        navigationServiceReference.Navigate("Main", null);
+                    };
+
+                    navigateAction();
+                }
+            }
         }
 
         private async void ReserveringAnnuleren()
         {
-            throw new NotImplementedException();
+            await _reserveringRepository.ClearReserveringAsync();
+
+            Action navigateAction = null;
+            var navigationServiceReference = _navigationService;
+
+            navigateAction = () => navigationServiceReference.Navigate("Main", null);
+            navigateAction = async () =>
+            {
+                navigationServiceReference.Navigate("Main", null);
+            };
+
+            navigateAction();
+
         }
 
-        private async void ReserveringBevestigen()
+        private async void ReserveringBevestigen(Nullable<Guid> reserveringId)
         {
-            throw new NotImplementedException();
+            Reservering reservering = await _reserveringRepository.GetReserveringByIdAsync(reserveringId.Value);
+            reservering.Soort = ClubCloudService.ReserveringSoort.Afhangen;
+            reservering = await _reserveringRepository.SetReserveringAsync(reservering);
         }
 
-        public DelegateCommand BevestigenCommand { get; set; }
+        public DelegateCommand<Nullable<Guid>> BevestigenCommand { get; set; }
 
         public DelegateCommand AnnulerenCommand { get; set; }
 
-        public DelegateCommand VerwijderenCommand { get; set; }
+        public DelegateCommand<Nullable<Guid>> VerwijderenCommand { get; set; }
 
-
+        /*
         public string ActionName
         {
             get
@@ -81,15 +128,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 {
                     return "Bevestigen";
                 }
-                /*
-                else
-                {
-                    if (_reservering.Id == Guid.Empty)
-                        return "Annuleren";
 
-                    return "Verwijderen";
-                }
-                */
                 return "Bevestigen";
             }
         }
@@ -104,17 +143,9 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 }
 
                 return new DelegateCommand(ReserveringBevestigen);
-                /*
-                else
-                {
-                    if(_reservering.Id == Guid.Empty)
-                        return new DelegateCommand(ReserveringAnnuleren);
-                    
-                    return new DelegateCommand(ReserveringVerwijderen);
-                }
-                */
             }
         }
+        */
 
         private async Task Verwijderen()
         {
