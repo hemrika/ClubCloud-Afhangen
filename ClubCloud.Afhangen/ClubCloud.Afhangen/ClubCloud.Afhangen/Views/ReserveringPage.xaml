@@ -64,18 +64,20 @@
         <Border Grid.Row="1"
                 Grid.Column="0"
                 Margin="15,15,435,15"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
                 BorderBrush="{StaticResource ClubCloudHeaderBackground}"
                 BorderThickness="3">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <StackPanel Margin="5"
-                            HorizontalAlignment="Center"
+                            HorizontalAlignment="Stretch"
                             Background="White"
                             Orientation="Vertical">
                     <TextBox x:Uid="OverviewLabel"
@@ -170,29 +172,29 @@
                 <StackPanel x:Name="OverviewSpelers"
                             Grid.Row="2"
                             Margin="5,0,5,0"
-                            HorizontalAlignment="Stretch"
+                            HorizontalAlignment="Center"
                             Background="White"
                             Orientation="Horizontal">
                     <Button x:Uid="VerwijderenButton"
                             x:Name="VerwijderenButton"
                             Height="80"
-                            Margin="20,10,20,0"
+                            Margin="20,5"
                             HorizontalAlignment="Stretch"
                             AutomationProperties.AutomationId="VerwijderenButton"
                             Background="{StaticResource ClubCloudHeaderBackground}"
-                            Command="{Binding WijzigBaanCommand}"
+                            Command="{Binding VerwijderenCommand}"
                             Content="Verwijderen"
                             FontSize="32"
                             Foreground="White" />
                     <Button x:Uid="BevestigenButton"
                             x:Name="BevestigenButton"
                             Height="80"
-                            Margin="20,5,20,0"
+                            Margin="20,5"
                             HorizontalAlignment="Stretch"
                             AutomationProperties.AutomationId="BevestigenButton"
-                            Background="{Binding Actionable}"
+                            Background="{StaticResource ClubCloudHeaderBackground}"
                             Command="{Binding BevestigenCommand}"
-                            Content="{Binding ActionName}"
+                            Content="Bevestigen"
                             FontSize="32"
                             Foreground="White">
                         <Interactivity:Interaction.Behaviors>
@@ -204,7 +206,7 @@
                     <Button x:Uid="AnnulerenButton"
                             x:Name="AnnulerenButton"
                             Height="80"
-                            Margin="20,5,20,10"
+                            Margin="20,5"
                             HorizontalAlignment="Stretch"
                             AutomationProperties.AutomationId="AnnulerenButton"
                             Background="{StaticResource ClubCloudHeaderBackground}"
