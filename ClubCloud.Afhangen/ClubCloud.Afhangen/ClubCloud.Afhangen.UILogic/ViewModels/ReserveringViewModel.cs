@@ -14,7 +14,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
     [DataContract]
     public class ReserveringViewModel : ViewModel, IView
     {
-        private ObservableCollection<SpelerUserControlViewModel> _spelerViewModels;
+        private ObservableCollection<Speler> _spelers;
         private readonly IReserveringRepository _reserveringRepository;
         private readonly IVerenigingRepository _verenigingRepository;
         private readonly INavigationService _navigationService;
@@ -47,7 +47,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             _reservering = reservering;
 
-            SpelerViewModels = new ObservableCollection<SpelerUserControlViewModel>();
+            Spelers = new ObservableCollection<Speler>();
 
             Speler emptySpeler = new Speler { Id = Guid.Empty };
             for (int i = 0; i < 4; i++)
@@ -64,10 +64,11 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                     speler = emptySpeler;
                 }
 
-                var spelerViewModel = new SpelerUserControlViewModel(i, speler, _spelerRepository, _reserveringRepository, _verenigingRepository, _navigationService, _resourceLoader, _alertMessageService, _eventAggregator);
-                SpelerViewModels.Insert(i, spelerViewModel);
+                //var spelerViewModel = new SpelerUserControlViewModel(i,speler, _spelerRepository, _reserveringRepository, _verenigingRepository, _navigationService, _resourceLoader, _alertMessageService, _eventAggregator);
+                //SpelerViewModels.Insert(i, spelerViewModel);
                 //SpelerViewModels[i] = spelerViewModel;
                 //OnPropertyChanged("Spelers");
+                Spelers.Insert(i, speler);
 
             }
             /*
@@ -84,10 +85,10 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public Guid Id { get { return _reservering.Id; } }
 
-        public ObservableCollection<SpelerUserControlViewModel> SpelerViewModels
+        public ObservableCollection<Speler> Spelers
         {
-            get { return _spelerViewModels; }
-            private set { SetProperty(ref _spelerViewModels, value); }
+            get { return _spelers; }
+            private set { SetProperty(ref _spelers, value); }
         }
 
         public BaanUserControlViewModel BaanViewModel

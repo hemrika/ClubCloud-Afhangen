@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Microsoft.Practices.Prism.Commands;
+using System;
 using System.Collections.Generic;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
     public interface ISpelerUserControlViewModel
     {
-        Microsoft.Practices.Prism.Commands.DelegateCommand Action { get; }
+        DelegateCommand Action { get; }
         string ActionName { get; }
         byte[] Foto { get; }
         Guid Id { get; }
-        int Index { get; }
+        int Index { get; set; }
         bool IsSpelersSelected();
         string Naam { get; }
         string Nummer { get; }

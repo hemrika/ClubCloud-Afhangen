@@ -84,7 +84,11 @@
                 
                 while (vereniging == null) { };
 
+                BaanRepository baanRepository = (BaanRepository)_container.Resolve<IBaanRepository>();
+                await baanRepository.GetBanenAsync(vereniging.Id);
 
+                ReserveringRepository reserveringRepository = (ReserveringRepository)_container.Resolve<IReserveringRepository>();
+                await reserveringRepository.GetReserveringenAsync();
             }
             else
             {
@@ -98,8 +102,9 @@
         {
             EventAggregator = new EventAggregator();
             _container.RegisterInstance<INavigationService>(NavigationService);
-            _container.RegisterInstance(SessionStateService);
             _container.RegisterInstance<IEventAggregator>(EventAggregator);
+            _container.RegisterInstance(SessionStateService);
+            _container.RegisterInstance<INavigationService>(NavigationService);
             _container.RegisterInstance<IResourceLoader>(new ResourceLoaderAdapter(new ResourceLoader()));
 
             _container.RegisterType<ICacheService, TemporaryFolderCacheService>(new ContainerControlledLifetimeManager());

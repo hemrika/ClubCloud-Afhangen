@@ -19,7 +19,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         private readonly IBaanService _baanService;
         private readonly IEventAggregator _eventAggregator;
 
-        private List<Baan> _cachedBaan = null;
+        private List<Baan> _cachedBanen = null;
 
         public BaanRepository(IBaanService baanService, IEventAggregator eventAggregator)
         {
@@ -29,34 +29,35 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         public async Task<List<Baan>> GetBanenAsync(Guid verenigingId)
         {
-            if (_cachedBaan != null) return _cachedBaan;
-
-            ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
-
-            _cachedBaan = new List<Baan>();
-
-            foreach (Baan baan in banen)
+            if(_cachedBanen == null)
             {
-                _cachedBaan.Add(baan);
-                //RaiseBaanUpdated();
-            }
-            //RaiseBaanUpdated();
+                _cachedBanen = new List<Baan>();
 
-            return _cachedBaan;
+                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+                foreach (Baan baan in banen)
+                {
+                    if (_cachedBanen.Count(b => b.Id == baan.Id) == 0)
+                        _cachedBanen.Add(baan);
+                }
+            }
+
+            return _cachedBanen;
         }
 
         public async Task<Baan> GetBaanAsync(Guid verenigingId,Guid baanId)
         {
-            Baan baan = null;
-            if (_cachedBaan != null) baan =_cachedBaan.SingleOrDefault(b => b.Id == baanId);
-
-            if (baan == null)
+            if (_cachedBanen == null)
             {
-                baan = await _baanService.GetBaanAsync(verenigingId,baanId);
-                _cachedBaan.Add(baan);
-                RaiseBaanUpdated();
+                _cachedBanen = new List<Baan>();
+
+                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+                foreach (Baan baan in banen)
+                {
+                    if (_cachedBanen.Count(b => b.Id == baan.Id) == 0)
+                        _cachedBanen.Add(baan);
+                }
             }
-            return _cachedBaan.SingleOrDefault(b => b.Id == baanId);
+            return _cachedBanen.SingleOrDefault(b => b.Id == baanId);
         }
 
         private void RaiseBaanUpdated()

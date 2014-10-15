@@ -65,6 +65,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         }
 
+        /*
         public byte[] WeerIcoon
         {
             get 
@@ -81,7 +82,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             //private set { SetProperty(ref _weerIcoon.ContentData, value); }
         }
-
+        */
 
         public ObservableCollection<HourlyModel> HourlyModels
         {
@@ -116,7 +117,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             if(CurrentConditions != null)
             {
-                await UpdateWeerIcoonAsync(CurrentConditions);
+                //await UpdateWeerIcoonAsync(CurrentConditions);
                 /*
                 _weerIcoon = new Foto();
                 Uri WeatherIcon = new Uri(string.Format("ms-appx:///Assets/Weather/{0}.png", CurrentConditions.WeatherCode));
@@ -135,6 +136,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             }
         }
 
+        /*
         private async Task UpdateWeerIcoonAsync(CurrentConditionsModel currentConditions)
         {
             if (_weerIcoon == null)
@@ -176,6 +178,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 return;
             }
         }
+        */
+        
         /*
         public object DataContext
         {

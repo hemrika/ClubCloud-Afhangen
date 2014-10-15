@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ClubCloud.Afhangen.DesignViewModels
 {
-    public class BaanUserControlDesignViewModel //: IView
+    public class BaanUserControlDesignViewModel : IView
     {
         public BaanUserControlDesignViewModel()
         {
@@ -67,5 +67,17 @@ namespace ClubCloud.Afhangen.DesignViewModels
             }
         }
         */
+
+        public object DataContext
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

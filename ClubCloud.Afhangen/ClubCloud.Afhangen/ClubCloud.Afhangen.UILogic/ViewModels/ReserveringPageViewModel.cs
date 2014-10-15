@@ -11,10 +11,12 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
-    public class ReserveringPageViewModel : ViewModel, IView
+    public class ReserveringPageViewModel : ViewModel, IView, INotifyPropertyChanged
     {
         private Reservering _reservering;
         private readonly IReserveringRepository _reserveringRepository;
@@ -111,6 +113,18 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             Reservering reservering = await _reserveringRepository.GetReserveringByIdAsync(reserveringId.Value);
             reservering.Soort = ClubCloudService.ReserveringSoort.Afhangen;
             reservering = await _reserveringRepository.SetReserveringAsync(reservering);
+
+            Action navigateAction = null;
+            var navigationServiceReference = _navigationService;
+
+            navigateAction = () => navigationServiceReference.Navigate("Main", null);
+            navigateAction = async () =>
+            {
+                navigationServiceReference.Navigate("Main", null);
+            };
+
+            navigateAction();
+
         }
 
         public DelegateCommand<Nullable<Guid>> BevestigenCommand { get; set; }
@@ -336,6 +350,26 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             {
                 await _alertMessageService.ShowAsync(errorMessage, _resourceLoader.GetString("ErrorServiceUnreachable"));
             }
+        }
+
+        public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
+        {
+            base.OnNavigatedFrom(viewModelState, suspending);
+        }
+
+        public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
+        {
+            if (navigationParameter != null)
+            {
+                if (navigationParameter.GetType() == typeof(Guid))
+                {
+                    Guid id = (Guid)navigationParameter;
+                    _reservering = await _reserveringRepository.GetReserveringByIdAsync(id);
+                }
+                
+            }
+
+            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         private object _dataContext;

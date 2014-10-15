@@ -15,11 +15,11 @@
                             x:Name="Spelers"
                             d:DataContext="{d:DesignInstance designViewModels:SpelersPageDesignViewModel,
                                                              IsDesignTimeCreatable=False}"
-                            mvvm:ViewModelLocator.AutoWireViewModel="False"
+                            mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
 
     <prism:VisualStateAwarePage.Resources>
-        <x:String x:Key="AppName">SpelersPage</x:String>
+        <x:String x:Key="AppName">Spelers</x:String>
     </prism:VisualStateAwarePage.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
         <Grid.ChildrenTransitions>
@@ -45,16 +45,17 @@
                     AutomationProperties.ItemType="Navigation Button"
                     AutomationProperties.Name="Back"
                     Command="{Binding GoBackCommand,
-                                      ElementName=pageRoot}"
+                                      ElementName=Spelers}"
+                    IsEnabled="{Binding Frame.CanGoBack,
+                                        ElementName=Spelers}"
                     Style="{StaticResource NavigationBackButtonNormalStyle}" />
             <TextBlock x:Name="pageTitle"
                        Grid.Column="1"
-                       Margin="0,0,30,40"
+                       Margin="0,0,5,30"
                        VerticalAlignment="Bottom"
                        IsHitTestVisible="false"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Text="{StaticResource AppName}"
-                       TextWrapping="NoWrap" />
+                       Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                       Text="{StaticResource AppName}" />
         </Grid>
         <Grid x:Name="SpelersGrid"
               Grid.Row="1"
@@ -75,22 +76,22 @@
                                          Grid.Column="0"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         DataContext="{Binding SpelerViewModels[0]}" />
+                                         DataContext="{Binding Spelers[0]}" />
             <views:SpelerUserControlView Grid.Row="0"
                                          Grid.Column="1"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         DataContext="{Binding SpelerViewModels[1]}" />
+                                         DataContext="{Binding Spelers[1]}" />
             <views:SpelerUserControlView Grid.Row="1"
                                          Grid.Column="0"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         DataContext="{Binding SpelerViewModels[2]}" />
+                                         DataContext="{Binding Spelers[2]}" />
             <views:SpelerUserControlView Grid.Row="1"
                                          Grid.Column="1"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         DataContext="{Binding SpelerViewModels[3]}" />
+                                         DataContext="{Binding Spelers[3]}" />
         </Grid>
         <StackPanel x:Name="ControlsStack"
                     Grid.Row="1"

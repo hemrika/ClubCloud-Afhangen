@@ -238,12 +238,12 @@
     <Compile Include="ViewModels\ISpelerUserControlViewModel.cs" />
     <Compile Include="ViewModels\IWeerUserControlViewModel.cs" />
     <Compile Include="ViewModels\KlokUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ReserveringViewModel.cs" />
     <Compile Include="ViewModels\SpelerUserControlViewModel.cs" />
     <Compile Include="ViewModels\BaanUserControlViewModel.cs" />
     <Compile Include="ViewModels\IBaanUserControlViewModel.cs" />
     <Compile Include="ViewModels\IReserveringUserControlViewModel.cs" />
     <Compile Include="ViewModels\ReserveringUserControlViewModel.cs" />
-    <Compile Include="ViewModels\ReserveringViewModel.cs" />
     <Compile Include="Models\VerenigingUpdatedEvent.cs" />
     <Compile Include="Models\ReserveringUpdatedEvent.cs" />
     <Compile Include="Models\Vereniging.cs" />

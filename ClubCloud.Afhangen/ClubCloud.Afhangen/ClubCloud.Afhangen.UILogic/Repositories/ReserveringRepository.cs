@@ -26,6 +26,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         private Guid _reserveringId;
         private Reservering _cachedReservering = null;
         private ObservableCollection<Reservering> _cachedReserveringen = null;
+        private static DateTime _today;
 
         public ReserveringRepository(IReserveringService reserveringService, IVerenigingRepository verenigingRepository, ISpelerRepository spelerRepository, IBaanRepository baanRepository, IEventAggregator eventAggregator, ISessionStateService sessionStateService)
         {
@@ -74,6 +75,21 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         public async Task<Reservering> GetReserveringByIdAsync(Guid reserveringId)
         {
+            if (_cachedReserveringen == null || (_today == null || _today < DateTime.Today))
+            {
+                _cachedReserveringen = new ObservableCollection<Reservering>();
+
+                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
+
+                foreach (Reservering reservering in reserveringen)
+                {
+                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                    _cachedReserveringen.Add(reservering);
+                }
+                _today = DateTime.Today;
+            }
+
             if (_cachedReservering != null && _reserveringId == reserveringId) return _cachedReservering;
 
             if (_cachedReservering == null) CreateEmptyReservering();
@@ -82,8 +98,9 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
             if (_reserveringId != Guid.Empty)
             {
-                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
-                _cachedReservering = await _reserveringService.GetReserveringAsync(vereniging.Id, _reserveringId);
+                _cachedReservering = _cachedReserveringen.SingleOrDefault(r => r.Id == _reserveringId);
+                //Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                //_cachedReservering = await _reserveringService.GetReserveringAsync(vereniging.Id, _reserveringId);
             }
 
             RaiseReserveringUpdated();
@@ -94,44 +111,77 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         public async Task<ObservableCollection<Reservering>> GetReserveringenAsync()
         {
-            if (_cachedReserveringen != null) return _cachedReserveringen;
+            if (_cachedReserveringen == null || (_today == null || _today < DateTime.Today))
+            {
+                _cachedReserveringen = new ObservableCollection<Reservering>();
 
-            _cachedReserveringen = new ObservableCollection<Reservering>();
+                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
 
-            Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
-            List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
+                foreach (Reservering reservering in reserveringen)
+                {
+                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                    _cachedReserveringen.Add(reservering);
+                }
+                _today = DateTime.Today;
+            }
 
             return _cachedReserveringen;
         }
 
         public async Task<ObservableCollection<Reservering>> GetReserveringenByBaanAsync(Guid baanId)
         {
-            if (_cachedReserveringen != null)
+            if (_cachedReserveringen == null || (_today == null || _today < DateTime.Today))
             {
-                return new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.BaanId == baanId));
+                _cachedReserveringen = new ObservableCollection<Reservering>();
+
+                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
+
+                foreach (Reservering reservering in reserveringen)
+                {
+                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value); 
+                    _cachedReserveringen.Add(reservering);
+                }
+                _today = DateTime.Today;
             }
-
-            _cachedReserveringen = new ObservableCollection<Reservering>();
-
-            Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
-            List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
 
             return new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.BaanId == baanId));
         }
 
         public async Task<ObservableCollection<Reservering>> GetReserveringenBySpelerAsync(Guid spelerId)
         {
-            if (_cachedReserveringen != null)
+            if (_cachedReserveringen == null || (_today == null || _today < DateTime.Today))
             {
-                return new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.Spelers == r.Spelers.Where(s => s.Id == spelerId)));
+                _cachedReserveringen = new ObservableCollection<Reservering>();
+
+                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
+
+                foreach (Reservering reservering in reserveringen)
+                {
+                    if(_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
+                    {
+                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                        _cachedReserveringen.Add(reservering);
+                    }
+                        
+                }
+                _today = DateTime.Today;
             }
 
-            _cachedReserveringen = new ObservableCollection<Reservering>();
+            ObservableCollection<Reservering> aankomende = new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.BeginTijd >= DateTime.Now.TimeOfDay || r.EindTijd >= DateTime.Now.TimeOfDay));
+            ObservableCollection<Reservering> gevonden = new ObservableCollection<Reservering>();
+            foreach (Reservering reservering in aankomende)
+            {
 
-            Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
-            List<Reservering> reserveringen = await _reserveringService.GetReserveringenAsync(vereniging.Id);
+                if(reservering.Spelers.Count(s => s.Id == spelerId)> 0)
+                {
+                    gevonden.Add(reservering);
+                }
+            }
 
-            return new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.Spelers == r.Spelers.Where(s => s.Id == spelerId)));
+            return gevonden;
         }
 
         public async Task<Reservering> AddSpelerToReserveringAsync(int index, Guid spelerId)
@@ -259,7 +309,13 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         {
             Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
             _cachedReservering = await _reserveringService.SetReserveringAsync(vereniging.Id, reservering);
-            _cachedReserveringen.Add(_cachedReservering);
+            _cachedReservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, _cachedReservering.BaanId.Value);
+
+            if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
+            {
+                _cachedReserveringen.Add(_cachedReservering);
+            }
+
             _reserveringId = _cachedReservering.Id;
             RaiseReserveringUpdated();
 

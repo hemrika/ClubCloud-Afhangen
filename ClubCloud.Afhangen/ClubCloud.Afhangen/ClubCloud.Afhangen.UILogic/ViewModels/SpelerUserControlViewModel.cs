@@ -7,6 +7,7 @@ using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.StoreApps.Interfaces;
 using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -32,9 +33,15 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private Foto _foto;
         private int _index;
 
+        public SpelerUserControlViewModel(Speler speler, ISpelerRepository spelerRepository, IReserveringRepository reserveringRepository, IVerenigingRepository verenigingRepository, INavigationService navigationService,
+                                 IResourceLoader resourceLoader, IAlertMessageService alertMessageService, IEventAggregator eventAggregator)
+        {
+            return;
+        }
+
         public SpelerUserControlViewModel(int index, Speler speler, ISpelerRepository spelerRepository, IReserveringRepository reserveringRepository, IVerenigingRepository verenigingRepository, INavigationService navigationService,
                                          IResourceLoader resourceLoader, IAlertMessageService alertMessageService, IEventAggregator eventAggregator)
-        {
+            {
             _index = index;
             _speler = speler;
             _spelerRepository = spelerRepository;
@@ -61,7 +68,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public Guid Id { get { return _speler.Id; } private set { _speler.Id = value; } }
 
-        public int Index { get { return _index; } }
+        public int Index { get { return _index; } set { _index = value; } }
         public string Naam { get { return _speler.Roepnaam +" " + _speler.Tussenvoegsel +" " + _speler.Achternaam; } }
 
         public string Nummer { get { return _speler.Bondsnummer; } }

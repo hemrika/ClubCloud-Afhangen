@@ -15,10 +15,11 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml;
+using System.ComponentModel;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
-    public class CardPageViewModel : ViewModel
+    public class CardPageViewModel : ViewModel, INotifyPropertyChanged
     {
         private readonly IVerenigingRepository _verenigingRepository;
         private readonly ISpelerRepository _spelerRepository;
@@ -34,6 +35,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private string _cardoutput;
         private string _cardreceived;
         private string _message;
+        private bool _huidig;
+        private bool _bestaand;
 
         public CardPageViewModel(IVerenigingRepository verenigingRepository, ISpelerRepository spelerRepository, IReserveringRepository reserveringRepository, INavigationService navigationService,
             IResourceLoader resourceLoader, IAlertMessageService alertMessageService, IEventAggregator eventAggregator)
@@ -95,18 +98,28 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             set { SetProperty(ref _message, value); }
         }
 
-        public bool Huidig { 
+        public bool Huidig
+        {
+            get { return (_index >= 0); }
+            //set { SetProperty(ref _huidig, value); }
+            /*
             get
             {
                 return (Index >= 0 && Reserveringen.Count > 0);
             }
+            */
         }
+
         public bool Bestaand
         {
+            get { return (_index < 0); }
+            //set { SetProperty(ref _bestaand, value); }
+            /*
             get
             {
                 return (Index == -1 && Reserveringen.Count > 0);
             }
+            */
         }
 
         private async void UpdateCardAsync(Speler speler)
@@ -117,7 +130,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private async Task UpdateCardInfoAsync(Speler speler)
         {
             Reserveringen = new ObservableCollection<Reservering>();
-            await _reserveringRepository.GetReserveringenAsync();
+            //Bestaand = false;
+            //Huidig = false;
             Message = "Haal uw kaart door de lezer.";
         }
 
@@ -229,7 +243,6 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                
             }
                 await RetrieveSpeler();
-                looking = false;
         }
 
         private async Task RetrieveSpeler()
@@ -250,6 +263,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                     inactivityTimer = null;
 
                     CardOutput = "Deze pas is verlopen. Gebruik uw nieuwe pas";
+                    looking = false;
                     return;
                 }
 
@@ -263,7 +277,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                         {
                             Reservering reservering = await _reserveringRepository.GetReserveringAsync();
                             already = reservering.Spelers.Count(s => s.Id == _speler.Id) > 0;
-                            _reserveringen = await _reserveringRepository.GetReserveringenBySpelerAsync(_speler.Id);
+                            Reserveringen = new ObservableCollection<Reservering>();
+                            Reserveringen = await _reserveringRepository.GetReserveringenBySpelerAsync(_speler.Id);
                         }
                         
                         #region Nieuwe of bestaande reservering wijzigen
@@ -281,22 +296,23 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                                 inactivityTimer = null;
 
                                 CardOutput = "Deze speler is al geselecteerd.";
-                                CardInput = string.Empty;
+                                looking = false;
                                 return;
                             }
 
                             //Speler heeft al andere reserveringen voor vandaag
                             if (_reserveringen.Count > 0)
                             {
+                                //Huidig = true;
                                 _verenigingsnummer = string.Empty;
                                 _bondsnummer = string.Empty;
                                 _jaar = DateTime.Today.AddYears(-1).Year;
                                 CardInput = string.Empty;
                                 if (inactivityTimer != null) inactivityTimer.Stop();
                                 inactivityTimer = null;
-
+                                
                                 CardOutput = "Deze speler heeft al reservering(en) voor vandaag.";
-                                CardInput = string.Empty;
+                                looking = false;
                                 return;
                             }
 
@@ -326,8 +342,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                             CardInput = string.Empty;
                             if (inactivityTimer != null) inactivityTimer.Stop();
                             inactivityTimer = null;
-
                             CardOutput = "Er zijn geen gegevens gevonden.";
+                            looking = false;
                             return;
 
                         }
@@ -340,6 +356,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                         {
                             if (_reserveringen.Count > 0)
                             {
+                                //Bestaand = true;
                                 _verenigingsnummer = string.Empty;
                                 _bondsnummer = string.Empty;
                                 _jaar = DateTime.Today.AddYears(-1).Year;
@@ -350,6 +367,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                                 CardOutput = "Er zijn " + _reserveringen.Count + " reserveringen gevonden.";
                                 if(_reserveringen.Count == 1)
                                     CardOutput = "Er is " + _reserveringen.Count + " reservering gevonden.";
+                                looking = false;
                                 return;
                             }
                             else
@@ -362,6 +380,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                                 inactivityTimer = null;
 
                                 CardOutput = "Er zijn geen reserveringen gevonden.";
+                                looking = false;
                                 return;
                             }
                         }
@@ -376,6 +395,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                         inactivityTimer = null;
 
                         CardOutput = string.Empty;
+                        looking = false;
                         return;
 
                     }
@@ -390,6 +410,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                     inactivityTimer = null;
 
                     CardOutput = "Deze speler is geen lid van de vereniging";
+                    looking = false;
                     return;
                 }
 
@@ -414,12 +435,15 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
-            if(navigationParameter.GetType() == typeof(int))
-                Index = (int)navigationParameter;
+            if (navigationParameter != null)
+            {
+                if (navigationParameter.GetType() == typeof(int))
+                    Index = (int)navigationParameter;
 
-            if (navigationParameter.GetType() == typeof(string))
-                int.TryParse(navigationParameter.ToString(), out _index);
+                if (navigationParameter.GetType() == typeof(string))
+                    int.TryParse(navigationParameter.ToString(), out _index);
 
+            }
 
             base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }

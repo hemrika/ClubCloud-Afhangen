@@ -18,6 +18,19 @@ namespace ClubCloud.Afhangen.UILogic.Models
 			get;
 			set;
 		}
+
+        public int WeatherCode
+        {
+            get;
+            set;
+        }
+
+        public byte[] WeatherIcon
+        {
+            get;
+            set;
+        }
+
 		public string Temperature
 		{
 			get;
@@ -28,12 +41,12 @@ namespace ClubCloud.Afhangen.UILogic.Models
 			get;
 			set;
 		}
-		public string RealFeelTemperature
+		public string ApparentTemperature
 		{
 			get;
 			set;
 		}
-		public string RealFeelTemperatureUnit
+        public string ApparentTemperatureUnit
 		{
 			get;
 			set;
@@ -103,15 +116,15 @@ namespace ClubCloud.Afhangen.UILogic.Models
 			get;
 			set;
 		}
-		public int WeatherCode
-		{
-			get;
-			set;
-		}
+
 		public bool IsDayTime
 		{
 			get;
 			set;
 		}
-	}
+
+        public int? UVIndex { get; set; }
+
+        public byte[] UVIcon { get; set; }
+    }
 }

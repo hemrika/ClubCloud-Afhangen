@@ -27,7 +27,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private IEventAggregator _eventAggregator;
         private Vereniging _vereniging;
         public Reservering _reservering;
-        private ObservableCollection<SpelerUserControlViewModel> _spelerViewModels;
+        private ObservableCollection<SpelerUserControlViewModel> _spelers;
 
 
         public SpelersPageViewModel(ISpelerRepository spelerRepository, IVerenigingRepository verenigingRepository, IReserveringRepository reserveringRepository, INavigationService navigationService,
@@ -64,10 +64,10 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         //public IReserveringUserControlViewModel ReserveringViewModel { get { return _reserveringUserControlViewModel; } }
 
-        public ObservableCollection<SpelerUserControlViewModel> SpelerViewModels
+        public ObservableCollection<SpelerUserControlViewModel> Spelers
         {
-            get { return _spelerViewModels; }
-            private set { SetProperty(ref _spelerViewModels, value); }
+            get { return _spelers; }
+            private set { SetProperty(ref _spelers, value); }
         }
 
 
@@ -87,7 +87,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             _reservering = await _reserveringRepository.GetReserveringAsync();
 
-            SpelerViewModels = new ObservableCollection<SpelerUserControlViewModel>();
+            Spelers = new ObservableCollection<SpelerUserControlViewModel>();
 
             Speler emptySpeler = new Speler { Id = Guid.Empty };
             for (int i = 0; i < 4; i++)
@@ -106,7 +106,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
                 SpelerUserControlViewModel spelerViewModel = new SpelerUserControlViewModel(i, speler, _spelerRepository, _reserveringRepository, _verenigingRepository, _navigationService, _resourceLoader, _alertMessageService, _eventAggregator);
                 //var spelerViewModel = new SpelerViewModel(i, speler, _spelerRepository, _reserveringRepository, _verenigingRepository, _navigationService, _resourceLoader, _alertMessageService, _eventAggregator);
-                SpelerViewModels.Insert(i, spelerViewModel);
+                Spelers.Insert(i, spelerViewModel);
+                //_eventAggregator.GetEvent<SpelerUpdatedEvent>().Publish(speler);
                 //SpelerViewModels[i] = spelerViewModel;
                 //OnPropertyChanged("Spelers");
 

@@ -7,8 +7,6 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         ClubCloud.Afhangen.UILogic.Models.CurrentConditionsModel CurrentConditions { get; }
         System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.Models.HourlyModel> HourlyModels { get; }
         void UpdateWeatherAsync(bool update);
-
-        byte[] WeerIcoon{get;}
-
+        //byte[] WeerIcoon{get;}
     }
 }

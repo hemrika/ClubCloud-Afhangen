@@ -20,7 +20,7 @@
 
     <prism:VisualStateAwarePage.Resources>
         <!--  TODO: Delete this line if the key AppName is declared in App.xaml  -->
-        <x:String x:Key="AppName">Reservering Bevestigen</x:String>
+        <x:String x:Key="AppName">Reservering</x:String>
     </prism:VisualStateAwarePage.Resources>
 
     <!--
@@ -52,16 +52,17 @@
                     AutomationProperties.ItemType="Navigation Button"
                     AutomationProperties.Name="Back"
                     Command="{Binding GoBackCommand,
-                                      ElementName=pageRoot}"
+                                      ElementName=Reservering}"
+                    IsEnabled="{Binding Frame.CanGoBack,
+                                        ElementName=Reservering}"
                     Style="{StaticResource NavigationBackButtonNormalStyle}" />
             <TextBlock x:Name="pageTitle"
                        Grid.Column="1"
-                       Margin="0,0,30,40"
+                       Margin="0,0,5,30"
                        VerticalAlignment="Bottom"
                        IsHitTestVisible="false"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Text="{StaticResource AppName}"
-                       TextWrapping="NoWrap" />
+                       Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                       Text="{StaticResource AppName}" />
         </Grid>
         <Border Grid.Row="1"
                 Grid.Column="0"

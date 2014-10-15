@@ -14,5 +14,8 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         Task<Vereniging> GetVerenigingByNummerAsync(string verenigingNummer);
         Task<Afhang> GetVerenigingSettingsAsync();
+
+        System.Threading.Tasks.Task<global::Windows.ApplicationModel.Store.LicenseInformation> GetLicenseInformation();
+        System.Threading.Tasks.Task<global::Windows.ApplicationModel.Store.ListingInformation> GetListingInformation();
     } 
 }

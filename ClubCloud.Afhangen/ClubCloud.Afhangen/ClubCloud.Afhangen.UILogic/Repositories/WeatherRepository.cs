@@ -2,12 +2,15 @@
 using ClubCloud.Afhangen.UILogic.Models.Entities;
 using ClubCloud.Afhangen.UILogic.Services;
 using Microsoft.Practices.Prism.StoreApps.Interfaces;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Networking.Connectivity;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 namespace ClubCloud.Afhangen.UILogic.Repositories
 {
@@ -62,20 +65,54 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                     this._currentConditions.UpDateTime = DateTime.UtcNow;
                     this._currentConditions.LocationId = locationId;
                 }
+
                 CurrentConditionsModel weatherText = new CurrentConditionsModel();
                 if (this._currentConditions != null)
                 {
                     try
                     {
                         weatherText.ShortPhrase = this._currentConditions.WeatherText;
+
                         if (this._currentConditions.WeatherIcon.HasValue)
                         {
                             weatherText.WeatherCode = this._currentConditions.WeatherIcon.Value;
+
+                            try
+                            {
+                                Uri WeatherIconUri = new Uri(string.Format("ms-appx:///Assets/Weather/Icon/{0}.png", weatherText.WeatherCode.ToString("D2")));
+                                StorageFile _storageFile = await StorageFile.GetFileFromApplicationUriAsync(WeatherIconUri);
+
+                                IBuffer readbuffer = await FileIO.ReadBufferAsync(_storageFile);
+                                weatherText.WeatherIcon = readbuffer.ToArray();
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+                            }
+
+                        }
+
+                        if(this._currentConditions.UVIndex.HasValue)
+                        {
+                            weatherText.UV = this._currentConditions.UVIndexText;
+                            weatherText.UVIndex = this._currentConditions.UVIndex;
+                            try
+                            {
+                                Uri WeatherIconUri = new Uri(string.Format("ms-appx:///Assets/Weather/UV/{0}.png", weatherText.UVIndex.Value.ToString("D2")));
+                                StorageFile _storageFile = await StorageFile.GetFileFromApplicationUriAsync(WeatherIconUri);
+                                IBuffer readbuffer = await FileIO.ReadBufferAsync(_storageFile);
+                                weatherText.UVIcon = readbuffer.ToArray();
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+                            }
+
                         }
                         CurrentConditionsModel str1 = weatherText;
                         Double num = WeatherRepository.MathRound(this._currentConditions.Temperature.Metric.NumericValue);
                         str1.Temperature = num.ToString();
-                        weatherText.TemperatureUnit = this._currentConditions.Temperature.Metric.Unit;
+                        weatherText.TemperatureUnit = "\u00B0C" + this._currentConditions.Temperature.Metric.Unit;
 
                         if (getDetails)
                         {
@@ -83,11 +120,14 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             {
                                 weatherText.CloudCover = String.Concat(this._currentConditions.CloudCover, "%");
                             }
+
                             weatherText.PressureTendency = this._currentConditions.PressureTendency.Code;
+
                             if (this._currentConditions.RelativeHumidity.HasValue)
                             {
                                 weatherText.Humidity = String.Concat(this._currentConditions.RelativeHumidity, "%");
                             }
+
                             weatherText.UV = this._currentConditions.UVIndexText;
                             weatherText.WindDirection = this._currentConditions.Wind.Direction.Localized;
                             weatherText.IsDayTime = this._currentConditions.IsDayTime;
@@ -97,22 +137,27 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             currentConditionsModel4.GustSpeed = num1.ToString();
                             weatherText.GustSpeedUnit = this._currentConditions.WindGust.Speed.Unit;//.Metric.Unit;
                             CurrentConditionsModel str5 = weatherText;
+
                             Double? value1 = this._currentConditions.Pressure.Metric.Value;
                             str5.Pressure = value1.ToString();
                             weatherText.PressureUnit = this._currentConditions.Pressure.Metric.Unit;
                             CurrentConditionsModel currentConditionsModel5 = weatherText;
-                            Double num2 = WeatherRepository.MathRound(this._currentConditions.RealFeelTemperature.Metric.NumericValue);
-                            currentConditionsModel5.RealFeelTemperature = num2.ToString();
-                            weatherText.RealFeelTemperatureUnit = this._currentConditions.RealFeelTemperature.Metric.Unit;
+
+                            Double num2 = WeatherRepository.MathRound(this._currentConditions.ApparentTemperature.Metric.NumericValue);
+                            currentConditionsModel5.ApparentTemperature = num2.ToString();
+                            weatherText.ApparentTemperatureUnit = this._currentConditions.ApparentTemperature.Metric.Unit;
                             CurrentConditionsModel str6 = weatherText;
+
                             Double num3 = WeatherRepository.MathRound(this._currentConditions.Visibility.Metric.NumericValue);
                             str6.Visibility = num3.ToString();
                             weatherText.VisibilityUnit = this._currentConditions.Visibility.Metric.Unit;
                             CurrentConditionsModel currentConditionsModel6 = weatherText;
+
                             Double num4 = WeatherRepository.MathRound(this._currentConditions.Temperature.Metric.NumericValue);
                             currentConditionsModel6.Temperature = num4.ToString();
                             weatherText.TemperatureUnit = this._currentConditions.Temperature.Metric.Unit;
                             CurrentConditionsModel str7 = weatherText;
+
                             Double num5 = WeatherRepository.MathRound(this._currentConditions.Wind.Speed.NumericValue);//.Metric.NumericValue);
                             str7.WindSpeed = num5.ToString();
                             weatherText.WindSpeedUnit = this._currentConditions.Wind.Speed.Unit;//.Metric.Unit;

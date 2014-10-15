@@ -5,8 +5,10 @@ using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.StoreApps;
 using Microsoft.Practices.Prism.StoreApps.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Store;
 using Windows.Devices.Geolocation;
 
 namespace ClubCloud.Afhangen.UILogic.Repositories
@@ -19,7 +21,8 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         private readonly ILocationService _locationService;
         private readonly IEventAggregator _eventAggregator;
         private readonly ISessionStateService _sessionStateService;
-
+        private LicenseInformation _licenseInformation;
+        private ListingInformation _listingInformation;
         private Guid _verenigingId;
         private Guid _afhangId;
         private Vereniging _cachedVereniging = null;
@@ -40,8 +43,6 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             else
             {
                 GetVerenigingByGeoLocatorAsync();
-                //_verenigingId = Guid.NewGuid();
-                
             }
         }
 
@@ -104,6 +105,61 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         {
             // Documentation on loosely coupled communication is at http://go.microsoft.com/fwlink/?LinkID=288820&clcid=0x409 
             _eventAggregator.GetEvent<VerenigingUpdatedEvent>().Publish(null);
+        }
+
+        public async Task<LicenseInformation> GetLicenseInformation()
+        {
+
+            if (_licenseInformation == null)
+            {
+                _licenseInformation = LicenseInformation;
+            }
+            return _licenseInformation;
+        }
+
+        public async Task<ListingInformation> GetListingInformation()
+        {
+
+            if (_listingInformation == null)
+            {
+                _listingInformation = await LoadListingInformationAsyncInternal();
+            }
+            return _listingInformation;
+        }
+
+        protected LicenseInformation LicenseInformation
+        {
+            get { return CurrentApp.LicenseInformation; }
+        }
+
+        protected async Task<string> RequestAppPurchaseAsyncInternal()
+        {
+            return await CurrentApp.RequestAppPurchaseAsync(true);
+        }
+
+        protected async Task<PurchaseResults> RequestProductPurchaseAsyncInternal(string productId)
+        {
+            return await CurrentApp.RequestProductPurchaseAsync(productId);
+        }
+
+        protected async Task<ListingInformation> LoadListingInformationAsyncInternal()
+        {
+            return await CurrentApp.LoadListingInformationAsync();
+        }
+
+        protected async Task<IReadOnlyList<UnfulfilledConsumable>> GetUnfulfilledConsumablesAsyncInternal()
+        {
+            return await CurrentApp.GetUnfulfilledConsumablesAsync();
+        }
+
+        protected async Task<FulfillmentResult> ReportConsumableFulfillmentAsyncInternal(string productId, Guid transactionId)
+        {
+            return await CurrentApp.ReportConsumableFulfillmentAsync(productId, transactionId);
+        }
+
+        protected Uri GetUriInternal()
+        {
+            return CurrentApp.LinkUri;
         }
     }
 }

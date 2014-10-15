@@ -165,6 +165,12 @@
     <Compile Include="Views\AboutFlyout.xaml.cs">
       <DependentUpon>AboutFlyout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SponsorsPage.xaml.cs">
+      <DependentUpon>SponsorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaanschemaPage.xaml.cs">
+      <DependentUpon>BaanschemaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CardPage.xaml.cs">
       <DependentUpon>CardPage.xaml</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
     </Compile>
     <Compile Include="Views\SpelersPage.xaml.cs">
       <DependentUpon>SpelersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeerPage.xaml.cs">
+      <DependentUpon>WeerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WeerUserControl.xaml.cs">
       <DependentUpon>WeerUserControl.xaml</DependentUpon>
@@ -227,46 +236,57 @@
     <Content Include="Assets\Swipe\images\swipe-left.png" />
     <Content Include="Assets\Swipe\images\swipe-right.png" />
     <Content Include="Assets\Swipe\swipe.html" />
-    <Content Include="Assets\Weather\01.png" />
-    <Content Include="Assets\Weather\02.png" />
-    <Content Include="Assets\Weather\03.png" />
-    <Content Include="Assets\Weather\04.png" />
-    <Content Include="Assets\Weather\05.png" />
-    <Content Include="Assets\Weather\06.png" />
-    <Content Include="Assets\Weather\07.png" />
-    <Content Include="Assets\Weather\08.png" />
-    <Content Include="Assets\Weather\11.png" />
-    <Content Include="Assets\Weather\12.png" />
-    <Content Include="Assets\Weather\13.png" />
-    <Content Include="Assets\Weather\14.png" />
-    <Content Include="Assets\Weather\15.png" />
-    <Content Include="Assets\Weather\16.png" />
-    <Content Include="Assets\Weather\17.png" />
-    <Content Include="Assets\Weather\18.png" />
-    <Content Include="Assets\Weather\19.png" />
-    <Content Include="Assets\Weather\20.png" />
-    <Content Include="Assets\Weather\21.png" />
-    <Content Include="Assets\Weather\22.png" />
-    <Content Include="Assets\Weather\23.png" />
-    <Content Include="Assets\Weather\24.png" />
-    <Content Include="Assets\Weather\25.png" />
-    <Content Include="Assets\Weather\26.png" />
-    <Content Include="Assets\Weather\29.png" />
-    <Content Include="Assets\Weather\30.png" />
-    <Content Include="Assets\Weather\31.png" />
-    <Content Include="Assets\Weather\32.png" />
-    <Content Include="Assets\Weather\33.png" />
-    <Content Include="Assets\Weather\34.png" />
-    <Content Include="Assets\Weather\35.png" />
-    <Content Include="Assets\Weather\36.png" />
-    <Content Include="Assets\Weather\37.png" />
-    <Content Include="Assets\Weather\38.png" />
-    <Content Include="Assets\Weather\39.png" />
-    <Content Include="Assets\Weather\40.png" />
-    <Content Include="Assets\Weather\41.png" />
-    <Content Include="Assets\Weather\42.png" />
-    <Content Include="Assets\Weather\43.png" />
-    <Content Include="Assets\Weather\44.png" />
+    <Content Include="Assets\Weather\Icon\01.png" />
+    <Content Include="Assets\Weather\Icon\02.png" />
+    <Content Include="Assets\Weather\Icon\03.png" />
+    <Content Include="Assets\Weather\Icon\04.png" />
+    <Content Include="Assets\Weather\Icon\05.png" />
+    <Content Include="Assets\Weather\Icon\06.png" />
+    <Content Include="Assets\Weather\Icon\07.png" />
+    <Content Include="Assets\Weather\Icon\08.png" />
+    <Content Include="Assets\Weather\Icon\11.png" />
+    <Content Include="Assets\Weather\Icon\12.png" />
+    <Content Include="Assets\Weather\Icon\13.png" />
+    <Content Include="Assets\Weather\Icon\14.png" />
+    <Content Include="Assets\Weather\Icon\15.png" />
+    <Content Include="Assets\Weather\Icon\16.png" />
+    <Content Include="Assets\Weather\Icon\17.png" />
+    <Content Include="Assets\Weather\Icon\18.png" />
+    <Content Include="Assets\Weather\Icon\19.png" />
+    <Content Include="Assets\Weather\Icon\20.png" />
+    <Content Include="Assets\Weather\Icon\21.png" />
+    <Content Include="Assets\Weather\Icon\22.png" />
+    <Content Include="Assets\Weather\Icon\23.png" />
+    <Content Include="Assets\Weather\Icon\24.png" />
+    <Content Include="Assets\Weather\Icon\25.png" />
+    <Content Include="Assets\Weather\Icon\26.png" />
+    <Content Include="Assets\Weather\Icon\29.png" />
+    <Content Include="Assets\Weather\Icon\30.png" />
+    <Content Include="Assets\Weather\Icon\31.png" />
+    <Content Include="Assets\Weather\Icon\32.png" />
+    <Content Include="Assets\Weather\Icon\33.png" />
+    <Content Include="Assets\Weather\Icon\34.png" />
+    <Content Include="Assets\Weather\Icon\35.png" />
+    <Content Include="Assets\Weather\Icon\36.png" />
+    <Content Include="Assets\Weather\Icon\37.png" />
+    <Content Include="Assets\Weather\Icon\38.png" />
+    <Content Include="Assets\Weather\Icon\39.png" />
+    <Content Include="Assets\Weather\Icon\40.png" />
+    <Content Include="Assets\Weather\Icon\41.png" />
+    <Content Include="Assets\Weather\Icon\42.png" />
+    <Content Include="Assets\Weather\Icon\43.png" />
+    <Content Include="Assets\Weather\Icon\44.png" />
+    <Content Include="Assets\Weather\UV\01.png" />
+    <Content Include="Assets\Weather\UV\02.png" />
+    <Content Include="Assets\Weather\UV\03.png" />
+    <Content Include="Assets\Weather\UV\04.png" />
+    <Content Include="Assets\Weather\UV\05.png" />
+    <Content Include="Assets\Weather\UV\06.png" />
+    <Content Include="Assets\Weather\UV\07.png" />
+    <Content Include="Assets\Weather\UV\08.png" />
+    <Content Include="Assets\Weather\UV\09.png" />
+    <Content Include="Assets\Weather\UV\10.png" />
+    <Content Include="Assets\Weather\UV\11.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -290,6 +310,14 @@
     <Page Include="Views\AboutFlyout.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SponsorsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaanschemaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CardPage.xaml">
       <SubType>Designer</SubType>
@@ -328,6 +356,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SpelersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
