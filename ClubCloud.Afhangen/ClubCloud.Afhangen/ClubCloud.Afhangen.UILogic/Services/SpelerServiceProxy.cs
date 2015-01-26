@@ -10,7 +10,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class SpelerServiceProxy : ISpelerService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
+        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
 
         public async Task<Models.Speler> GetSpelerAsync(Guid verenigingId, Guid gebruikerId)
         {

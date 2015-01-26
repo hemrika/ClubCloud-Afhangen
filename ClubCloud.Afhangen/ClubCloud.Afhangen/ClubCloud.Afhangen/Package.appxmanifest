@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="ClubCloudAfhangen" Publisher="CN=Hemrika" Version="1.0.0.9" />
+  <Identity Name="ClubCloud.Afhangen" Publisher="CN=ClubCloud, O=Hemrika, C=NL" Version="1.0.0.9" />
   <Properties>
     <DisplayName>ClubCloud Afhangen</DisplayName>
     <PublisherDisplayName>Hemrika</PublisherDisplayName>
+    <Description>ClubCloud Afhangen</Description>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -25,7 +26,7 @@
         <m2:ApplicationView MinWidth="default" />
       </m2:VisualElements>
       <ApplicationContentUriRules>
-        <Rule Match="https://*.clubcloud.nl" Type="include" />
+        <Rule Match="https://*.clubcloud.nl" Type="include" />        
       </ApplicationContentUriRules>
     </Application>
   </Applications>

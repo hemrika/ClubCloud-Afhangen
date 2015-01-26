@@ -14,8 +14,8 @@ namespace ClubCloud.Afhangen.UILogic.Services
 		internal string LanguageCode;
 		protected bool? Metric;
 
-        private string apiKey;
-        private string apiUriRoot;
+        //private string apiKey;
+        //private string apiUriRoot;
 
 		public bool IsMetric
 		{

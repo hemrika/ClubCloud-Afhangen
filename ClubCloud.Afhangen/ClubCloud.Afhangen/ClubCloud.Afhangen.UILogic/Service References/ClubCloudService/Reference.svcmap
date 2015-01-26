@@ -5,7 +5,7 @@
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
-    <ImportXmlTypes>false</ImportXmlTypes>
+    <ImportXmlTypes>true</ImportXmlTypes>
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
@@ -21,10 +21,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ClubCloudAfhangen.wsdl" MetadataType="Wsdl" ID="9d858d2e-af65-4777-a205-3cb5c0236301" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?singleWsdl" />
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="18507e92-59d2-4a42-a747-e0026d05de3e" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd1" />
+    <MetadataFile FileName="ClubCloudAfhangen.wsdl" MetadataType="Wsdl" ID="528ada00-9521-4dd4-992d-6f038d845bf2" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?wsdl" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="c9bb3f31-7800-449d-9cd4-94417a2c159c" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="9a5636e5-e191-4560-a65b-950bf30ea9eb" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd3" />
+    <MetadataFile FileName="ClubCloudAfhangen1.wsdl" MetadataType="Wsdl" ID="0f97eb39-9f7d-4f38-a83c-17df016697db" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex" />
+    <MetadataFile FileName="mex3.xsd" MetadataType="Schema" ID="93333b62-c831-4956-be3d-f8602dff5e09" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd2" />
+    <MetadataFile FileName="mex4.xsd" MetadataType="Schema" ID="b90e4ff7-66e5-4b7e-a21f-630e6a3c799d" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd4" />
+    <MetadataFile FileName="mex.wsdl" MetadataType="Wsdl" ID="30528302-a2a0-4a08-90ef-fe9b35687bc8" SourceId="1" SourceUrl="https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?wsdl=wsdl0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

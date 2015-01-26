@@ -43,16 +43,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             _resourceLoader = resourceLoader;
             _weatherServiceProvider = weatherServiceProvider; //new WeatherServiceProvider("6915cc0fac554dc79682c8750666ebde", "http://api.accuweather.com/", "v1", "en-us");
             _forecastSummary = null;
-            //this._loggingService = SimpleIoc.Default.GetInstance<ILoggingService>();
         }
 
-        public async Task<CurrentConditionsModel> GetCurrentConditionsAsync(String locationId, Boolean forceUpdate = false, Boolean getDetails = true, WeatherUnitTypes metric = WeatherUnitTypes.Default)
+        public async Task<CurrentConditionsModel> GetCurrentConditionsAsync(String locationId, Boolean forceUpdate = false, Boolean getDetails = true, WeatherUnitTypes metric = WeatherUnitTypes.Metric)
         {
             CurrentConditionsModel currentConditionsModel;
-            if (getDetails)
-            {
-                //WeatherDataService._resourceLoader = ResourceLoader.GetForCurrentView("ClubCloud.Afhangen.UILogic.Services/Resources");
-            }
+
             if (WeatherRepository.IsNetworkAvailable())
             {
                 if (this._currentConditions != null && !forceUpdate && (this._currentConditions.UpDateTime.AddMinutes(15) < DateTime.UtcNow || this._currentConditions.LocationId != locationId))
@@ -67,10 +63,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 }
 
                 CurrentConditionsModel weatherText = new CurrentConditionsModel();
+
                 if (this._currentConditions != null)
                 {
                     try
                     {
+                        //_currentConditions.
                         weatherText.ShortPhrase = this._currentConditions.WeatherText;
 
                         if (this._currentConditions.WeatherIcon.HasValue)
@@ -109,6 +107,8 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             }
 
                         }
+
+                        
                         CurrentConditionsModel str1 = weatherText;
                         Double num = WeatherRepository.MathRound(this._currentConditions.Temperature.Metric.NumericValue);
                         str1.Temperature = num.ToString();
@@ -186,12 +186,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             return currentConditionsModel;
         }
 
-        public Task<ObservableCollection<ForecastModel>> GetForecastsAsync(String locationId, WeatherUnitTypes metric = WeatherUnitTypes.Default)
+        public Task<ObservableCollection<ForecastModel>> GetForecastsAsync(String locationId, WeatherUnitTypes metric = WeatherUnitTypes.Metric)
         {
             throw new NotImplementedException();
         }
 
-        public async Task GetForecastSummaryAsync(String locationID, Boolean forceUpdate = false, WeatherUnitTypes metric = WeatherUnitTypes.Default)
+        public async Task GetForecastSummaryAsync(String locationID, Boolean forceUpdate = false, WeatherUnitTypes metric = WeatherUnitTypes.Metric)
         {
             if (this._forecastSummary != null && !forceUpdate && (this._forecastSummary.LocationId != locationID || this._forecastSummary.UpDateTime.AddMinutes(15) < DateTime.UtcNow || this._forecastSummary.UpDateTime.DayOfWeek != DateTime.UtcNow.DayOfWeek))
             {
@@ -210,7 +210,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             }
         }
 
-        public async Task<ObservableCollection<HalfDayForecastModel>> GetHalfDayForecastsAsync(String locationID, Boolean forceUpdate = false, Boolean getDetails = true, WeatherUnitTypes metric = WeatherUnitTypes.Default)
+        public async Task<ObservableCollection<HalfDayForecastModel>> GetHalfDayForecastsAsync(String locationID, Boolean forceUpdate = false, Boolean getDetails = true, WeatherUnitTypes metric = WeatherUnitTypes.Metric)
         {
             ObservableCollection<HalfDayForecastModel> observableCollection;
             Boolean flag;

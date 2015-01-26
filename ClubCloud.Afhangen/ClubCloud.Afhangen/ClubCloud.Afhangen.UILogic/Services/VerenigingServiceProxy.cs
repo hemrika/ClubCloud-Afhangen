@@ -10,7 +10,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class VerenigingServiceProxy : IVerenigingService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
+        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
 
 
         public async Task<Vereniging> GetVerenigingAsync(Guid verenigingId)

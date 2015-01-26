@@ -35,7 +35,7 @@ namespace ClubCloud.Afhangen.Converters
                 var dw = new DataWriter(randomAccessStream.GetOutputStreamAt(0));
                 dw.WriteBytes(imageBytes);
                 await dw.StoreAsync();
-                image.SetSourceAsync(randomAccessStream);
+                image.SetSource(randomAccessStream);
             }
             return image;
         }

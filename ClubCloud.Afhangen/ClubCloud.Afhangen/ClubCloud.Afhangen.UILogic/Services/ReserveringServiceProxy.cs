@@ -12,7 +12,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class ReserveringServiceProxy : IReserveringService 
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
+        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
 
         public async Task<Reservering> GetReserveringAsync(Guid verenigingId, Guid reserveringId) 
         {
@@ -56,28 +56,56 @@ namespace ClubCloud.Afhangen.UILogic.Services
                 if (speler.Id != Guid.Empty)
                     spelers.Add(speler.Id);
             }
-
-            ClubCloudService.ClubCloud_Reservering ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, reservering.Soort, true, false, "");
-
-            Reservering _newreservering = new Reservering
+            ClubCloudService.ClubCloud_Reservering ccreservering = null;
+            
+            if(reservering.Id != Guid.Empty)
             {
-                BaanId = ccreservering.BaanId,
-                BeginTijd = ccreservering.Tijd,
-                Datum = ccreservering.Datum,
-                Duur = ccreservering.Duur,
-                EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                Final = ccreservering.Final,
-                Id = ccreservering.Id,
-                Soort = ccreservering.Soort,
-                Spelers = new ObservableCollection<Speler>{
+                ccreservering = await client.UpdateReserveringAsync(
+                "0000000", 
+                verenigingId,
+                new ClubCloud_Reservering{ 
+                    BaanId = reservering.BaanId, 
+                    Beschrijving = "", 
+                    Datum = reservering.Datum, 
+                    Duur = reservering.Duur, 
+                    Soort = reservering.Soort, 
+                    Final = true, 
+                    Id = reservering.Id, 
+                    Tijd = reservering.BeginTijd,
+                    Gebruiker_Een = reservering.Spelers[0].Id,
+                    Gebruiker_Twee = reservering.Spelers[1].Id,
+                    Gebruiker_Drie = reservering.Spelers[2].Id,
+                    Gebruiker_Vier = reservering.Spelers[3].Id,
+                },
+                true,
+                false);
+            };
+
+            if(reservering.Id == Guid.Empty)
+                ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, reservering.Soort, true, false, "");
+
+            if (ccreservering != null)
+            {
+                Reservering _newreservering = new Reservering
+                {
+                    BaanId = ccreservering.BaanId,
+                    BeginTijd = ccreservering.Tijd,
+                    Datum = ccreservering.Datum,
+                    Duur = ccreservering.Duur,
+                    EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
+                    Final = ccreservering.Final,
+                    Id = ccreservering.Id,
+                    Soort = ccreservering.Soort,
+                    Spelers = new ObservableCollection<Speler>{
             new  Speler{ Id = ccreservering.Gebruiker_Een.Value},
             new  Speler{ Id = ccreservering.Gebruiker_Twee.Value},
             new  Speler{ Id = ccreservering.Gebruiker_Drie.Value},
             new  Speler{ Id = ccreservering.Gebruiker_Vier.Value},
                 }
-            };
-
-            return _newreservering;
+                };
+                return _newreservering;
+            }
+            return null;
         }
 
         public async Task<List<Reservering>> GetReserveringByBaanAsync(Guid verenigingId, Guid baanId)

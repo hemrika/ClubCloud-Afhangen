@@ -80,7 +80,7 @@
                 Geoposition position = await locationService.GetLocationAsync();
 
                 VerenigingRepository verenigingRepository = (VerenigingRepository)_container.Resolve<IVerenigingRepository>();
-                Vereniging vereniging = await verenigingRepository.GetVerenigingByLocatieAsync(position.Coordinate.Longitude, position.Coordinate.Latitude);
+                Vereniging vereniging = await verenigingRepository.GetVerenigingByLocatieAsync(position.Coordinate.Point.Position.Longitude, position.Coordinate.Point.Position.Latitude);
                 
                 while (vereniging == null) { };
 

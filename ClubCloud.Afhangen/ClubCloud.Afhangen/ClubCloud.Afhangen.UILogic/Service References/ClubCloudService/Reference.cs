@@ -4430,6 +4430,8 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         
         private System.DateTime BeginField;
         
+        private ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_LidmaatschapSoort ClubCLoud_LidmaatschapSoortField;
+        
         private ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Gebruiker ClubCloud_GebruikerField;
         
         private ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Vereniging ClubCloud_VerenigingField;
@@ -4462,9 +4464,7 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         
         private bool PasWedstrijdField;
         
-        private System.Guid SoortIdField;
-        
-        private string SoortNaamField;
+        private System.Nullable<System.Guid> SoortIdField;
         
         private int SpeelsterkteDubbelField;
         
@@ -4507,6 +4507,19 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
                 if ((this.BeginField.Equals(value) != true)) {
                     this.BeginField = value;
                     this.RaisePropertyChanged("Begin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_LidmaatschapSoort ClubCLoud_LidmaatschapSoort {
+            get {
+                return this.ClubCLoud_LidmaatschapSoortField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClubCLoud_LidmaatschapSoortField, value) != true)) {
+                    this.ClubCLoud_LidmaatschapSoortField = value;
+                    this.RaisePropertyChanged("ClubCLoud_LidmaatschapSoort");
                 }
             }
         }
@@ -4720,7 +4733,7 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid SoortId {
+        public System.Nullable<System.Guid> SoortId {
             get {
                 return this.SoortIdField;
             }
@@ -4728,19 +4741,6 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
                 if ((this.SoortIdField.Equals(value) != true)) {
                     this.SoortIdField = value;
                     this.RaisePropertyChanged("SoortId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SoortNaam {
-            get {
-                return this.SoortNaamField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SoortNaamField, value) != true)) {
-                    this.SoortNaamField = value;
-                    this.RaisePropertyChanged("SoortNaam");
                 }
             }
         }
@@ -5109,6 +5109,126 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         Vrouw = 2,
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClubCloud_LidmaatschapSoort", Namespace="http://schemas.datacontract.org/2004/07/ClubCloud.Service.Model", IsReference=true)]
+    public partial class ClubCloud_LidmaatschapSoort : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string BeschrijvingField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Lidmaatschap> ClubCloud_LidmaatschapField;
+        
+        private System.TimeSpan DagBeginField;
+        
+        private System.TimeSpan DagEindeField;
+        
+        private System.Guid IdField;
+        
+        private string NaamField;
+        
+        private string TariefField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Beschrijving {
+            get {
+                return this.BeschrijvingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BeschrijvingField, value) != true)) {
+                    this.BeschrijvingField = value;
+                    this.RaisePropertyChanged("Beschrijving");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Lidmaatschap> ClubCloud_Lidmaatschap {
+            get {
+                return this.ClubCloud_LidmaatschapField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClubCloud_LidmaatschapField, value) != true)) {
+                    this.ClubCloud_LidmaatschapField = value;
+                    this.RaisePropertyChanged("ClubCloud_Lidmaatschap");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan DagBegin {
+            get {
+                return this.DagBeginField;
+            }
+            set {
+                if ((this.DagBeginField.Equals(value) != true)) {
+                    this.DagBeginField = value;
+                    this.RaisePropertyChanged("DagBegin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan DagEinde {
+            get {
+                return this.DagEindeField;
+            }
+            set {
+                if ((this.DagEindeField.Equals(value) != true)) {
+                    this.DagEindeField = value;
+                    this.RaisePropertyChanged("DagEinde");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Naam {
+            get {
+                return this.NaamField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NaamField, value) != true)) {
+                    this.NaamField = value;
+                    this.RaisePropertyChanged("Naam");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tarief {
+            get {
+                return this.TariefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TariefField, value) != true)) {
+                    this.TariefField = value;
+                    this.RaisePropertyChanged("Tarief");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReserveringSoort", Namespace="http://schemas.datacontract.org/2004/07/ClubCloud.Service.Model")]
@@ -5467,6 +5587,12 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetGebruikerByNummer", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetGebruikerByNummerResponse")]
         System.Threading.Tasks.Task<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Gebruiker> GetGebruikerByNummerAsync(string bondsnummer, System.Guid verenigingId, string nummer, bool refresh);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetGebruikerAutoComplete", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetGebruikerAutoCompleteResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> GetGebruikerAutoCompleteAsync(string prefixText, int count, string contextKey);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetVereniningen", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetVereniningenResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> GetVereniningenAsync(string prefixText, int count, string contextKey);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetFotoByNummer", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetFotoByNummerResponse")]
         System.Threading.Tasks.Task<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Foto> GetFotoByNummerAsync(string bondsnummer, System.Guid verenigingId, string nummer, bool refresh);
         
@@ -5572,6 +5698,14 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
             return base.Channel.GetGebruikerByNummerAsync(bondsnummer, verenigingId, nummer, refresh);
         }
         
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> GetGebruikerAutoCompleteAsync(string prefixText, int count, string contextKey) {
+            return base.Channel.GetGebruikerAutoCompleteAsync(prefixText, count, contextKey);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> GetVereniningenAsync(string prefixText, int count, string contextKey) {
+            return base.Channel.GetVereniningenAsync(prefixText, count, contextKey);
+        }
+        
         public System.Threading.Tasks.Task<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Foto> GetFotoByNummerAsync(string bondsnummer, System.Guid verenigingId, string nummer, bool refresh) {
             return base.Channel.GetFotoByNummerAsync(bondsnummer, verenigingId, nummer, refresh);
         }
@@ -5650,6 +5784,23 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
                 result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
                 return result;
             }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen12)) {
+                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                result.MaxBufferSize = int.MaxValue;
+                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+                result.MaxReceivedMessageSize = int.MaxValue;
+                result.AllowCookies = true;
+                return result;
+            }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11)) {
+                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                result.MaxBufferSize = int.MaxValue;
+                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+                result.MaxReceivedMessageSize = int.MaxValue;
+                result.AllowCookies = true;
+                result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
+                return result;
+            }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
         
@@ -5660,6 +5811,12 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1)) {
                 return new System.ServiceModel.EndpointAddress("https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc");
             }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen12)) {
+                return new System.ServiceModel.EndpointAddress("http://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc");
+            }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11)) {
+                return new System.ServiceModel.EndpointAddress("https://mijn.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc");
+            }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
         
@@ -5668,6 +5825,10 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
             BasicHttpBinding_ClubCloudAfhangen,
             
             BasicHttpBinding_ClubCloudAfhangen1,
+            
+            BasicHttpBinding_ClubCloudAfhangen12,
+            
+            BasicHttpBinding_ClubCloudAfhangen11,
         }
     }
 }

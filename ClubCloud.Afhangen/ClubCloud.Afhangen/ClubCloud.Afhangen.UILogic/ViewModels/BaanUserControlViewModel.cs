@@ -157,27 +157,28 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 {
                     _baan = baan;
 
-                    //_reserveringen = new ObservableCollection<Reservering>();
+                    _reserveringen = new ObservableCollection<Reservering>();
+                    Afhang afhang = await _verenigingRepository.GetVerenigingSettingsAsync();
+                    _reserveringen = await _reserveringRepository.GetReserveringenByBaanAsync(_baan.Id);
 
-                    //_reserveringen = await _reserveringRepository.GetReserveringenByBaanAsync(_baan.Id);
+                    BeginTijd = DateTime.Now.TimeOfDay.Add(new TimeSpan(0, afhang.Duur_Precisie, 0));
 
-                    //_reserveringen.Where(r => r.BeginTijd)
-                }
-                /*
-                else
-                {
-                    Reservering reservering = null;
-                    if (Id != Guid.Empty)
+                    foreach (Reservering reservering in _reserveringen)
                     {
-                        _reservering = await _reserveringRepository.GetReserveringAsync();
+                        if (reservering.BeginTijd < BeginTijd && BeginTijd < reservering.EindTijd)
+                            BeginTijd = reservering.EindTijd.Add(new TimeSpan(0, afhang.Duur_Precisie, 0));
+                    }
+
+                    Duur = TimeSpan.FromMinutes(afhang.Duur_Vier);
+                    foreach (Reservering reservering in _reserveringen)
+                    {
+                        if (reservering.BeginTijd > BeginTijd)
+                        {
+                            Duur = reservering.BeginTijd - BeginTijd;
+                            break;
+                        }
                     }
                 }
-                */
-                Random rnd = new Random();
-                BeginTijd = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(rnd.Next(0, 60)));
-                Duur = TimeSpan.FromMinutes(rnd.Next(30, 60));
-                //await Task.Delay(1000);
-
             }
             catch
             {

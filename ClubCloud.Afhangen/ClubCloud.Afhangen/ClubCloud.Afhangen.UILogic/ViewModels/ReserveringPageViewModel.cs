@@ -133,6 +133,13 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public DelegateCommand<Nullable<Guid>> VerwijderenCommand { get; set; }
 
+        private string _reserveringType;
+        public string ReserveringType
+        {
+            get { return _reserveringType; }
+            private set { SetProperty(ref _reserveringType, value); }
+        }
+
         /*
         public string ActionName
         {
@@ -301,6 +308,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             {
                 _reservering = await _reserveringRepository.GetReserveringAsync();
 
+                ReserveringType = (_reservering.Id == Guid.Empty) ? "Reservering Maken" : "Reservering Wijzigen";
                 /*
                 if (_reservering != null)
                 {
@@ -368,7 +376,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 }
                 
             }
-
+            ReserveringType = (_reservering.Id == Guid.Empty) ? "Reservering Maken" : "Reservering Wijzigen";
             base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 

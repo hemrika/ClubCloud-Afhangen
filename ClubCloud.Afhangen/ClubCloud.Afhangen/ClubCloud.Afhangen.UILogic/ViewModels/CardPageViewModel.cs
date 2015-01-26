@@ -35,8 +35,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private string _cardoutput;
         private string _cardreceived;
         private string _message;
-        private bool _huidig;
-        private bool _bestaand;
+        //private bool _huidig;
+        //private bool _bestaand;
 
         public CardPageViewModel(IVerenigingRepository verenigingRepository, ISpelerRepository spelerRepository, IReserveringRepository reserveringRepository, INavigationService navigationService,
             IResourceLoader resourceLoader, IAlertMessageService alertMessageService, IEventAggregator eventAggregator)

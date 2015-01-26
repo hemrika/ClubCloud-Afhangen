@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="ClubCloud_Baan" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan, Service References.ClubCloudService.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan, ClubCloud.Afhangen.UILogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=64ce88858b86b541</TypeInfo>
 </GenericObjectDataSource>

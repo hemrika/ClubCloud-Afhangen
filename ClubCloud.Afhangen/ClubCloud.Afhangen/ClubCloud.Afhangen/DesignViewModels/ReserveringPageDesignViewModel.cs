@@ -19,9 +19,10 @@
 
         private void FillWithDummyData()
         {
-            
+            ReserveringType = "Reservering Maken";
         }
 
+        public string ReserveringType { get; private set; }
         public ObservableCollection<Speler> Spelers { get; private set; }
 
         public int AantalSpelers { get; private set; }

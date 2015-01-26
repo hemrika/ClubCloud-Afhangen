@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="ClubCloud_Baanschema" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema, ClubCloud.Afhangen.UILogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=64ce88858b86b541</TypeInfo>
+<GenericObjectDataSource DisplayName="AuthenticationMode" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>ClubCloud.Afhangen.UILogic.ClubCloudAuthentication.AuthenticationMode, ClubCloud.Afhangen.UILogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=64ce88858b86b541</TypeInfo>
 </GenericObjectDataSource>

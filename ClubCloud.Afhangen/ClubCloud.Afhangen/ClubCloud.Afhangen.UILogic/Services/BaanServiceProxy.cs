@@ -8,7 +8,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class BaanServiceProxy : IBaanService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
+        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
 
         public async Task<Models.Baan> GetBaanAsync(Guid verenigingId, Guid baanId)
         {
