@@ -89,6 +89,10 @@
 
                 ReserveringRepository reserveringRepository = (ReserveringRepository)_container.Resolve<IReserveringRepository>();
                 await reserveringRepository.GetReserveringenAsync();
+
+                SponsorRepository sponsorRepository = (SponsorRepository)_container.Resolve<ISponsorRepository>();
+                await sponsorRepository.GetSponsorsAsync(vereniging.Id);
+
             }
             else
             {
@@ -119,6 +123,7 @@
             _container.RegisterType<IAlertRepository, AlertRepository>(new ContainerControlledLifetimeManager());
             _container.RegisterType<ILocationRepository, LocationRepository>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IWeatherRepository, WeatherRepository>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<ISponsorRepository, SponsorRepository>(new ContainerControlledLifetimeManager());
             //IAlertRepository
             //ILocationRepository
             //IWeatherRepository
@@ -130,6 +135,7 @@
             _container.RegisterType<ILocationService, LocationServiceProxy>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IAlertMessageService, AlertMessageService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IWeatherService, WeatherServiceProxy>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<ISponsorService, SponsorServiceProxy>(new ContainerControlledLifetimeManager());
 
             // Register child view models
             _container.RegisterType<IReserveringUserControlViewModel, ReserveringUserControlViewModel>();

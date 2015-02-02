@@ -1,8 +1,10 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
 using ClubCloud.Afhangen.UILogic.Services;
+using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using Microsoft.Practices.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -16,130 +18,110 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ClubCloud.Afhangen.UILogic.Repositories
 {
-    public class SpelerRepository : ISpelerRepository
+    public class SponsorRepository : ISponsorRepository
     {
-        public const string BaanIdKey = "BaanId";
-        private readonly ISpelerService _spelerService;
+        private readonly ISponsorService _sponsorService;
+        private readonly IVerenigingRepository _verenigingRepository;
         private readonly IEventAggregator _eventAggregator;
+        private readonly ISessionStateService _sessionStateService;
+        private static DateTime _today;
+        private ObservableCollection<Sponsor> _cachedSponsors = null;
 
-        private List<Speler> _cachedSpelers = null;
 
-        public SpelerRepository(ISpelerService spelerService, IEventAggregator eventAggregator)
+        public SponsorRepository(ISponsorService sponsorService, IVerenigingRepository verenigingRepository, IEventAggregator eventAggregator, ISessionStateService sessionStateService)
         {
-            _spelerService = spelerService;
+            _sponsorService = sponsorService;
             _eventAggregator = eventAggregator;
+            _sessionStateService = sessionStateService;
+            _verenigingRepository = verenigingRepository;
         }
 
-        public async Task<Models.Speler> GetSpelerAsync(Guid verenigingId, Guid spelerId)
+        public async Task<Models.Sponsor> GetSponsorAsync(Guid verenigingId, Guid sponsorId)
         {
-            if (_cachedSpelers == null) _cachedSpelers = new List<Speler>();
+            if (_cachedSponsors == null) _cachedSponsors = new ObservableCollection<Sponsor>();
 
-            Speler speler = null;
-            if (_cachedSpelers != null) speler = _cachedSpelers.SingleOrDefault(s => s.Id == spelerId);
+            Sponsor sponsor = null;
+            if (_cachedSponsors != null) sponsor = _cachedSponsors.SingleOrDefault(s => s.Id == sponsorId);
 
-            if (speler == null)
+            if (sponsor == null)
             {
-                speler = await _spelerService.GetSpelerAsync(verenigingId, spelerId);
+                sponsor = await _sponsorService.GetSponsorAsync(verenigingId, sponsorId);
                 //if(_cachedSpelers.IndexOf(speler) <0 )
-                if (_cachedSpelers.Where(s => s.Id == speler.Id).Count() == 0)
-                    _cachedSpelers.Add(speler);
+                if (_cachedSponsors.Where(s => s.Id == sponsor.Id).Count() == 0)
+                    _cachedSponsors.Add(sponsor);
 
                 //RaiseSpelerUpdated();
             }
-            return _cachedSpelers.SingleOrDefault(s => s.Id == spelerId);
+            return _cachedSponsors.SingleOrDefault(s => s.Id == sponsorId);
         }
 
-        public async Task<Models.Speler> GetSpelerByNummerAsync(Guid verenigingId, string nummer)
+        private static Uri _baseUri = new Uri("ms-appdata:///temp/Sponsors/"); 
+
+        public async Task<ObservableCollection<Sponsor>> GetSponsorsAsync(Guid verenigingId)
         {
-            if (_cachedSpelers == null) _cachedSpelers = new List<Speler>();
-
-            Speler speler = null;
-            if (_cachedSpelers != null) speler = _cachedSpelers.SingleOrDefault(s => s.Bondsnummer == nummer);
-
-            if (speler == null)
+            if (_cachedSponsors == null || (_today == null || _today < DateTime.Today))
             {
-                speler = await _spelerService.GetSpelerByNummerAsync(verenigingId, nummer);
-                //if(!_cachedSpelers.Contains(speler)) _cachedSpelers.Add(speler);
-                if (_cachedSpelers.Where(s => s.Id == speler.Id).Count() == 0)
-                    _cachedSpelers.Add(speler);
+                _cachedSponsors = new ObservableCollection<Sponsor>();
 
-                //RaiseSpelerUpdated();
-            }
-            return _cachedSpelers.SingleOrDefault(s => s.Bondsnummer == nummer);
+                Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+                List<Sponsor> sponsoren = await _sponsorService.GetSponsorenAsync(vereniging.Id);
 
-        }
-
-        public async Task<Models.Foto> GetFotoByNummerAsync(Guid verenigingId, string nummer)
-        {
-            Foto foto = new Foto();
-
-            string filename = nummer + ".jpg";
-            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            StorageFolder fotos = await folder.CreateFolderAsync("Fotos", CreationCollisionOption.OpenIfExists);
-            StorageFile image = await fotos.TryGetItemAsync(filename) as StorageFile;
-
-            try
-            {
-
-                if (image == null)
+                foreach (Sponsor sponsor in sponsoren)
                 {
-                    foto = await _spelerService.GetFotoByNummerAsync(verenigingId, nummer);
-                    if (foto != null)
+                    if (_cachedSponsors.Count(s => s.Id == sponsor.Id) == 0)
                     {
-                        image = await fotos.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-                        IBuffer writebuffer = GetBufferFromContentData(foto.ContentData);
-                        await Windows.Storage.FileIO.WriteBufferAsync(image, writebuffer);
-                        foto.Path = image.Path;
+                        Foto foto = await GetSponsorImageAsync(verenigingId, sponsor.Id);
+                        sponsor.Path = new Uri(_baseUri,string.Format("{0}.jpg",sponsor.Id));
+
+                        _cachedSponsors.Add(sponsor);
                     }
+
                 }
-            }
-            catch (Exception ex)
-            {
-                string message = ex.Message;
-            }
 
-            try
-            {
-                IBuffer readbuffer = await FileIO.ReadBufferAsync(image);
+                //Foto _foto = await GetSponsorImageAsync(verenigingId, Guid.Empty);
 
-                if (foto.ContentData != null)
-                    foto.ContentData = new byte[readbuffer.Length];
-
-                foto.ContentData = readbuffer.ToArray();
-            }
-            catch (Exception ex)
-            {
-                string message = ex.Message;
+                _today = DateTime.Today;
             }
 
-            return foto;
+            return _cachedSponsors;
         }
 
-        public async Task<Foto> GetFotoAsync(Guid verenigingId, Guid gebruikerId)
+        public async Task<Foto> GetSponsorImageAsync(Guid verenigingId, Guid sponsorId)
         {
             Foto foto = new Foto();
             StorageFile image = null;
-            Speler speler = _cachedSpelers.SingleOrDefault(s => s.Id == gebruikerId);
+            Sponsor sponsor = _cachedSponsors.SingleOrDefault(s => s.Id == sponsorId);
 
-            if (speler != null)
+            //StorageFolder _folder = Windows.Storage.ApplicationData.Current.TemporaryFolder;
+            //StorageFolder _fotos = await _folder.CreateFolderAsync("Sponsors", CreationCollisionOption.OpenIfExists);
+            //string _filename = sponsorId + ".jpg";
+            //image = await _fotos.CreateFileAsync(_filename, CreationCollisionOption.ReplaceExisting);
+            //foto.Path = image.Path;
+
+            if (sponsor != null)
             {
-                string filename = speler.Bondsnummer + ".jpg";
-                StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                StorageFolder fotos = await folder.CreateFolderAsync("Fotos", CreationCollisionOption.OpenIfExists);
+                string filename = sponsor.Id + ".jpg";
+                StorageFolder folder = Windows.Storage.ApplicationData.Current.TemporaryFolder;
+                StorageFolder fotos = await folder.CreateFolderAsync("Sponsors", CreationCollisionOption.OpenIfExists);
                 image = await fotos.TryGetItemAsync(filename) as StorageFile;
 
                 try
                 {
+                    if(image != null)
+                    {
+                        await image.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                    }
 
                     if (image == null)
                     {
-                        foto = await _spelerService.GetFotoAsync(verenigingId, gebruikerId);
+                        foto = await _sponsorService.GetSponsorImageAsync(verenigingId, sponsorId);
 
                         if (foto != null)
                         {
                             image = await fotos.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
                             IBuffer writebuffer = GetBufferFromContentData(foto.ContentData);
                             await Windows.Storage.FileIO.WriteBufferAsync(image, writebuffer);
+                            foto.Path = image.Path;
                         }
                     }
                 }
@@ -148,6 +130,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                     string message = ex.Message;
                 }
 
+                /*
                 try
                 {
                     IBuffer readbuffer = await FileIO.ReadBufferAsync(image);
@@ -161,6 +144,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 {
                     string message = ex.Message;
                 }
+                */
             }
 
             return foto;

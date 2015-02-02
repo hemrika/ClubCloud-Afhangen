@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
 using System.Linq;
+using System;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
@@ -105,6 +106,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
         {
+            
             base.OnNavigatedFrom(viewModelState, suspending);
         }
 

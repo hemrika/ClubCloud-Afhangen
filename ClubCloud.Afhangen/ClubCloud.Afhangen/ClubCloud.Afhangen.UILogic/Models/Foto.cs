@@ -26,5 +26,9 @@ namespace ClubCloud.Afhangen.UILogic.Models
 
         [DataMember]
         public byte[] ContentData { get; set; }
+
+        [DataMember]
+        public string Path { get; set; }
+
     }
 }

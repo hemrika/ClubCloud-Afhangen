@@ -125,6 +125,7 @@
     <Compile Include="Behaviors\NavigateToPageAction.cs" />
     <Compile Include="Behaviors\NavigateWithEventArgsToPageAction.cs" />
     <Compile Include="Behaviors\TimerTriggerBehavior.cs" />
+    <Compile Include="Behaviors\TriggerBehavior.cs" />
     <Compile Include="Common\DependencyPropertyChangedHelper.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="DesignViewModels\CardPageDesignViewModel.cs" />
     <Compile Include="DesignViewModels\CardUserControlDesignViewModel.cs" />
     <Compile Include="DesignViewModels\ReserveringPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\SponsorPageDesignViewModel.cs" />
     <Compile Include="DesignViewModels\WeatherUserControlDesignViewModel.cs" />
     <Compile Include="DesignViewModels\KlokUserControlDesignViewModel.cs" />
     <Compile Include="DesignViewModels\SpelersPageDesignViewModel.cs" />
@@ -225,6 +227,7 @@
     <Content Include="Assets\Logo.scale-140.png" />
     <Content Include="Assets\Logo.scale-180.png" />
     <Content Include="Assets\Logo.scale-80.png" />
+    <Content Include="Assets\placeHolderSponsor.png" />
     <Content Include="Assets\placeHolderSpeler.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />

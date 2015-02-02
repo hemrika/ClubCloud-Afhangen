@@ -197,7 +197,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         {
             Action navigateAction = null;
             var navigationServiceReference = _navigationService;
-
+            _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
             navigateAction = () => navigationServiceReference.Navigate("Baan", null);
             _navigationService.Navigate("Baan", null);
             navigateAction();
@@ -209,7 +209,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             Action navigateAction = null;
             var navigationServiceReference = _navigationService;
-
+            _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
             navigateAction = () => navigationServiceReference.Navigate("Banen", null);
             navigationServiceReference.Navigate("Banen", null);
             navigateAction();
@@ -246,7 +246,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             Action navigateAction = null;
             var navigationServiceReference = _navigationService;
-
+            _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
             navigateAction = () => navigationServiceReference.Navigate("Banen", null);
             navigationServiceReference.Navigate("Banen", null);
             navigateAction();

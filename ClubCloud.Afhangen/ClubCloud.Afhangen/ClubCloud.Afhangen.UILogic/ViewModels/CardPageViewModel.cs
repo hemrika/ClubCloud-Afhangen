@@ -159,7 +159,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             Action navigateAction = null;
             var navigationServiceReference = _navigationService;
-
+            _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
             navigateAction = () => navigationServiceReference.Navigate("Reservering", null);
             navigationServiceReference.Navigate("Reservering", null);
             navigateAction();
@@ -444,7 +444,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                     int.TryParse(navigationParameter.ToString(), out _index);
 
             }
-
+            _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
             base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
     }

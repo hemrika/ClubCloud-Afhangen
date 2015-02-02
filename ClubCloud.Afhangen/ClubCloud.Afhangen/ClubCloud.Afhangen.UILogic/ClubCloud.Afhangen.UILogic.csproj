@@ -126,6 +126,8 @@
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Baan.cs" />
     <Compile Include="Models\CardUpdatedEvent.cs" />
+    <Compile Include="Models\Sponsor.cs" />
+    <Compile Include="Models\SponsorUpdatedEvent.cs" />
     <Compile Include="Models\WeatherUpdatedEvent .cs" />
     <Compile Include="Models\CurrentConditions.cs" />
     <Compile Include="Models\CurrentConditionsModel.cs" />
@@ -200,8 +202,10 @@
     <Compile Include="Repositories\AlertRepository.cs" />
     <Compile Include="Repositories\IAlertRepository.cs" />
     <Compile Include="Repositories\ILocationRepository.cs" />
+    <Compile Include="Repositories\ISponsorRepository.cs" />
     <Compile Include="Repositories\IWeatherRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\SponsorRepository.cs" />
     <Compile Include="Repositories\WeatherRepository.cs" />
     <Compile Include="Service References\ClubCloudAuthentication\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -231,9 +235,11 @@
     <Compile Include="Services\IAlertMessageService.cs" />
     <Compile Include="Services\IBaanService.cs" />
     <Compile Include="Services\ILocationService.cs" />
+    <Compile Include="Services\ISponsorService.cs" />
     <Compile Include="Services\IWeatherService.cs" />
     <Compile Include="Services\LabelAttribute.cs" />
     <Compile Include="Services\LocationServiceProxy.cs" />
+    <Compile Include="Services\SponsorServiceProxy.cs" />
     <Compile Include="Services\WeatherDataQuery.cs" />
     <Compile Include="Services\WeatherServiceProxy.cs" />
     <Compile Include="ViewModels\CardPageViewModel.cs" />
@@ -243,6 +249,7 @@
     <Compile Include="ViewModels\ISpelerUserControlViewModel.cs" />
     <Compile Include="ViewModels\IWeerUserControlViewModel.cs" />
     <Compile Include="ViewModels\KlokUserControlViewModel.cs" />
+    <Compile Include="ViewModels\SponsorsPageViewModel.cs" />
     <Compile Include="ViewModels\WeerPageViewModel.cs" />
     <Compile Include="ViewModels\ReserveringViewModel.cs" />
     <Compile Include="ViewModels\SpelerUserControlViewModel.cs" />

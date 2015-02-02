@@ -89,8 +89,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             Action navigateAction = null;
             var navigationServiceReference = _navigationService;
 
-            navigateAction = () => navigationServiceReference.Navigate("Main", null);
-            navigationServiceReference.Navigate("Main", null);
+            navigateAction = () => navigationServiceReference.Navigate("Sponsors", null);
+            navigationServiceReference.Navigate("Sponsors", null);
             navigateAction();
 
             _eventAggregator.GetEvent<SponsorEvent>().Publish(null);
