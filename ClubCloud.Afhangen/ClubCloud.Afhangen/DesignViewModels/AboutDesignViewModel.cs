@@ -8,20 +8,21 @@
     using Microsoft.Practices.Prism.StoreApps.Interfaces;
     using System;
     using System.Threading.Tasks;
-
-    public class AboutDesignViewModel : IView
+    using Windows.ApplicationModel;
+    public class AboutFlyoutDesignViewModel : IView
     {
-        public AboutDesignViewModel()
+        public AboutFlyoutDesignViewModel()
         {
             FillWithDummyData();
         }
 
         private void FillWithDummyData()
         {
-            Time = DateTime.Now.ToString("HH:mm");
+            var version = Package.Current.Id.Version;
+            Version = String.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
         }
 
-        public string Time { get; private set; }
+        public string Version { get; set; }
 
         object IView.DataContext
         {

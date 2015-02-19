@@ -18,9 +18,7 @@
                 Background="{StaticResource SettingsFlyoutBackgroundThemeBrush}"
                 BorderBrush="{StaticResource ApplicationFlyoutBorderBrush}"
                 HeaderBackground="{ThemeResource SplashScreenBackgroundThemeBrush}"
-                d:DataContext="{d:DesignInstance designViewModels:AboutDesignViewModel,
-                                                 IsDesignTimeCreatable=True}"
-                mvvm:ViewModelLocator.AutoWireViewModel="True"
+                mvvm:ViewModelLocator.AutoWireViewModel="False"
                 mc:Ignorable="d">
 
     <StackPanel x:Name="FlyoutContent">
@@ -38,7 +36,7 @@
                        TextWrapping="Wrap" />
             <TextBlock Margin="0,0,0,0"
                        Style="{StaticResource BasicTextStyle}"
-                       Text="{Binding Version}"
+                       Text="{Binding Version, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                        TextWrapping="Wrap" />
         </StackPanel>
         <TextBlock x:Uid="AboutCopyright"

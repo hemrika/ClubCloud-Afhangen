@@ -15,7 +15,7 @@
     using Microsoft.Practices.Prism.Mvvm.Interfaces;
     using Windows.Storage;
 
-    public class OptionsFlyoutViewModel : ViewModel, IFlyoutViewModel
+    public class OptionsFlyoutViewModel : ViewModel, IFlyoutViewModel, IView
     {
         private Action closeFlyout;
         private string initialLanguage;
@@ -94,6 +94,18 @@
         {
             get { return closeFlyout; }
             set { SetProperty(ref closeFlyout, value); }
+        }
+
+        public object DataContext
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

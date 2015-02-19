@@ -215,11 +215,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ClubCloudService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Services\AlertMessageService.cs" />
     <Compile Include="Models\ComboBoxItemValue.cs" />
     <Compile Include="Models\Foto.cs" />
@@ -289,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClubCloud.Afhangen.UILogic_TemporaryKey.pfx" />
+    <None Include="ClubCloud.Afhangen_StoreKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\ClubCloudAuthentication\Authentication.wsdl" />
@@ -298,42 +294,6 @@
     <None Include="Service References\ClubCloudAuthentication\ClubCloud.Afhangen.UILogic.ClubCloudAuthentication.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Afhang.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanblok.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baansoort.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baantype.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Foto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Gebruiker.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Sponsor.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Sponsor_Afbeelding.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Vereniging.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
@@ -341,6 +301,18 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AstroSoft.WindowsStore.Common">
+      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.Common\AstroSoft.WindowsStore.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="AstroSoft.WindowsStore.Modules">
+      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.Modules\AstroSoft.WindowsStore.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="AstroSoft.WindowsStore.UI">
+      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.UI\AstroSoft.WindowsStore.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="AstroSoft.WindowsStore.UILogic">
+      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.UILogic\AstroSoft.WindowsStore.UILogic.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Mvvm">
       <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
     </Reference>
@@ -373,6 +345,44 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Prism.StoreApps.Extensions.Common">
+      <HintPath>..\..\packages\Prism.StoreApps.Extensions.Common.1.0.6\lib\netcore451\Prism.StoreApps.Extensions.Common\Prism.StoreApps.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.StoreApps.Extensions.Modules">
+      <HintPath>..\..\packages\Prism.StoreApps.Extensions.Modules.1.0.6\lib\netcore451\Prism.StoreApps.Extensions.Modules\Prism.StoreApps.Extensions.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.StoreApps.Extensions.UI">
+      <HintPath>..\..\packages\Prism.StoreApps.Extensions.Mvvm.1.0.6\lib\netcore451\Prism.StoreApps.Extensions.Mvvm\Prism.StoreApps.Extensions.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.StoreApps.Extensions.ViewModel">
+      <HintPath>..\..\packages\Prism.StoreApps.Extensions.Mvvm.1.0.6\lib\netcore451\Prism.StoreApps.Extensions.Mvvm\Prism.StoreApps.Extensions.ViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI, Version=6.4.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\reactiveui-core.6.4.0.1\lib\Win8\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Splat.1.6.1\lib\NetCore45\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\windows8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\windows8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\windows8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\windows8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\..\packages\Rx-XAML.2.2.5\lib\windows8\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.WindowsRuntime">
+      <HintPath>..\..\packages\Rx-WinRT.2.2.5\lib\windows8\System.Reactive.WindowsRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="WinRTXamlToolkit, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\WinRTXamlToolkit.Windows.1.8.1.0\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
@@ -383,37 +393,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ClubCloudAuthentication\" />
-    <WCFMetadataStorage Include="Service References\ClubCloudService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ClubCloudService\ClubCloudAfhangen.wsdl" />
-    <None Include="Service References\ClubCloudService\ClubCloudAfhangen1.wsdl" />
-    <None Include="Service References\ClubCloudService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ClubCloudService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ClubCloudService\mex.wsdl" />
-    <None Include="Service References\ClubCloudService\mex.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClubCloudService\mex1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClubCloudService\mex2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClubCloudService\mex3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClubCloudService\mex4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClubCloudService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ClubCloudAuthentication\Authentication.disco" />
@@ -437,7 +416,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>ClubCloud.Afhangen.UILogic_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>ClubCloud.Afhangen_StoreKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

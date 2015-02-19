@@ -5,9 +5,8 @@
     using System;
     using Windows.ApplicationModel;
 
-    public class AboutFlyoutViewModel : ViewModel, IFlyoutViewModel
+    public class AboutFlyoutViewModel : ViewModel, IFlyoutViewModel, IView
     {
-        
         private Action closeFlyout;
 
         public string Version { get; set; }
@@ -22,6 +21,18 @@
         {
             get { return closeFlyout; }
             set { SetProperty(ref closeFlyout, value); }
+        }
+
+        public object DataContext
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
