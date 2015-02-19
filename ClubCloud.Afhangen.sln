@@ -7,18 +7,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubCloud.Afhangen", "ClubC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubCloud.Afhangen.UILogic", "ClubCloud.Afhangen\ClubCloud.Afhangen.UILogic\ClubCloud.Afhangen.UILogic.csproj", "{EEB41983-C6A2-445C-8762-9FD2E43FE189}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6E4E7ED0-B64A-4545-9247-07F3D32E2AEA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://hemrika.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = ClubCloud.Afhangen\\ClubCloud.Afhangen\\ClubCloud.Afhangen.csproj
-		SccProjectName1 = ClubCloud.Afhangen/ClubCloud.Afhangen
-		SccLocalPath1 = ClubCloud.Afhangen\\ClubCloud.Afhangen
-		SccProjectUniqueName2 = ClubCloud.Afhangen\\ClubCloud.Afhangen.UILogic\\ClubCloud.Afhangen.UILogic.csproj
-		SccProjectName2 = ClubCloud.Afhangen/ClubCloud.Afhangen.UILogic
-		SccLocalPath2 = ClubCloud.Afhangen\\ClubCloud.Afhangen.UILogic
+		SccProjectUniqueName1 = ClubCloud.Afhangen\\ClubCloud.Afhangen.UILogic\\ClubCloud.Afhangen.UILogic.csproj
+		SccProjectName1 = ClubCloud.Afhangen/ClubCloud.Afhangen.UILogic
+		SccLocalPath1 = ClubCloud.Afhangen\\ClubCloud.Afhangen.UILogic
+		SccProjectUniqueName2 = ClubCloud.Afhangen\\ClubCloud.Afhangen\\ClubCloud.Afhangen.csproj
+		SccProjectName2 = ClubCloud.Afhangen/ClubCloud.Afhangen
+		SccLocalPath2 = ClubCloud.Afhangen\\ClubCloud.Afhangen
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

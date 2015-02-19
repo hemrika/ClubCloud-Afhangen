@@ -215,6 +215,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ClubCloudService\Reference.cs" />
+    <Compile Include="Service References\ClubCloudService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\AlertMessageService.cs" />
     <Compile Include="Models\ComboBoxItemValue.cs" />
     <Compile Include="Models\Foto.cs" />
@@ -293,6 +299,36 @@
     </None>
     <None Include="Service References\ClubCloudAuthentication\ClubCloud.Afhangen.UILogic.ClubCloudAuthentication.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Afhang.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanblok.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baansoort.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baantype.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Foto.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Gebruiker.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Sponsor.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Sponsor_Afbeelding.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Vereniging.datasource" />
+    <None Include="Service References\ClubCloudService\ClubCloudAfhangen.wsdl" />
+    <None Include="Service References\ClubCloudService\ClubCloudAfhangen1.wsdl" />
+    <None Include="Service References\ClubCloudService\mex.wsdl" />
+    <None Include="Service References\ClubCloudService\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudService\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudService\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudService\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudService\mex4.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -408,6 +444,14 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\ClubCloudService\configuration.svcinfo" />
+    <Content Include="Service References\ClubCloudService\configuration91.svcinfo" />
+    <Content Include="Service References\ClubCloudService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

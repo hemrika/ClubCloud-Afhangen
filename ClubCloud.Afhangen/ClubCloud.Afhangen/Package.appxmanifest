@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="61122Hemrika.ClubCloudAfhangen" Publisher="CN=542A37B3-3743-4D34-9831-A53802B37158" Version="1.1.0.0" />
+  <Identity Name="61122Hemrika.ClubCloudAfhangen" Publisher="CN=542A37B3-3743-4D34-9831-A53802B37158" Version="1.1.0.1" />
   <Properties>
     <DisplayName>ClubCloud Afhangen</DisplayName>
     <PublisherDisplayName>Hemrika</PublisherDisplayName>

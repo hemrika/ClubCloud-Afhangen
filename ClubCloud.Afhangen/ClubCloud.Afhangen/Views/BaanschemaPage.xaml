@@ -45,6 +45,8 @@
                     AutomationProperties.Name="Back"
                     Command="{Binding GoBackCommand,
                                       ElementName=Baanschema}"
+                    IsEnabled="{Binding Frame.CanGoBack,
+                                        ElementName=Baanschema}"
                     Style="{StaticResource ClubCloudNavigationBackButtonNormalStyle}" />
             <!--
                 IsEnabled="{Binding Frame.CanGoBack,
