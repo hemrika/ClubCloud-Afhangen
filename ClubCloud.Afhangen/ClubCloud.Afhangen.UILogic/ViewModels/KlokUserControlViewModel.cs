@@ -8,6 +8,8 @@ using Microsoft.Practices.Prism.StoreApps.Interfaces;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Windows.Globalization;
+using Windows.Globalization.DateTimeFormatting;
 using Windows.UI.Xaml;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
@@ -23,6 +25,10 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private DispatcherTimer klokTimer;
         private DispatcherTimer inactivityTimer;
         private string _time;
+        private string _date;
+
+        private DateTimeFormatter dateFormatter = new DateTimeFormatter(YearFormat.Full, MonthFormat.Full, DayFormat.Default, DayOfWeekFormat.None, HourFormat.None, MinuteFormat.None, SecondFormat.None, new[] { "nl-NL" }, "NL", CalendarIdentifiers.Gregorian, ClockIdentifiers.TwentyFourHour);
+        private DateTimeFormatter timeFormatter = new DateTimeFormatter(YearFormat.None, MonthFormat.None, DayFormat.None, DayOfWeekFormat.None, HourFormat.Default, MinuteFormat.Default, SecondFormat.None, new[] { "nl-NL" }, "NL", CalendarIdentifiers.Gregorian, ClockIdentifiers.TwentyFourHour);
 
         public KlokUserControlViewModel(INavigationService navigationService, IReserveringRepository reserveringRepository, IResourceLoader resourceLoader, IAlertMessageService alertMessageService,
                                          IEventAggregator eventAggregator)
@@ -56,6 +62,12 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             private set { SetProperty(ref _time, value); }
         }
 
+        public string Date
+        {
+            get { return _date; }
+            private set { SetProperty(ref _date, value); }
+        }
+
         public async void UpdateKlokAsync(TimeSpan span)
         {
             await UpdateKlokInfoAsync(span);
@@ -63,7 +75,10 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         private async Task UpdateKlokInfoAsync(TimeSpan span)
         {
-            Time = DateTime.Now.ToString("HH:mm");
+            Date = dateFormatter.Format(DateTime.Now);
+            Time = timeFormatter.Format(DateTime.Now);
+            //Date = DateTime.Now.ToString("dd MMMM, yyyy");
+            //Time = DateTime.Now.ToString("HH:mm");
 
         }
 
@@ -78,7 +93,11 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         async void klokTimer_Tick(object sender, object e)
         {
-            Time = DateTime.Now.ToString("HH:mm");
+            Date = dateFormatter.Format(DateTime.Now);
+            Time = timeFormatter.Format(DateTime.Now);
+
+            //Date = DateTime.Now.ToString("dd MMMM, yyyy");
+            //Time = DateTime.Now.ToString("HH:mm");
             _eventAggregator.GetEvent<KlokEvent>().Publish(new TimeSpan());
         }
 

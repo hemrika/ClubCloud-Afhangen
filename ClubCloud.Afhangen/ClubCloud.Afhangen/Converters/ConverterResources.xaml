@@ -18,4 +18,6 @@
     <converters:SpelersConverter x:Key="SpelersConverter" />
     <converters:BaanConverter x:Key="BaanConverter" />
     <converters:StringFormatConverter x:Key="StringFormatConverter" />
+    <converters:DateConverter x:Key="DateConverter" />
+    <converters:ReserveringStatusConverter x:Key="ReserveringStatusConverter" />
 </ResourceDictionary>

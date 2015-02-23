@@ -20,5 +20,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
         Task<Models.Baansoort> GetBaansoortAsync(Guid verenigingId, Guid accommodatieId, Guid baansoortId);
 
         Task<Models.Baantype> GetBaantypeAsync(Guid verenigingId, Guid accommodatieId, Guid baantypeId);
+
+        Task<ObservableCollection<Models.Baanschema>> GetBaanschemaByDateAsync(Guid verenigingId, DateTime date);
     }
 }

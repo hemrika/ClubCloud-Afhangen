@@ -13,6 +13,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         Task<ObservableCollection<Reservering>> GetReserveringenAsync();
         Task<Reservering> GetReserveringByIdAsync(Guid reserveringId);
+        Task<ObservableCollection<Reservering>> GetReserveringenByDateAsync(DateTime date);
         Task<ObservableCollection<Reservering>> GetReserveringenByBaanAsync(Guid baanId);
         Task<ObservableCollection<Reservering>> GetReserveringenBySpelerAsync(Guid spelerId);
         Task<Reservering> AddSpelerToReserveringAsync(int index, Guid spelerId);

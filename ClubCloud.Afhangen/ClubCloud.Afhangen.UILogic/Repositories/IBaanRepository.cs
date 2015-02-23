@@ -13,5 +13,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         Task<Baan> GetBaanAsync(Guid verenigingId, Guid baanId);
 
         Task<List<Baan>> GetBanenAsync(Guid verenigingId);
+
+        Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, DateTime date);
     } 
 }

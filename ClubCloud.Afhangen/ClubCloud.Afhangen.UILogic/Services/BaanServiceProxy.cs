@@ -25,6 +25,20 @@ namespace ClubCloud.Afhangen.UILogic.Services
             return _baanschema;
         }
 
+        public async Task<ObservableCollection<Models.Baanschema>> GetBaanschemaByDateAsync(Guid verenigingId, DateTime date)
+        {
+            ObservableCollection<Models.Baanschema> _baanschema = new ObservableCollection<Models.Baanschema>();
+
+            ObservableCollection<ClubCloud_Baanschema> baanschemas = await client.GetBaanSchemaByDateAsync("0000000", verenigingId, date, false);
+
+            foreach (ClubCloud_Baanschema baanschema in baanschemas)
+            {
+                _baanschema.Add(new Models.Baanschema { Id = baanschema.Id, BaanId = baanschema.BaanId.Value, Beschikbaar = baanschema.Beschikbaar, Dag = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), (int)baanschema.Dag), DagBegin = baanschema.DagBegin, DagEinde = baanschema.DagEinde });//, Baansoort = baan.Baansoort.ToString() });
+            }
+
+            return _baanschema;
+        }
+
         public async Task<Models.Baan> GetBaanAsync(Guid verenigingId, Guid baanId)
         {
             ObservableCollection<Models.Baan> _banen = new ObservableCollection<Models.Baan>();
@@ -48,6 +62,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             return _banen;
         }
+
 
         public async Task<ObservableCollection<Models.Baanblok>> GetBaanblokkenAsync(Guid verenigingId, Guid accommodatieId)
         {
@@ -84,6 +99,5 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             return _baantype;
         }
-
     }
 }

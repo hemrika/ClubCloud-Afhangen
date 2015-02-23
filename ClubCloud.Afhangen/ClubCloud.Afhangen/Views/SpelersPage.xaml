@@ -39,7 +39,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton"
-                    Margin="39,59,39,0"
+                    Width="140"
+                    Height="140"
                     VerticalAlignment="Top"
                     AutomationProperties.AutomationId="BackButton"
                     AutomationProperties.ItemType="Navigation Button"
@@ -48,7 +49,7 @@
                                       ElementName=Spelers}"
                     IsEnabled="{Binding Frame.CanGoBack,
                                         ElementName=Spelers}"
-                    Style="{StaticResource NavigationBackButtonNormalStyle}" />
+                    Style="{StaticResource ClubCloudNavigationBackButtonNormalStyle}" />
             <TextBlock x:Name="pageTitle"
                        Grid.Column="1"
                        Margin="0,0,5,30"

@@ -13,16 +13,16 @@
     using Windows.Storage;
     using Windows.Storage.Streams;
 
-    public class WeatherUserControlDesignViewModel : IView
+    public class WeerUserControlDesignViewModel : IView
     {
-        public WeatherUserControlDesignViewModel()
+        public WeerUserControlDesignViewModel()
         {
             FillWithDummyData();
         }
 
         private void FillWithDummyData()
         {
-            CurrentConditions = new CurrentConditionsModel { ApparentTemperature = "18", ApparentTemperatureUnit =" C", Temperature = "15", TemperatureUnit = " C", ShortPhrase = "Overwegend bewolkt", WindDirection= "zzo", WindSpeed = "50", WindSpeedUnit ="km/u"  };
+            CurrentConditions = new CurrentConditionsModel { ApparentTemperature = "18", ApparentTemperatureUnit =" C", Temperature = "15", TemperatureUnit = " C", ShortPhrase = "Overwegend bewolkt", WindDirection= "zzo", WindSpeed = "50", WindSpeedUnit ="km/u", GustSpeed = "56", GustSpeedUnit = "km/u", Precip1hr = "10", Precip1hrUnit = "mm/h", UpdatedDateTime = DateTime.Now };
             HourlyModels = new ObservableCollection<HourlyModel>(){
                 new HourlyModel { },
                 new HourlyModel { },

@@ -136,6 +136,33 @@ namespace ClubCloud.Afhangen.UILogic.Services
             return reserveringen;
         }
 
+        public async Task<List<Reservering>> GetReserveringByDateAsync(Guid verenigingId, DateTime date)
+        {
+            List<Reservering> reserveringen = new List<Reservering>();
+            ObservableCollection<ClubCloudService.ClubCloud_Reservering> ccreserveringen = await client.GetReserveringenByDateAsync("00000000", verenigingId, date, false);
+
+            foreach (ClubCloud_Reservering ccreservering in ccreserveringen)
+            {
+                reserveringen.Add(new Reservering
+                {
+                    BaanId = ccreservering.BaanId,
+                    Datum = ccreservering.Datum,
+                    Duur = ccreservering.Duur,
+                    Final = ccreservering.Final,
+                    Id = ccreservering.Id,
+                    BeginTijd = ccreservering.Tijd,
+                    EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
+                    Soort = ccreservering.Soort,
+                    Spelers = new ObservableCollection<Speler>{
+            new  Speler{ Id = ccreservering.Gebruiker_Een.Value},
+            new  Speler{ Id = ccreservering.Gebruiker_Twee.Value},
+            new  Speler{ Id = ccreservering.Gebruiker_Drie.Value},
+            new  Speler{ Id = ccreservering.Gebruiker_Vier.Value},
+                }
+                });
+            }
+            return reserveringen;
+        }
 
         public async Task<List<Reservering>> GetReserveringenAsync(Guid verenigingId)
         {

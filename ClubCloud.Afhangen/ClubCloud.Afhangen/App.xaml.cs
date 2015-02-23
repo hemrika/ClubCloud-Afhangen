@@ -78,6 +78,7 @@
             //await Task.Delay(2000);
             if (locationService.GetIsInternetConnected())
             {
+                await Task.Delay(2000);
                 Vereniging vereniging = null;
                 object VerenigingsId;
                 VerenigingRepository verenigingRepository = (VerenigingRepository)_container.Resolve<IVerenigingRepository>();

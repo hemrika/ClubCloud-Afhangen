@@ -126,5 +126,13 @@ namespace ClubCloud.Afhangen.UILogic.Models
         public int? UVIndex { get; set; }
 
         public byte[] UVIcon { get; set; }
+
+        public string Precip1hr { get; set; }
+
+        public string Precip1hrUnit { get; set; }
+
+        public string RelativeHumidity { get; set; }
+
+        public string WindDegree { get; set; }
     }
 }

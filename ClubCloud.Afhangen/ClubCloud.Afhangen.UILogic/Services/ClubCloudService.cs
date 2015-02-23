@@ -6719,6 +6719,7 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="Days", Namespace="http://schemas.datacontract.org/2004/07/ClubCloud.Model")]
     public enum Days : int {
         
@@ -6756,7 +6757,10 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetBaanSchemaByVerenigingId", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetBaanSchemaByVerenigingIdResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema>> GetBaanSchemaByVerenigingIdAsync(string bondsnummer, System.Guid verenigingId, bool refresh);
-        
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://clubcloud.nl/ClubCloudAfhangen/GetBaanSchemaByDate", ReplyAction = "http://clubcloud.nl/ClubCloudAfhangen/GetBaanSchemaByDateResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema>> GetBaanSchemaByDateAsync(string bondsnummer, System.Guid verenigingId, DateTime date, bool refresh);
+
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetBanenByAccommodatieId", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetBanenByAccommodatieIdResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan>> GetBanenByAccommodatieIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid accommodatieId, bool refresh);
         
@@ -6780,6 +6784,9 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringByReserveringId", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringByReserveringIdResponse")]
         System.Threading.Tasks.Task<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering> GetReserveringByReserveringIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid reserveringId, bool refresh);
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringenByDate", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringenByDateResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering>> GetReserveringenByDateAsync(string bondsnummer, System.Guid verenigingId, DateTime date, bool refresh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringenByBaanId", ReplyAction="http://clubcloud.nl/ClubCloudAfhangen/GetReserveringenByBaanIdResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering>> GetReserveringenByBaanIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid baanId, bool refresh);
@@ -6878,7 +6885,12 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema>> GetBaanSchemaByVerenigingIdAsync(string bondsnummer, System.Guid verenigingId, bool refresh) {
             return base.Channel.GetBaanSchemaByVerenigingIdAsync(bondsnummer, verenigingId, refresh);
         }
-        
+
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baanschema>> GetBaanSchemaByDateAsync(string bondsnummer, System.Guid verenigingId, DateTime date, bool refresh)
+        {
+            return base.Channel.GetBaanSchemaByDateAsync(bondsnummer, verenigingId, date, refresh);
+        }
+
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Baan>> GetBanenByAccommodatieIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid accommodatieId, bool refresh) {
             return base.Channel.GetBanenByAccommodatieIdAsync(bondsnummer, verenigingId, accommodatieId, refresh);
         }
@@ -6910,7 +6922,12 @@ namespace ClubCloud.Afhangen.UILogic.ClubCloudService {
         public System.Threading.Tasks.Task<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering> GetReserveringByReserveringIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid reserveringId, bool refresh) {
             return base.Channel.GetReserveringByReserveringIdAsync(bondsnummer, verenigingId, reserveringId, refresh);
         }
-        
+
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering>> GetReserveringenByDateAsync(string bondsnummer, System.Guid verenigingId,DateTime date, bool refresh)
+        {
+            return base.Channel.GetReserveringenByDateAsync(bondsnummer, verenigingId, date, refresh);
+        }
+
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<ClubCloud.Afhangen.UILogic.ClubCloudService.ClubCloud_Reservering>> GetReserveringenByBaanIdAsync(string bondsnummer, System.Guid verenigingId, System.Guid baanId, bool refresh) {
             return base.Channel.GetReserveringenByBaanIdAsync(bondsnummer, verenigingId, baanId, refresh);
         }

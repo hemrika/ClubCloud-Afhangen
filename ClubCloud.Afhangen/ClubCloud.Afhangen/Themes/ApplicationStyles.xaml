@@ -6,8 +6,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Converters/ConverterResources.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-
     <!--    -->
 
     <ResourceDictionary.ThemeDictionaries>
@@ -26,6 +24,14 @@
             <SolidColorBrush x:Key="SettingsFlyoutBackgroundThemeBrush" Color="White" />
             <SolidColorBrush x:Key="ApplicationFlyoutBorderBrush" Color="{StaticResource SystemColorWindowTextColor}" />
             <SolidColorBrush x:Key="ClubCloudHeaderBackground" Color="{StaticResource AccentColor1}" />
+
+            <SolidColorBrush x:Key="BackButtonForegroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="BackButtonPressedForegroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="BackButtonPointerOverForegroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="BackButtonBackgroundThemeBrush" Color="Transparent" />
+            <SolidColorBrush x:Key="BackButtonDisabledForegroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="BackButtonPointerOverBackgroundThemeBrush" Color="White" />
+            <SolidColorBrush x:Key="BackButtonEllipseStrokeThemeBrush" Color="White" />
         </ResourceDictionary>
 
     </ResourceDictionary.ThemeDictionaries>
@@ -55,7 +61,7 @@
     </Style>
 
     <Style x:Key="ClubCloudNavigationBackButtonNormalStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Foreground" Value="{ThemeResource AppBarItemForegroundThemeBrush}" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
@@ -70,10 +76,10 @@
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Ellipse" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemPointerOverBackgroundThemeBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -86,7 +92,7 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemForegroundThemeBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemPressedForegroundThemeBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -117,15 +123,23 @@
                         </VisualStateManager.VisualStateGroups>
                         <Grid Width="82" Height="82">
                             <Ellipse x:Name="Ellipse"
-                                     Fill="White"
-                                     Stroke="White"
-                                     StrokeThickness="2"
-                                     UseLayoutRounding="False" />
+                                     Fill="{ThemeResource AppBarItemBackgroundThemeBrush}"
+                                     Stroke="{ThemeResource BackButtonEllipseStrokeThemeBrush}"
+                                     StrokeThickness="6"
+                                     UseLayoutRounding="True" />
                             <ContentPresenter x:Name="Content"
-                                              HorizontalAlignment="Stretch"
-                                              VerticalAlignment="Stretch"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
                                               Foreground="{TemplateBinding Foreground}">
-                                <PathIcon Data="F1 M 17.4126,18L 24.0752,11L 17.6558,11L 8.77931,20.4678L 8.77931,20.5322L 17.6558,30L 24.0752,30L 17.4126,23L 32,23L 32,18L 17.4126,18 Z " />
+                                <PathIcon Width="41"
+                                          Height="41"
+                                          Data="F1 M 17.4126,18L 24.0752,11L 17.6558,11L 8.77931,20.4678L 8.77931,20.5322L 17.6558,30L 24.0752,30L 17.4126,23L 32,23L 32,18L 17.4126,18 Z "
+                                          Foreground="White"
+                                          RenderTransformOrigin="0.5,0.5">
+                                    <PathIcon.RenderTransform>
+                                        <CompositeTransform ScaleX="2" ScaleY="2" />
+                                    </PathIcon.RenderTransform>
+                                </PathIcon>
                             </ContentPresenter>
                         </Grid>
                         <Rectangle x:Name="FocusVisualWhite"

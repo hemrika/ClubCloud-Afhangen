@@ -5,6 +5,7 @@
                             xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
                             xmlns:Infrastructure="using:Microsoft.Practices.Prism.StoreApps"
                             xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+                            xmlns:Schedule="using:Syncfusion.UI.Xaml.Schedule"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:designViewModels="using:ClubCloud.Afhangen.DesignViewModels"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,7 +14,7 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="BaanschemaPage"
                             x:Name="Baanschema"
-                            d:DataContext="{d:DesignInstance designViewModels:MainPageDesignViewModel,
+                            d:DataContext="{d:DesignInstance designViewModels:BaanschemaPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
@@ -60,5 +61,123 @@
                        Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
                        Text="{StaticResource AppName}" />
         </Grid>
+        <Schedule:SfSchedule x:Uid="BanenSchema"
+                             x:Name="BanenSchema"
+                             Grid.Row="1"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             AllowEditing="False"
+                             CurrentTimeIndicatorVisibility="Visible"
+                             DayHeaderOrder="OrderByResource"
+                             DayViewColumnCount="5"
+                             DayViewVerticalLineStroke="Blue"
+                             EnableAutoFormat="True"
+                             ItemsSource="{Binding Reserveringen,
+                                                   Mode=TwoWay,
+                                                   UpdateSourceTrigger=Default}"
+                             MajorTickTimeFormat="HHHH:00"
+                             MinorTickTimeFormat="HHHH:30"
+                             Resource="Banen"
+                             ScheduleResourceTypeCollection="{Binding Banen,
+                                                                      Mode=TwoWay,
+                                                                      UpdateSourceTrigger=Default}"
+                             ScheduleType="Day"
+                             ShowAllDay="False"
+                             ShowNonWorkingHours="False"
+                             TimeInterval="ThirtyMin"
+                             TimeMode="TwentyFourHours"
+                             WorkEndHour="{Binding Afhang.BaanEinde.Hours}"
+                             WorkStartHour="{Binding Afhang.BaanBegin.Hours}">
+            <Schedule:SfSchedule.AppointmentMapping>
+                <Schedule:ScheduleAppointmentMapping EndTimeMapping="EndTime"
+                                                     LocationMapping="Location"
+                                                     ReadOnlyMapping="ReadOnly"
+                                                     ResourceCollectionMapping="ResourceCollection"
+                                                     StartTimeMapping="StartTime"
+                                                     StatusMapping="Status"
+                                                     SubjectMapping="Subject" />
+
+            </Schedule:SfSchedule.AppointmentMapping>
+            <Schedule:SfSchedule.AppointmentTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <SolidColorBrush Opacity="1.0" Color="{Binding Status, Converter={StaticResource ReserveringStatusConverter}, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.50*" />
+                                <RowDefinition Height="0.50*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Segoe UI"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="Black"
+                                       Text="{Binding Subject,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=Default}" />
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI"
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Text="{Binding StartTime,
+                                                          Converter={StaticResource SpeelTijdConverter},
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=Default}"
+                                           TextWrapping="NoWrap" />
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI"
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Text=" - "
+                                           TextWrapping="NoWrap" />
+
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI"
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Text="{Binding EndTime,
+                                                          Converter={StaticResource SpeelTijdConverter},
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=Default}"
+                                           TextWrapping="NoWrap" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </Schedule:SfSchedule.AppointmentTemplate>
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="VisibleDatesChanging">
+                    <Core:InvokeCommandAction Command="{Binding VisibleDatesChangingCommand}" />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Schedule:SfSchedule>
     </Grid>
 </prism:VisualStateAwarePage>

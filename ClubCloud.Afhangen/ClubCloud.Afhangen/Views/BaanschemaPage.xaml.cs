@@ -6,6 +6,7 @@ namespace ClubCloud.Afhangen.Views
     {
         public BaanschemaPage()
         {
+            
             this.InitializeComponent();
         }
     }

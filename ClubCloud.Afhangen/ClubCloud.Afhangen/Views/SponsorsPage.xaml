@@ -38,7 +38,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton"
-                    Margin="20,59,20,0"
+                    Width="140"
+                    Height="140"
                     VerticalAlignment="Top"
                     AutomationProperties.AutomationId="BackButton"
                     AutomationProperties.ItemType="Navigation Button"

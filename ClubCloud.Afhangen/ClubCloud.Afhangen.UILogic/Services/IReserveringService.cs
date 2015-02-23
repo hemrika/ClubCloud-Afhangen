@@ -17,6 +17,8 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
         Task<List<Reservering>> GetReserveringByBaanAsync(Guid verenigingId, Guid baanId);
 
+        Task<List<Reservering>> GetReserveringByDateAsync(Guid verenigingId, DateTime date);
+
         Task<List<Reservering>> GetReserveringenAsync(Guid verenigingId);
 
         Task<List<Reservering>> GetReserveringBySpelerAsync(Guid guid1, Guid guid2);

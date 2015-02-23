@@ -31,81 +31,160 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             _eventAggregator = eventAggregator;
         }
 
-        public async Task<List<Baan>> GetBanenAsync(Guid verenigingId)
+        public async Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, DateTime date)
         {
-            if(_cachedBanen == null)
+            if (_cachedBanen == null)
             {
                 _cachedBaanschema = new List<Baanschema>();
                 _cachedBanen = new List<Baan>();
                 _cachedBaanblokken = new List<Baanblok>();
                 _cachedBaansoorten = new List<Baansoort>();
                 _cachedBaantypes = new List<Baantype>();
+            }
+            ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
 
-                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
-                
-                foreach (Baan baan in banen)
+            foreach (Baan baan in banen)
+            {
+                if (!_cachedBanen.Any(b => b.Id == baan.Id))
+                    _cachedBanen.Add(baan);
+            }
+
+            ObservableCollection<Baanschema> baanschemas = await _baanService.GetBaanschemaByDateAsync(verenigingId, date);
+
+            foreach (Baanschema baanschema in baanschemas)
+            {
+                if (!_cachedBaanschema.Any(b => b.Id == baanschema.Id))
+                    _cachedBaanschema.Add(baanschema);
+            }
+
+            foreach (Baan baan in _cachedBanen)
+            {
+                ObservableCollection<Baanblok> baanblokken = await _baanService.GetBaanblokkenAsync(verenigingId, baan.AccommodatieId);
+
+                foreach (Baanblok baanblok in baanblokken)
                 {
-                    if (!_cachedBanen.Any(b => b.Id == baan.Id))
-                        _cachedBanen.Add(baan);
+                    if (!_cachedBaanblokken.Any(b => b.Id == baanblok.Id))
+                    {
+                        _cachedBaanblokken.Add(baanblok);
+
+                        Baansoort baansoort = null;
+                        if (baanblok.BaansoortId.HasValue)
+                            baansoort = await _baanService.GetBaansoortAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaansoortId.Value);
+
+                        if (!_cachedBaansoorten.Any(b => b.Id == baansoort.Id))
+                            _cachedBaansoorten.Add(baansoort);
+
+                        Baantype baantype = null;
+                        if (baanblok.BaantypeId.HasValue)
+                            baantype = await _baanService.GetBaantypeAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaantypeId.Value);
+
+                        if (!_cachedBaantypes.Any(b => b.Id == baantype.Id))
+                            _cachedBaantypes.Add(baantype);
+                    }
                 }
 
-                ObservableCollection<Baanschema> baanschemas = await _baanService.GetBaanschemaAsync(verenigingId);
+                Baanblok blok = _cachedBaanblokken.SingleOrDefault(b => b.Id == baan.BaanblokId);
 
-                foreach (Baanschema baanschema in baanschemas)
+                if (blok != null)
                 {
-                    if (!_cachedBaanschema.Any(b => b.Id == baanschema.Id))
-                        _cachedBaanschema.Add(baanschema);
-                }
+                    Baantype type = _cachedBaantypes.SingleOrDefault(b => b.Id == blok.BaantypeId.Value);
+                    Baansoort soort = _cachedBaansoorten.SingleOrDefault(b => b.Id == blok.BaansoortId.Value);
 
-                foreach (Baan baan in _cachedBanen)
-                {
-                    ObservableCollection<Baanblok> baanblokken = await _baanService.GetBaanblokkenAsync(verenigingId, baan.AccommodatieId);
+                    baan.Locatie = blok.Locatie;
+                    baan.Verlichting = blok.Verlichting;
 
-                    foreach (Baanblok baanblok in baanblokken)
-                    {
-                        if (!_cachedBaanblokken.Any(b => b.Id == baanblok.Id))
-                        {
-                            _cachedBaanblokken.Add(baanblok);
+                    if (type != null)
+                        baan.Type = type.Naam;
 
-                            Baansoort baansoort = null;
-                            if (baanblok.BaansoortId.HasValue)
-                                baansoort = await _baanService.GetBaansoortAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaansoortId.Value);
-
-                            if (!_cachedBaansoorten.Any(b => b.Id == baansoort.Id))
-                                _cachedBaansoorten.Add(baansoort);
-
-                            Baantype baantype = null;
-                            if (baanblok.BaantypeId.HasValue)
-                                baantype = await _baanService.GetBaantypeAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaantypeId.Value);
-
-                            if (!_cachedBaantypes.Any(b => b.Id == baantype.Id))
-                                _cachedBaantypes.Add(baantype);
-                        }
-                    }
-
-                    Baanblok blok = _cachedBaanblokken.SingleOrDefault(b => b.Id == baan.BaanblokId);
-
-                    if (blok != null)
-                    {
-                        Baantype type = _cachedBaantypes.SingleOrDefault(b => b.Id == blok.BaantypeId.Value);
-                        Baansoort soort = _cachedBaansoorten.SingleOrDefault(b => b.Id == blok.BaansoortId.Value);
-
-                        baan.Locatie = blok.Locatie;
-                        baan.Verlichting = blok.Verlichting;
-
-                        if (type != null)
-                            baan.Type = type.Naam;
-
-                        if (soort != null)
-                            baan.Soort = soort.Naam;
-                    }
+                    if (soort != null)
+                        baan.Soort = soort.Naam;
                 }
             }
+            if (_cachedBaanschema.Count > 0)
+            {
+                var beschikbaar = _cachedBaanschema.Where(s => s.Dag.HasFlag(date.DayOfWeek) && s.DagBegin <= DateTime.Now.TimeOfDay && s.DagEinde >= DateTime.Now.TimeOfDay).Select(s => s.BaanId);
+                return _cachedBanen.Where(b => beschikbaar.Contains(b.Id)).OrderBy(b => b.Nummer).ToList();
+            }
+
+            return _cachedBanen;
+
+        }
+
+        public async Task<List<Baan>> GetBanenAsync(Guid verenigingId)
+        {
+            if (_cachedBanen == null)
+            {
+                _cachedBaanschema = new List<Baanschema>();
+                _cachedBanen = new List<Baan>();
+                _cachedBaanblokken = new List<Baanblok>();
+                _cachedBaansoorten = new List<Baansoort>();
+                _cachedBaantypes = new List<Baantype>();
+            }
+            ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+
+            foreach (Baan baan in banen)
+            {
+                if (!_cachedBanen.Any(b => b.Id == baan.Id))
+                    _cachedBanen.Add(baan);
+            }
+
+            ObservableCollection<Baanschema> baanschemas = await _baanService.GetBaanschemaAsync(verenigingId);
+
+            foreach (Baanschema baanschema in baanschemas)
+            {
+                if (!_cachedBaanschema.Any(b => b.Id == baanschema.Id))
+                    _cachedBaanschema.Add(baanschema);
+            }
+
+            foreach (Baan baan in _cachedBanen)
+            {
+                ObservableCollection<Baanblok> baanblokken = await _baanService.GetBaanblokkenAsync(verenigingId, baan.AccommodatieId);
+
+                foreach (Baanblok baanblok in baanblokken)
+                {
+                    if (!_cachedBaanblokken.Any(b => b.Id == baanblok.Id))
+                    {
+                        _cachedBaanblokken.Add(baanblok);
+
+                        Baansoort baansoort = null;
+                        if (baanblok.BaansoortId.HasValue)
+                            baansoort = await _baanService.GetBaansoortAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaansoortId.Value);
+
+                        if (!_cachedBaansoorten.Any(b => b.Id == baansoort.Id))
+                            _cachedBaansoorten.Add(baansoort);
+
+                        Baantype baantype = null;
+                        if (baanblok.BaantypeId.HasValue)
+                            baantype = await _baanService.GetBaantypeAsync(verenigingId, baanblok.AccommodatieId.Value, baanblok.BaantypeId.Value);
+
+                        if (!_cachedBaantypes.Any(b => b.Id == baantype.Id))
+                            _cachedBaantypes.Add(baantype);
+                    }
+                }
+
+                Baanblok blok = _cachedBaanblokken.SingleOrDefault(b => b.Id == baan.BaanblokId);
+
+                if (blok != null)
+                {
+                    Baantype type = _cachedBaantypes.SingleOrDefault(b => b.Id == blok.BaantypeId.Value);
+                    Baansoort soort = _cachedBaansoorten.SingleOrDefault(b => b.Id == blok.BaansoortId.Value);
+
+                    baan.Locatie = blok.Locatie;
+                    baan.Verlichting = blok.Verlichting;
+
+                    if (type != null)
+                        baan.Type = type.Naam;
+
+                    if (soort != null)
+                        baan.Soort = soort.Naam;
+                }
+            }
+
 
             if (_cachedBaanschema.Count > 0)
             {
                 var beschikbaar = _cachedBaanschema.Where(s => s.Dag.HasFlag(DateTime.Now.DayOfWeek) && s.DagBegin <= DateTime.Now.TimeOfDay && s.DagEinde >= DateTime.Now.TimeOfDay).Select(s => s.BaanId);
-                return _cachedBanen.Where(b => beschikbaar.Contains(b.Id)).ToList();
+                return _cachedBanen.Where(b => beschikbaar.Contains(b.Id)).OrderBy(b => b.Nummer).ToList();
             }
 
             return _cachedBanen;

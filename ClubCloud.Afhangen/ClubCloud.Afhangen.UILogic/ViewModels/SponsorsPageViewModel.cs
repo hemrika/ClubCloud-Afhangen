@@ -86,11 +86,6 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             get { return _index; }
             set { SetProperty(ref _index, value); }
         }
-        public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
-        {
-            _navigationService.Navigate("Main", null);
-            //base.OnNavigatedFrom(viewModelState, suspending);
-        }
 
         public async void UpdateSponsorsAsync(object notUsed)
         {
@@ -109,6 +104,12 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 new Sponsor{ Id = Guid.NewGuid(), Naam = "Er zijn momenteel geen sponsoren opgegeven.", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
             };
             }
+        }
+
+        public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
+        {
+            _navigationService.Navigate("Main", null);
+            base.OnNavigatedFrom(viewModelState, suspending);
         }
 
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)

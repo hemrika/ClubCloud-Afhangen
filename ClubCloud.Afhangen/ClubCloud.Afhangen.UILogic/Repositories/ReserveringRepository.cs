@@ -137,6 +137,28 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             return _cachedReserveringen;
         }
 
+
+        public async Task<ObservableCollection<Reservering>> GetReserveringenByDateAsync(DateTime date)
+        {
+            if (_cachedReserveringen == null)
+                _cachedReserveringen = new ObservableCollection<Reservering>();
+
+            Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
+            List<Reservering> reserveringen = await _reserveringService.GetReserveringByDateAsync(vereniging.Id, date);
+
+            foreach (Reservering reservering in reserveringen)
+            {
+                if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
+                {
+                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                    if(!_cachedReserveringen.Any(r => r.Id == reservering.Id))
+                        _cachedReserveringen.Add(reservering);
+                }
+
+            }
+
+            return new ObservableCollection<Reservering>(_cachedReserveringen.Where(r => r.BeginTijd >= date.TimeOfDay || r.EindTijd >= date.TimeOfDay));
+        }
         /// <summary>
         /// 
         /// </summary>

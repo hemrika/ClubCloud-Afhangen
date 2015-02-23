@@ -20,11 +20,21 @@ namespace ClubCloud.Afhangen.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            TimeSpan tijd = DateTime.Now.TimeOfDay;
 
-            if (value != null && value is TimeSpan)
+            TimeSpan tijd = DateTime.Now.TimeOfDay;
+            if (value != null)
             {
-                tijd = (TimeSpan)value;
+
+                if (value is TimeSpan)
+                {
+                    tijd = (TimeSpan)value;
+
+
+                }
+                if (value is DateTime)
+                {
+                    tijd = ((DateTime)value).TimeOfDay;
+                }
 
                 return string.Format("{0:D2}:{1:D2}", tijd.Hours, tijd.Minutes);
             }

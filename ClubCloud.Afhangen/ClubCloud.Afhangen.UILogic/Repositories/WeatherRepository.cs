@@ -107,11 +107,9 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             }
 
                         }
-
                         
-                        CurrentConditionsModel str1 = weatherText;
                         Double num = WeatherRepository.MathRound(this._currentConditions.Temperature.Metric.NumericValue);
-                        str1.Temperature = num.ToString();
+                        weatherText.Temperature = num.ToString();
                         weatherText.TemperatureUnit = "\u00B0C" + this._currentConditions.Temperature.Metric.Unit;
 
                         if (getDetails)
@@ -129,39 +127,45 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             }
 
                             weatherText.UV = this._currentConditions.UVIndexText;
-                            weatherText.WindDirection = this._currentConditions.Wind.Direction.Localized;
+                            
+                            
                             weatherText.IsDayTime = this._currentConditions.IsDayTime;
 
-                            CurrentConditionsModel currentConditionsModel4 = weatherText;
                             Double num1 = WeatherRepository.MathRound(this._currentConditions.WindGust.Speed.Metric.NumericValue);//.Metric.NumericValue);
-                            currentConditionsModel4.GustSpeed = num1.ToString();
+                            weatherText.GustSpeed = num1.ToString();
                             weatherText.GustSpeedUnit = this._currentConditions.WindGust.Speed.Metric.Unit;//.Metric.Unit;
-                            CurrentConditionsModel str5 = weatherText;
 
                             Double? value1 = this._currentConditions.Pressure.Metric.Value;
-                            str5.Pressure = value1.ToString();
+                            weatherText.Pressure = value1.ToString();
                             weatherText.PressureUnit = this._currentConditions.Pressure.Metric.Unit;
-                            CurrentConditionsModel currentConditionsModel5 = weatherText;
 
                             Double num2 = WeatherRepository.MathRound(this._currentConditions.ApparentTemperature.Metric.NumericValue);
-                            currentConditionsModel5.ApparentTemperature = num2.ToString();
+                            weatherText.ApparentTemperature = num2.ToString();
                             weatherText.ApparentTemperatureUnit = this._currentConditions.ApparentTemperature.Metric.Unit;
-                            CurrentConditionsModel str6 = weatherText;
 
                             Double num3 = WeatherRepository.MathRound(this._currentConditions.Visibility.Metric.NumericValue);
-                            str6.Visibility = num3.ToString();
+                            weatherText.Visibility = num3.ToString();
                             weatherText.VisibilityUnit = this._currentConditions.Visibility.Metric.Unit;
-                            CurrentConditionsModel currentConditionsModel6 = weatherText;
 
                             Double num4 = WeatherRepository.MathRound(this._currentConditions.Temperature.Metric.NumericValue);
-                            currentConditionsModel6.Temperature = num4.ToString();
+                            weatherText.Temperature = num4.ToString();
                             weatherText.TemperatureUnit = this._currentConditions.Temperature.Metric.Unit;
-                            CurrentConditionsModel str7 = weatherText;
 
-                            Double num5 = WeatherRepository.MathRound(this._currentConditions.Wind.Speed.Metric.NumericValue);//.Metric.NumericValue);
-                            str7.WindSpeed = num5.ToString();
-                            weatherText.WindSpeedUnit = this._currentConditions.Wind.Speed.Metric.Unit;//.Metric.Unit;
+                            Double num5 = WeatherRepository.MathRound(this._currentConditions.Wind.Speed.Metric.NumericValue);
+                            weatherText.WindSpeed = num5.ToString();
+                            weatherText.WindSpeedUnit = this._currentConditions.Wind.Speed.Metric.Unit;
                             weatherText.UpdatedDateTime = this._currentConditions.UpDateTime;
+
+                            Double num6 = WeatherRepository.MathRound(this._currentConditions.Precip1hr.Metric.NumericValue);
+                            weatherText.Precip1hr = num6.ToString();
+                            weatherText.Precip1hrUnit = this._currentConditions.Precip1hr.Metric.Unit;
+
+                            Double num7 = WeatherRepository.MathRound(this._currentConditions.RelativeHumidity.Value);
+                            weatherText.RelativeHumidity = num7.ToString();
+
+                            Double num8 = WeatherRepository.MathRound(this._currentConditions.Wind.Direction.Degrees.Value);
+                            weatherText.WindDegree = num8.ToString();
+                            weatherText.WindDirection = this._currentConditions.Wind.Direction.Localized;
                         }
                     }
                     catch (Exception exception)

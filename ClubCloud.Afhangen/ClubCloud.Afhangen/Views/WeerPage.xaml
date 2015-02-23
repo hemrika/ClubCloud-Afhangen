@@ -2,6 +2,7 @@
                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                             xmlns:Behaviors="using:ClubCloud.Afhangen.Behaviors"
+                            xmlns:Charts="using:Syncfusion.UI.Xaml.Charts"
                             xmlns:Controls="using:ClubCloud.Afhangen.Controls"
                             xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
                             xmlns:Infrastructure="using:Microsoft.Practices.Prism.StoreApps"
@@ -14,7 +15,7 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="WeerPage"
                             x:Name="Weer"
-                            d:DataContext="{d:DesignInstance designViewModels:MainPageDesignViewModel,
+                            d:DataContext="{d:DesignInstance designViewModels:WeerPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
@@ -61,5 +62,32 @@
                        Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
                        Text="{StaticResource AppName}" />
         </Grid>
+        <Charts:SfChart Grid.Row="1"
+                        Width="792"
+                        Height="266"
+                        Margin="10,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+            <Charts:SfChart.PrimaryAxis>
+                <Charts:DateTimeAxis Name="Primary"
+                                     Header="Uur"
+                                     Interval="1"
+                                     IntervalType="Auto" />
+            </Charts:SfChart.PrimaryAxis>
+            <Charts:SfChart.SecondaryAxis>
+                <Charts:NumericalAxis Header="mm"
+                                      Interval="1"
+                                      Maximum="40"
+                                      Minimum="-20"
+                                      RangePadding="Round" />
+            </Charts:SfChart.SecondaryAxis>
+            <Charts:ColumnSeries HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 ItemsSource="{Binding HourlyModels}"
+                                 Label="Neerslag"
+                                 XBindingPath="Date"
+                                 YBindingPath="PredictedTemperature" />
+
+        </Charts:SfChart>
     </Grid>
 </prism:VisualStateAwarePage>

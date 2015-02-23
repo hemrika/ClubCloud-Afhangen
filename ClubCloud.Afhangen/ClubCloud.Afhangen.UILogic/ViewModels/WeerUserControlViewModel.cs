@@ -35,8 +35,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private ObservableCollection<LocationModel> _locationModels;
         private CurrentConditionsModel _currentConditionsModel;
         private ObservableCollection<HourlyModel> _hourlyModels;
-        private StorageFile _storageFile;
-        public Foto _weerIcoon;
+        //private StorageFile _storageFile;
+        //public Foto _weerIcoon;
 
         public WeerUserControlViewModel(IWeatherRepository weatherRepository, ILocationRepository locationRepository, IVerenigingRepository verenigingRepository, IAlertRepository alertRepository, INavigationService navigationService, IAlertMessageService alertMessageService,
                                          IEventAggregator eventAggregator)
@@ -72,25 +72,6 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         }
 
-        /*
-        public byte[] WeerIcoon
-        {
-            get 
-            {
-                if (_currentConditionsModel == null && _weerIcoon == null) return new byte[0];
-
-                Task.Run(async () => await UpdateWeerIcoonAsync(CurrentConditions));
-
-                
-                while(_weerIcoon.ContentData == null) { }
-
-                return _weerIcoon.ContentData;
-            }
-
-            //private set { SetProperty(ref _weerIcoon.ContentData, value); }
-        }
-        */
-
         public ObservableCollection<HourlyModel> HourlyModels
         {
             get {
@@ -109,7 +90,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public async void UpdateWeatherAsync(bool update)
         {
-            _weerIcoon = new Foto();
+            //_weerIcoon = new Foto();
             await UpdateWeatherInfoAsync(update);
             
         }
