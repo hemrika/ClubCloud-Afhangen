@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfTreeMap.WinRT</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.UI.Xaml.TreeMap.SummaryBase">
+            <summary>
+            This class is an abstract class that defines the necessary functionality to do tablix calculations.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeMap.SummaryBase.Combine(System.Object)">
+            <summary>
+            Use this method to combine a value from an object in the Tablix Grid's data source with the accumulation values held in this instance.
+            </summary>
+            <param name="other">The value to be included in the compuation.</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeMap.SummaryBase.Reset">
+            <summary>
+            Resets all internal values so the calculations begins anew.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeMap.SummaryBase.GetResult">
+            <summary>
+            Returns the calculation value.
+            </summary>
+            <returns>The calculation value.</returns>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeMap.SummaryBase.GetInstance">
+            <summary>
+            Provides a new instance of this SummaryBase object.
+            </summary>
+            <returns>New instance of this SummaryBase.</returns>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeMap.SummaryBase.CombineSummary(Syncfusion.UI.Xaml.TreeMap.SummaryBase)">
+            <summary>
+            Use this method to combine another SummaryBase object with the accumulation values held in this instance.
+            </summary>
+            <param name="other">The other SummaryBase object.</param>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.TreeMap.TreeMapEngine.ItemProperties">
+            <summary>
+            Gets a PropertyInfo collection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.TreeMap.SfTreeMap.EnableDrillDownProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for EnableDrillDown.  This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.TreeMap.SfTreeMap.EnableDrillDown">
+            <summary>
+            Gets or sets a value to indicate whether the drill down feature should be enabled.
+            </summary>
+        </member>
+    </members>
+</doc>

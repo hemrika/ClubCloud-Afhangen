@@ -1,0 +1,2525 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfReportViewer.WinRT</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.RDL.DOM.BackgroundGradientType">
+            <summary>
+            Specifies the type of background gradient in Gauge.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.Shape">
+            <summary>
+            Specifies the Shape of the Tick Mark in Gauge.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.Orientation">
+            <summary>
+            Specifies the orientation of Gauge.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Orientation.Auto">
+            <summary>
+            Default value. The Orientation of the gauge is Automatic.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Orientation.Horizontal">
+            <summary>
+            The Orientation of the gauge is Horizontal.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Orientation.Vertical">
+            <summary>
+            The Orientation of the gauge is Vertical.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.Formula">
+            <summary>
+            Specifies the type of calculation to perform on the values, if more than one is present.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.None">
+            <summary>
+            Default value. Indicates the last value is used.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Average">
+            <summary>
+            The type of calculation to perform on the values is Average.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Linear">
+            <summary>
+            The type of calculation to perform on the values is Linear.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Max">
+            <summary>
+            The type of calculation to perform on the values is Max.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Min">
+            <summary>
+            The type of calculation to perform on the values is Min.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Median">
+            <summary>
+            The type of calculation to perform on the values is Median.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.OpenClose">
+            <summary>
+            The type of calculation to perform on the values is OpenClose.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Percentile">
+            <summary>
+            The type of calculation to perform on the values is Percentile.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Variance">
+            <summary>
+            The type of calculation to perform on the values is Variance.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.RateOfChange">
+            <summary>
+            The type of calculation to perform on the values is RateOfChange.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Formula.Integral">
+            <summary>
+            The type of calculation to perform on the values is Integral.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.DataElementOutputGauge">
+            <summary>
+            Indicates whether the item should appear in a data rendering.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.DataElementOutputGauge.Output">
+            <summary>
+            Default. Indicates the item should appear in the output.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.DataElementOutputGauge.NoOutput">
+            <summary>
+            Indicates the item should not appear in the output.
+            </summary>       
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.RadialPointerType">
+            <summary>
+            Specifies the type of pointer.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.RadialPointerType.Needle">
+            <summary>
+            The pointer type is Needle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.RadialPointerType.Marker">
+            <summary>
+            The pointer type is Marker.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.RadialPointerType.Bar">
+            <summary>
+            The pointer type is Bar.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.NeedleStyleGauge">
+            <summary>
+            Specifies the style of the needle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.Triangular">
+            <summary>
+            The style of the needle is Triangular.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.Rectangular">
+            <summary>
+            The style of the needle is Rectangular.
+            </summary>      
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.TaperedWithTail">
+            <summary>
+            The style of the needle is TaperedWithTail.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.Tapered">
+            <summary>
+            The style of the needle is Tapered.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.ArrowWithTail">
+            <summary>
+            The style of the needle is ArrowWithTail.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.Arrow">
+            <summary>
+            The style of the needle is Arrow.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.StealthArrowWithTail">
+            <summary>
+            The style of the needle is StealthArrowWithTail.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.StealthArrow">
+            <summary>
+            The style of the needle is StealthArrow.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.TaperedWithStealthArrow">
+            <summary>
+            The style of the needle is TaperedWithStealthArrow.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.StealthArrowWithWideTail">
+            <summary>
+            The style of the needle is StealthArrowWithWideTail.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.NeedleStyleGauge.TaperedWithRoundedPoint">
+            <summary>
+            The style of the needle is TaperedWithRoundedPoint.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.LinearPointerType">
+            <summary>
+            Specifies the type of pointer.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.LinearPointerType.Marker">
+            <summary>
+            Default value. The type of pointer is Marker.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.LinearPointerType.Bar">
+            <summary>
+            The type of pointer is Bar.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.LinearPointerType.Thermometer">
+            <summary>
+            The type of pointer is Thermometer.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.BarStart">
+            <summary>
+            Indicates where the pointer will start if it is of type Bar.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.BarStart.ScaleStart">
+            <summary>
+            Default value. The pointer starts where the scale starts.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.BarStart.Zero">
+            <summary>
+            The pointer starts at zero.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.MarkerStyle">
+            <summary>
+            Specifies the type of marker.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Triangle">
+            <summary>
+            Default value. The marker type is triangle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Rectangle">
+            <summary>
+            The marker type is rectangle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Circle">
+            <summary>
+            The marker type is Circle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Diamond">
+            <summary>
+            The marker type is diamond.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Trapezoid">
+            <summary>
+            The marker type is trapezoid.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Star">
+            <summary>
+            The marker type is star.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Wedge">
+            <summary>
+            The marker type is wedge.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.Pentagon">
+            <summary>
+            The marker type is pentagon.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.MarkerStyle.None">
+            <summary>
+            No marker type.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.Placement">
+            <summary>
+            Determines where the pointer should be placed relative to the scale.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Placement.Inside">
+            <summary>
+            The pointer is placed inside.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Placement.Outside">
+            <summary>
+            Default value for linear gauge. The pointer is placed outside.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.Placement.Cross">
+            <summary>
+            Default value for radial gauge. The pointer is placed in cross.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.FrameStyle">
+            <summary>
+            Specifies the style of the frame.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameStyle.None">
+            <summary>
+            Default value. No frame style.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameStyle.Simple">
+            <summary>
+            The frame style is simple.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameStyle.Edged">
+            <summary>
+            The frame style is edged.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.DOM.FrameShape">
+            <summary>
+            Specifies the shape of the frame.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.Default">
+            <summary>
+            Default, Treated as Circular for radial gauges, Rectangular for linear gauges and gauge panels.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.Circular">
+            <summary>
+            The shape of the frame is circular.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.Rectangular">
+            <summary>
+            The shape of the frame is rectangular.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.RoundedRectangular">
+            <summary>
+            The shape of the frame is rounded rectangular.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.AutoShape">
+            <summary>
+            The shape of the frame is auto.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular1">
+            <summary>
+            The shape of the frame is CustomCircular1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular2">
+            <summary>
+            The shape of the frame is CustomCircular2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular3">
+            <summary>
+            The shape of the frame is CustomCircular3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular4">
+            <summary>
+            The shape of the frame is CustomCircular4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular5">
+            <summary>
+            The shape of the frame is CustomCircular5.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular6">
+            <summary>
+            The shape of the frame is CustomCircular6.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular7">
+            <summary>
+            The shape of the frame is CustomCircular7.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular8">
+            <summary>
+            The shape of the frame is CustomCircular8.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular9">
+            <summary>
+            The shape of the frame is CustomCircular9.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular10">
+            <summary>
+            The shape of the frame is CustomCircular10.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular11">
+            <summary>
+            The shape of the frame is CustomCircular11.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular12">
+            <summary>
+            The shape of the frame is CustomCircular12.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular13">
+            <summary>
+            The shape of the frame is CustomCircular13.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular14">
+            <summary>
+            The shape of the frame is CustomCircular14.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomCircular15">
+            <summary>
+            The shape of the frame is CustomCircular15.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularN1">
+            <summary>
+            The shape of the frame is CustomSemiCircularN1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularN2">
+            <summary>
+            The shape of the frame is CustomSemiCircularN2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularN3">
+            <summary>
+            The shape of the frame is CustomSemiCircularN3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularN4">
+            <summary>
+            The shape of the frame is CustomSemiCircularN4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularS1">
+            <summary>
+            The shape of the frame is CustomSemiCircularS1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularS2">
+            <summary>
+            The shape of the frame is CustomSemiCircularS2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularS3">
+            <summary>
+            The shape of the frame is CustomSemiCircularS3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularS4">
+            <summary>
+            The shape of the frame is CustomSemiCircularS4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularE1">
+            <summary>
+            The shape of the frame is CustomSemiCircularE1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularE2">
+            <summary>
+            The shape of the frame is CustomSemiCircularE2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularE3">
+            <summary>
+            The shape of the frame is CustomSemiCircularE3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularE4">
+            <summary>
+            The shape of the frame is CustomSemiCircularE4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularW1">
+            <summary>
+            The shape of the frame is CustomSemiCircularW1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularW2">
+            <summary>
+            The shape of the frame is CustomSemiCircularW2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularW3">
+            <summary>
+            The shape of the frame is CustomSemiCircularW3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomSemiCircularW4">
+            <summary>
+            The shape of the frame is CustomSemiCircularW4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNE1">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNE1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNE2">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNE2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNE3">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNE3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNE4">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNE4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNW1">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNW1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNW2">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNW2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNW3">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNW3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularNW4">
+            <summary>
+            The shape of the frame is CustomQuarterCircularNW4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSE1">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSE1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSE2">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSE2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSE3">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSE3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSE4">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSE4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSW1">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSW1.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSW2">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSW2.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSW3">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSW3.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.FrameShape.CustomQuarterCircularSW4">
+            <summary>
+            The shape of the frame is CustomQuarterCircularSW4.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.GlassEffect.None">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.GlassEffect.Simple">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedDark">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.Rounded">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedLight">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedWithAdditionalTop">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedWithWideIndentation">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.FlattenedWithIndentation">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.FlattenedWithWideIndentation">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedGlossyWithIndentation">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.CapStyle.RoundedWithIndentation">
+            <summary>
+            Rectangle Report Item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.ThermometerStyle.Standard">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.DOM.ThermometerStyle.Flask">
+            <summary>
+            Represents flask type.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ProcessingMode">
+            <summary>
+            Defines the support for RDL and RDLC in Reportviewer
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ProcessingMode.Remote">
+            <summary>
+            ProcessingMode If the Report is RDLC
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ProcessingMode.Local">
+            <summary>
+            ProcessingMode If the Report is RDL
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ExcelVersion">
+            <summary>
+            Defines supported excel version types.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExcelVersion.Excel97to2003">
+            <summary>
+            Represents excel version 97-2003
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExcelVersion.Excel2007">
+            <summary>
+            Represents excel version Excel2007
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExcelVersion.Excel2010">
+            <summary>
+            Represents excel version Excel2010
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExcelVersion.Excel2013">
+            <summary>
+            Represents excel version Excel2013
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.WordFormatType">
+            <summary>
+            Defines supported WordFormatType
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Doc">
+            <summary>
+            Microsoft Word file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Dot">
+            <summary>
+            Microsoft Word document template.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Docx">
+            <summary>
+            Microsoft Word 2007 file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2007">
+            <summary>
+            Microsoft Word 2007 file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2010">
+            <summary>
+            Microsoft Word 2010 file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2013">
+            <summary>
+            Microsoft Word 2013 file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2007Dotx">
+            <summary>
+            Microsoft Word 2007 Template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2010Dotx">
+            <summary>
+            Microsoft Word 2010 Template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2013Dotx">
+            <summary>
+            Microsoft Word 2013 Template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2007Docm">
+            <summary>
+            Microsoft Word 2007 macro enabled file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2010Docm">
+            <summary>
+            Microsoft Word 2010 macro enabled file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2013Docm">
+            <summary>
+            Microsoft Word 2013 macro enabled file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2007Dotm">
+            <summary>
+            Microsoft Word 2007 macro enabled template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2010Dotm">
+            <summary>
+            Microsoft Word 2010 macro enabled template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Word2013Dotm">
+            <summary>
+            Microsoft Word 2013 macro enabled template format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Rtf">
+            <summary>
+            Rtf format
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Txt">
+            <summary>
+            Text file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.EPub">
+            <summary>
+            E-book format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Html">
+            <summary>
+            Html format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Xml">
+            <summary>
+            Xml file format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WordFormatType.Automatic">
+            <summary>
+            Support all Format Types.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ExportMode">
+            <summary>
+            Defines the Export mode for the Report
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExportMode.Local">
+            <summary>
+            If export from Local 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.ExportMode.Server">
+            <summary>
+            If export from Server
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ExcelWriter">
+            <summary>
+            Exports the Report in Excel mode
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.WriterBase">
+            <summary>
+            Exports the Reports in different format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.LoadReport(System.IO.Stream)">
+            <summary>
+            Loads the report
+            </summary>
+            <param name="fileStream">The stream which contains the rdl contents</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.LoadSubreport(System.String,System.IO.Stream)">
+            <summary>
+            Loads the sub report
+            </summary>
+            <param name="report">The stream which contains the rdl contents</param>
+            <param name="reportName">Name of the report</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.LoadSubreport(System.String,System.IO.TextReader)">
+            <summary>
+            Loads the sub report
+            </summary>
+            <param name="report">The  text reader which contains the rdl contents</param>
+            <param name="reportName">Name of the report</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.GetDataSetNames">
+            <summary>
+            Returns the data set names
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.GetDataSources">
+             <summary>
+            Gets the Datasource information of the report
+             </summary>
+             <returns>Report Datasources</returns>
+             <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.SetDataSourceCredentials(Syncfusion.UI.Xaml.Reports.DataSourceCredentials[])">
+            <summary>
+            Sets Datasource credentials
+            </summary>
+            <param name="dataSourceCredentials">Array of Credential Informations</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.SetDataSourceCredentials(System.Collections.Generic.IEnumerable{Syncfusion.UI.Xaml.Reports.DataSourceCredentials})">
+            <summary>
+            Sets Datasource credentials
+            </summary>
+            <param name="dataSourceCredentials">collection of Credential Informations</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.GetParameters">
+            <summary>
+            Get the parameters
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WriterBase.SetParameters(System.Collections.Generic.IEnumerable{Syncfusion.UI.Xaml.Reports.ReportParameter})">
+            <summary>
+            Set the parameter for the report
+            </summary>
+            <param name="reportParameters"></param>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportPath">
+            <summary>
+            Gets or sets the report path (file name of the report with its full path).
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportProcessingMode">
+            <summary>
+            Gets or sets a value for Whether RDLC support or not.
+            </summary>
+            <value><c>Local</c> if this instance is RDLC; otherwise, <c>Remote</c>.</value>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ExportMode">
+            <summary>
+             Sets a value for ExportMode.
+            </summary>
+            <value><c>Server</c> if this RDL; otherwise, <c>Local</c>.</value>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportServiceURL">
+            <summary>
+            Get or Set the ReportServiceURL.
+            </summary>
+            <value>The URL of the RemoteServer.</value>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportServerUrl">
+            <summary>
+            Gets or sets the report server URL.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.DataSources">
+            <summary>
+            Gets or sets the data sources.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportServerCredential">
+            <summary>
+            Gets or sets the report server credential.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportServerFormsCredential">
+            <summary>
+            Gets or sets credentials for ReportServer.
+            </summary>
+            <value>UserName and Password</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.PDFTempPath">
+            <summary>
+            Specify the temp path to perform split and merge process in PDF export.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.PDFSplitPageCount">
+            <summary>
+            Specify the pagecount to split the PDF document for merge.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.EnablePDFSplitMerge">
+            <summary>
+            Enable Split and Merge in PDF export to avoid out of memory exceptions.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.PDFFonts">
+            <summary>
+            Load Font stream from external file
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ExcelVersion">
+            <summary>
+            Gets or sets ExcelVersion.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.WordFormatType">
+            <summary>
+            Gets or sets WordFormatType.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportDefinition">
+            <summary>
+            Gets or sets the report definition.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.EnableVirtualEvaluation">
+            <summary>
+            Gets or sets a value for EnableVirtualEvaluation.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.ReportModel">
+            <summary>
+            Gets or sets the report model.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.WriterBase.PageSettings">
+            <summary>
+            Gets or sets PageSettings of Reportviewer.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.#ctor(System.String,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <param name="reportDataSources">DataSource of the Report</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.#ctor(System.IO.Stream,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <param name="reportDataSources"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.Save(System.IO.Stream)">
+            <summary>
+            Exports the report as a Excel document
+            </summary>
+            <param name="ExcelStream">The stream to save the Excel file</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ConvertToExcel(Syncfusion.RDL.Data.ReportModel)">
+            <summary>
+            Converts the PageModelFactory into its Excel document
+            </summary>
+            <param name="reportModel">The ReportModel of the report</param>
+            <returns>Returns its equivalent PDF document</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.PixelToPoint(System.Double)">
+            <summary>
+            Converts the pixel value to point value
+            </summary>
+            <param name="paramValue">Pixel value in double</param>
+            <returns>Returns the equivalent point value as float</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.PixelToPoint(System.Single)">
+            <summary>
+            Converts the pixel value to point value
+            </summary>
+            <param name="paramValue">Pixel value in float</param>
+            <returns>Returns the equivalent point value</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ProcessRectangleModel(Syncfusion.ReportWriter.ExcelReportItemCellValue)">
+            <summary>
+            Process the rectangle report model
+            </summary>
+            <param name="cellValue">value of the rectangle model</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ProcessLineModel(Syncfusion.ReportWriter.ExcelReportItemCellValue)">
+            <summary>
+            Process the line model
+            </summary>
+            <param name="cellValue">Value of the Line Model</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ProcessImageModel(Syncfusion.ReportWriter.ExcelReportItemCellValue)">
+            <summary>
+            Process the image model
+            </summary>
+            <param name="cellValue">Value of the Image Model</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ProcessGaugeModel(Syncfusion.ReportWriter.ExcelReportItemCellValue)">
+            <summary>
+            Process the Gauge model
+            </summary>
+            <param name="cellValue">Value of the Gauge Model</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ExcelWriter.ProcessChartModel(Syncfusion.ReportWriter.ExcelReportItemCellValue)">
+            <summary>
+            Process the Chart model
+            </summary>
+            <param name="cellValue">Value of the Chart Model</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.HtmlWriter.Save(System.IO.Stream)">
+            <summary>
+            Exports the report as a html document
+            </summary>
+            <param name="htmlStream">The stream where the html document to be saved</param>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.PdfWriter">
+            <summary>
+            Exports the Report in Pdf mode .
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.#ctor(System.String,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <param name="reportDataSources">DataSource of the Report</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.#ctor(System.IO.Stream,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <param name="reportDataSources"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.Save(System.IO.Stream)">
+            <summary>
+            Exports the report as a PDF document
+            </summary>
+            <param name="PdfStream">The stream where the Pdf document to be saved</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ConvertToPDF(Syncfusion.RDL.Layout.PageModelFactory,Syncfusion.RDL.Data.ReportModel)">
+            <summary>
+            Converts the PageModelFactory into its PDF document
+            </summary>
+            <param name="pageModelFactory">The pageModelFactory of the report</param>
+            <param name="report">ReportModel of the Report</param>
+            <returns>Returns its equivalent PDF document</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.AddFooter(Syncfusion.RDL.Layout.PageModelFactory,Syncfusion.RDL.Data.ReportModel)">
+            <summary>
+            Process the footer element
+            </summary>
+            <param name="pageModelFactory">The PageModelFactory</param>
+            <param name="report">The ReportModel</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.AddHeader(Syncfusion.RDL.Layout.PageModelFactory,Syncfusion.RDL.Data.ReportModel)">
+            <summary>
+            Process the header element
+            </summary>
+            <param name="pageModelFactory">The PageModelFactory</param>
+            <param name="report">The ReportModel</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.PixelToPoint(System.Double)">
+            <summary>
+            Converts the pixel value to point value
+            </summary>
+            <param name="paramValue">Pixel value in double</param>
+            <returns>Returns the equivalent point value as float</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.PixelToPoint(System.Single)">
+            <summary>
+            Converts the pixel value to point value
+            </summary>
+            <param name="paramValue">Pixel value in float</param>
+            <returns>Returns the equivalent point value</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessReportModel(Syncfusion.RDL.Data.IReportItemModeler,System.Int32)">
+            <summary>
+            Process the report models
+            </summary>
+            <param name="reportModel">The ReportModeler</param>
+            <param name="page">Pagenumber</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ApplyPdfGridCellStyle(Syncfusion.Pdf.Grid.PdfGridCell,Syncfusion.RDL.Internal.TablixCellInfo)">
+            <summary>
+            
+            </summary>
+            <param name="cell"></param>
+            <param name="cellInfo"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.GetVerticalAlignment(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="verticalAlignment"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.GetAlignment(Windows.UI.Xaml.HorizontalAlignment)">
+            <summary>
+            Get the equivalent PdfTextAlignement
+            </summary>
+            <param name="alignment"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessRectangleModel(Syncfusion.RDL.Data.IReportItemModeler,System.Int32)">
+            <summary>
+            Process the rectangle report model
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+            <summary>
+            Page number of the item to be rendered.
+            </summary>
+            <param name="pageNo"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessLineModel(Syncfusion.RDL.Data.IReportItemModeler)">
+            <summary>
+            Process the line model
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessImageModel(Syncfusion.RDL.Data.IReportItemModeler)">
+            <summary>
+            Process the image model
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessGaugeModel(Syncfusion.RDL.Data.IReportItemModeler)">
+            <summary>
+            Process the Gauge model
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessChartModel(Syncfusion.RDL.Data.IReportItemModeler)">
+            <summary>
+            Process the Gauge model
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ProcessTextBox(Syncfusion.RDL.Data.IReportItemModeler)">
+            <summary>
+            Process the textbox ReportItem
+            </summary>
+            <param name="reportModel"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.DrawRightAlignedTextRuns(Syncfusion.RDL.ItemModel.TextboxModel,Syncfusion.RDL.ItemModel.ParagraphExpval,System.Drawing.RectangleF,System.Single,Syncfusion.Pdf.Graphics.PdfGraphics)">
+            <summary>
+            Right Aligns the Text
+            </summary>
+            <param name="textBox">TextBox Model</param>
+            <param name="block">Evaluated value of Block</param>
+            <param name="bounds">Bounds to the Text</param>
+            <param name="availWidth">Width of the Text block</param>
+            <param name="graphics"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.CompleteCurrentTextLine(System.String,Syncfusion.Pdf.Graphics.PdfTextLayoutResult,System.Drawing.RectangleF,Syncfusion.Pdf.Graphics.PdfFont,System.Double,Syncfusion.RDL.ItemModel.TextRunExpval)">
+            <summary>
+            Returns string values for current line in the Report
+            </summary>
+            <param name="text">Text value</param>
+            <param name="result">Layout information</param>
+            <param name="bounds">text Rectangle bounds</param>
+            <param name="font">Font Information</param>
+            <param name="widthVal">Font width</param>
+            <param name="run">Text Style value</param>
+            <returns>string value</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ReadWord(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.GetPdfFont(Syncfusion.RDL.ItemModel.TextRunExpval)">
+            <summary>
+            Get the PdfFont
+            </summary>
+            <param name="run"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.GetAlignment(System.String)">
+            <summary>
+            Gets the PDF alignment
+            </summary>
+            <param name="textAlignment"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.UpdateParentOffset">
+            <summary>
+            Update the parent bounds
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.ClearParentOffset">
+            <summary>
+            Clears the parent offset
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.PdfWriter.UpdatePageLayoutForPDF(Syncfusion.RDL.DOM.ReportDefinition,Syncfusion.RDL.Data.ReportModel)">
+            <summary>
+            
+            </summary>
+            <param name="Report"></param>
+            <param name="ReportModel"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.PageSettings">
+            <summary>
+            To set the PageSettings of Reportviewer
+            </summary>
+            <remarks></remarks>
+            <summary>
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.TopMargin">
+            <summary>
+            Gets or sets TopMargin value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.LeftMargin">
+            <summary>
+            Gets or sets LeftMargin value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.RightMargin">
+            <summary>
+            Gets or sets RightMargin value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.BottomMargin">
+            <summary>
+            Gets or sets BottomMargin value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.PageHeight">
+            <summary>
+            Gets or sets PageHeight value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.PageSettings.PageWidth">
+            <summary>
+            Gets or sets PageWidth value.
+            </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.WriterFormat">
+            <summary>
+            Types of writer format in Reportviewer
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WriterFormat.PDF">
+            <summary>
+            Export option for PDF format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WriterFormat.Excel">
+            <summary>
+            Export option for Excel format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WriterFormat.Word">
+            <summary>
+            Export option for Word format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.ReportWriter.WriterFormat.HTML">
+            <summary>
+            Export option for HTML format.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ReportWriter">
+            <summary>
+            ReportWriter class to Export the Report.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.#ctor(System.String,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlFilename">The filename of the report with its full path</param>
+            <param name="reportDataSources"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.#ctor(System.IO.Stream,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.RdlIO.RdlIOExportEngine">RdlIOExportEngine</see> class. 
+            </summary>
+            <param name="rdlStream"></param>
+            <param name="reportDataSources"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.Save(System.IO.Stream,Syncfusion.ReportWriter.WriterFormat)">
+            <summary>
+            Exports the report as a PDF document
+            </summary>
+            <param name="stream">The stream where the Pdf document to be saved</param>
+            <param name="format">The writer format to be saved</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.ReportWriter.RaiseSubReportProcessingEvent(Syncfusion.UI.Xaml.Reports.SubreportProcessingEventArgs)">
+            <summary>
+            RaiseSubReportProcessingEvent
+            </summary>
+            <param name="e">An <see cref="T:Syncfusion.Windows.Reports.SubreportProcessingEventArgs">SubreportProcessingEventArgs</see> that contains the event data.</param>
+            <remarks></remarks>
+        </member>
+        <member name="E:Syncfusion.ReportWriter.ReportWriter.ReportError">
+            <summary>
+            Occurs when error in report. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Syncfusion.ReportWriter.ReportWriter.ExportCompleted">
+            <summary>
+            Occurs when export report completed. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="E:Syncfusion.ReportWriter.ReportWriter.SubreportProcessing">
+            <summary>
+            Occurs when SubreportProcessing. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ReportWriter.ReportErrorEventArgs">
+            <summary>
+            ReportErrorEvents argument
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Syncfusion.ReportWriter.ReportWriter.ReportErrorEventArgs.Error">
+            <summary>
+            Gets or sets errors.
+            </summary>
+            <value>List of errors</value>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ReportWriter.ReportErrorHandler">
+            <summary>
+            delegate of ReportErrorHandler
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An <see cref="T:Syncfusion.ReportWriter.ReportWriter.ReportErrorEventArgs">ReportErrorEventArgs</see> that contains the event data.</param>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.ReportWriter.ExportByteCompletedEventHandler">
+            <summary>
+            delegate of ExportByteCompletedEventHandler
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An <see cref="T:Syncfusion.ReportWriter.ReportWriter.ReportErrorEventArgs">ReportExportEventArgs</see> that contains the event data.</param>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.ReportWriter.WordWriter">
+            <summary>
+            Exports the report in Word mode.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ReportWriter.WordWriter">WordWriter</see> class. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ReportWriter.WordWriter">WordWriter</see> class. 
+            </summary>
+            <param name="rdlFilename">The full path of the file</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ReportWriter.WordWriter">WordWriter</see> class. 
+            </summary>
+            <param name="rdlStream">Stream of the file</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.#ctor(System.String,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ReportWriter.WordWriter">WordWriter</see> class. 
+            </summary>
+            <param name="rdlFilename">The full path of the file</param>
+            <param name="reportDataSources">ReportDatasource</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.#ctor(System.IO.Stream,Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ReportWriter.WordWriter">WordWriter</see> class. 
+            </summary>
+            <param name="rdlStream">stream of the RDL file</param>
+            <param name="reportDataSources">Report Datasources </param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Syncfusion.ReportWriter.WordWriter.Save(System.IO.Stream)">
+            <summary>
+            Exports the Report as Word file
+            </summary>
+            <param name="DocStream">Stream to save the Report</param>
+            <remarks></remarks>
+        </member>
+        <member name="T:Syncfusion.RDL.Internal.ChartComputationInfo">
+            <summary>
+            This class holds the information needed for the calculations that appear in a Chart Grid. For each calculation seen, there is an associated
+            ChartComputationInfo object that is added to the <see cref="T:Syncfusion.RDL.Internal.ChartComputationInfo"/> collection.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.ChartComputationInfo.GetSummaryInstance(Syncfusion.RDL.Internal.ComputationType)">
+            <summary>
+            Returns a <see cref="T:Syncfusion.RDL.Internal.SummaryBase"/> object of the specified <see cref="M:Syncfusion.RDL.Internal.ChartComputationInfo.GetSummaryInstance(Syncfusion.RDL.Internal.ComputationType)"/>.
+            </summary>
+            <param name="st">The SummaryType.</param>
+            <returns>A SummaryBase object.</returns>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.ChartComputationInfo.GetComputationTypes">
+            <summary>
+            Returns a sorted list of computation names based on the <see cref="M:Syncfusion.RDL.Internal.ChartComputationInfo.GetComputationTypes"/> enumerations.
+            </summary>
+            <returns>A list of computation names.</returns>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.FieldMappingName">
+            <summary>
+            Gets or sets the name of the property to be used in this calculation.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.Description">
+            <summary>
+            Gets or sets a description of the calculation.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.CalculationName">
+            <summary>
+            Gets or sets what is displayed in the Chart table if more than one calculation is included in the Chart Grid.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.Summary">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.RDL.Internal.SummaryBase"/> object that is used to define this calculation. This value is altomatically set 
+            when you specify any non-custom value of <see cref="P:Syncfusion.RDL.Internal.ChartComputationInfo.Summary"/>. If you specify SummaryType.Custom, then you are required
+            to set Summary to be an instance of your custom SummaryBase derived object.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.ComputationType">
+            <summary>
+            Gets or sets the SummaryType enumeration for this calculation. Setting it to any value of than Custom
+            will also properly set Summary.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartComputationInfo.Format">
+            <summary>
+            Gets of sets the format string to be used to format this calculation results in the Chart Grid.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ChartEvalEngine.ItemProperties">
+            <summary>
+            Gets a PropertyDescriptorCollection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.Internal.SummaryBase">
+            <summary>
+            This class is an abstract class that defines the necessary functionality to do tablix calculations.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.SummaryBase.Combine(System.Object)">
+            <summary>
+            Use this method to combine a value from an object in the Tablix Grid's data source with the accumulation values held in this instance.
+            </summary>
+            <param name="other">The value to be included in the compuation.</param>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.SummaryBase.Reset">
+            <summary>
+            Resets all internal values so the calculations begins anew.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.SummaryBase.GetResult">
+            <summary>
+            Returns the calculation value.
+            </summary>
+            <returns>The calculation value.</returns>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.SummaryBase.GetInstance">
+            <summary>
+            Provides a new instance of this SummaryBase object.
+            </summary>
+            <returns>New instance of this SummaryBase.</returns>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.SummaryBase.CombineSummary(Syncfusion.RDL.Internal.SummaryBase)">
+            <summary>
+            Use this method to combine another SummaryBase object with the accumulation values held in this instance.
+            </summary>
+            <param name="other">The other SummaryBase object.</param>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.MapEngine.ItemProperties">
+            <summary>
+            Gets a PropertyDescriptorCollection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.ReportingAggEngine.ItemProperties">
+            <summary>
+            Gets a PropertyDescriptorCollection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Internal.TablixEngine.ItemProperties">
+            <summary>
+            Gets a PropertyDescriptorCollection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Sum">
+            <summary>
+            Computes the sum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Avg">
+            <summary>
+            Computes the simple average of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Max">
+            <summary>
+            Computes the maximum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Min">
+            <summary>
+            Computes the minimum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.StDev">
+            <summary>
+            Computes the standard deviation of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.StDevP">
+            <summary>
+            Computes the standard deviation population of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.VarP">
+            <summary>
+            Computes the Population variance of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Var">
+            <summary>
+            Computes the variance of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Count">
+            <summary>
+            Computes the count of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.CountDistinct">
+            <summary>
+            Computes the count unique of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.RunningValue">
+            <summary>
+            Computes the RunningValue.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.First">
+            <summary>
+            Computes the FirstText.
+            </summary> 
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Last">
+            <summary>
+            Computes the FirstText.
+            </summary>        
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingComputationType.Data">
+            <summary>
+            Computes the FirstText.
+            </summary>        
+        </member>
+        <member name="T:Syncfusion.RDL.Internal.ComputationType">
+            <summary>
+            Enumerates the summary types availabe for use as calculations in the Tablix Grid.
+            </summary>
+            <remarks>
+            If you use the value Custom in a ComputationInfo object, then you are required to explicitly set the ComputationInfo.Summary value.
+            </remarks>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleTotalSum">
+            <summary>
+            Computes the sum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleAverage">
+            <summary>
+            Computes the simple average of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleMaximum">
+            <summary>
+            Computes the maximum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleMinimum">
+            <summary>
+            Computes the minimum of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleStandardDeviation">
+            <summary>
+            Computes the standard deviation of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DoubleVariance">
+            <summary>
+            Computes the variance of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.Count">
+            <summary>
+            Computes the count of double or integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.DecimalTotalSum">
+            <summary>
+            Computes the sum of decimal values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.IntTotalSum">
+            <summary>
+            Computes the sum of integer values.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.Text">
+            <summary>
+            Computes the Text.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.Data">
+            <summary>
+            Computes the Text.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ComputationType.Custom">
+            <summary>
+            Specifies that you are using a custom SummaryBase object to define the calculation.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.ChartModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.Data.IReportItemModeler">
+            <summary>
+            IPageModeler Properties
+            Contains various positional properties
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.ItemModel.ChartItemExpVal.ToolTip">
+             <summary>
+            set and get the Tool Tip Properties
+             </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.ItemModel.ChartItemExpVal.ColorPalette">
+            <summary>
+            get and set Color Palette
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.ItemModel.ChartItemExp.ToolTip">
+             <summary>
+            set and get the Tool Tip Properties
+             </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.ItemModel.ChartItemExp.Border">
+            <summary>
+            get and set Border
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.ItemModel.ChartItemExp.ColorPalette">
+            <summary>
+            get and set Color Palette
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.GaugeModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.ImageModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.LineModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.MapModel">
+            <summary>
+            A model for MapModel. Contains information about size, position, data and style for a Map.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.RectangleModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.SubReportModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.TablixModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.ItemModel.TextboxModel">
+            <summary>
+            A model for TextboxModel. Contains information about size, position, data and style for a text box.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.LayoutReportItemModel.ActualTop">
+            <summary>
+            Gets or sets the top position of the control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.LayoutReportItemModel.ActualLeft">
+            <summary>
+            Gets or sets the left position of the control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.LayoutReportItemModel.ActualHeight">
+            <summary>
+            Gets or sets the height of the control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.LayoutReportItemModel.BelongsTo">
+            <summary>
+            Gets or sets the start page and number of pages the control spans in a spaning control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.LayoutReportItemModel.TotalPages">
+            <summary>
+            Gets or sets the total number of pages in the report.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.Layout.PageInfo">
+            <summary>
+            Paging information class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.PageInfo.Height">
+            <summary>
+            Gets or sets the size of the page.
+            </summary>
+            <value>The size of the page.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.PageInfo.Width">
+            <summary>
+            Gets or sets the size of the page.
+            </summary>
+            <value>The size of the page.</value>
+        </member>
+        <member name="T:Syncfusion.RDL.Layout.PageModelFactory">
+            <summary>
+            Helps creating the pages for the report.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.ReportItemContiner.Name">
+            <summary>
+            Gets or sets the name of the control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.ReportItemContiner.LGap">
+            <summary>
+            Gets or sets the Left gap between two controls.
+            </summary>
+            <value>The L gap.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Layout.ReportItemContiner.TGap">
+            <summary>
+            Gets or sets the Top gap between two controls.
+            </summary>
+            <value>The T gap.</value>
+        </member>
+        <member name="T:Syncfusion.RDL.Data.ProcessedData">
+            <summary>
+            It holds the processed data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ProcessedData.DataSourceObjects">
+            <summary>
+            Gets or sets CollectionViewObjects as Dictionary of CollectionViewAdv where Key represent name as strig and Value represents the ICollectionViewAdv
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ProcessedData.Report">
+            <summary>
+            Gets or sets the ReportSetting type
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.Data.DataProviders">
+            <summary>
+            A Class Provides the DataProviders List
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.SQLServer">
+            <summary>
+            Constant string determines Microsoft SQL Server Database
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.SQLAzure">
+            <summary>
+            Constant string determines Microsoft SQL Server Database
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.ORACLE">
+            <summary>
+            Constant string determines Oracle Database
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.MySQL">
+            <summary>
+            Constant string determines MySql Database
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.OLEDB">
+            <summary>
+            Constant string determines OLEDB Connection
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.SQLServerAnalysisService">
+            <summary>
+            Constant string determines SQLServer Service Analysis
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.ODBC">
+            <summary>
+            Constant string determines ODBC Connection
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.XML">
+            <summary>
+            Constant string determines XML files
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.SAPNetWeaverBI">
+            <summary>
+            Constant string determines SAP NetWeaverBI
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.HyperionEssbase">
+            <summary>
+            Constant string determines Hypersion Essbase Database
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.TERADATA">
+            <summary>
+            Constant string determines TERADATA
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Data.DataProviders.SQLServerCe">
+            <summary>
+            Constant string determines SQLServerCe Compact Edition Database.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.FilterEngine.ItemProperties">
+            <summary>
+            Gets a PropertyDescriptorCollection describing the type of the underlying data item.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.RDL.Data.ReportModel">
+            <summary>
+            A page model. It helps to parse the rdl if required. Fills the Report objects. Gets the processed data for each and every data driven report items.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ReportModel.ProcessedData">
+            <summary>
+            Gets or sets the processed data.
+            </summary>
+            <value>The processed data.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ReportModel.Report">
+            <summary>
+            Gets or sets the report.
+            </summary>
+            <value>The report.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ReportModel.ReportPath">
+            <summary>
+            Gets or sets RDL(C) report path. This initializes the report viewer.
+            </summary>
+            <value>The report path.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ReportModel.ReportServerUrl">
+            <summary>
+            Get or Set the Report Server Url.
+            </summary>
+            <value>The Report server url.</value>
+        </member>
+        <member name="P:Syncfusion.RDL.Data.ReportModel.ReportServerCredential">
+            <summary>
+            Get or Set the Report Server Credential.
+            </summary>
+            <value>The Report server Credential.</value>
+        </member>
+        <member name="T:Syncfusion.RDL.Internal.ReportingConstants">
+            <summary>
+            Represents constants for adding column type to identify the description of the column.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingConstants.NameColumn">
+            <summary>
+            Represents column type as Name.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingConstants.SchemaColumn">
+            <summary>
+            Represents column type as Schema.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.ReportingConstants.TableNameColumn">
+            <summary>
+            Represents column type as Table.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Reports.ReportDataSourceCollection">
+            <summary>
+            Collection of Data Sources.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Reports.ReportDataSource">
+            <summary>
+            Custom datasource of type DataSource
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.ReportDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:DataSource"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.ReportDataSource.#ctor(System.String,System.Collections.IEnumerable)">
+            <summary>
+            Initilizing the constructor
+            </summary>
+            <param name="name">Name of the dataset</param>
+            <param name="value">Datasource</param>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.ReportDataSource.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.ReportDataSource.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:Syncfusion.RDL.Internal.TablixCellType">
+            <summary>
+            Enumerates the possible tablix cell types.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.ValueCell">
+            <summary>
+            Cell holds a summary value.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.ExpanderCell">
+            <summary>
+            Cell is a row/column header that holds an expander.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.HeaderCell">
+            <summary>
+            Cell is a non-expander row or column header.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.TopLeftCell">
+            <summary>
+            Cell is the top left portion of the tablix table.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.TotalCell">
+            <summary>
+            Cell is a row/column header that marks a total row or column.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.CalculationHeaderCell">
+            <summary>
+            Cell is a header cell holding a calculation name.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.RowHeaderCell">
+            <summary>
+            Cell is row header
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.ColumnHeaderCell">
+            <summary>
+            Cell is column header
+            </summary>
+        </member>
+        <member name="F:Syncfusion.RDL.Internal.TablixCellType.GrandTotalCell">
+            <summary>
+            Cell is a grand total cell.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.Base64ImageConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Helper method converts the base 64 string to bitmap image.
+            </summary>
+            <param name="value">Base 64 string as object.</param>
+            <param name="targetType">BitmapImage type.</param>
+            <param name="parameter">Object parameter.</param>
+            <param name="culture">Globalization information.</param>
+            <returns>Bitmap Image</returns>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.Base64ImageConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Helper method converts Image to Base 64.
+            </summary>
+            <param name="value">Bitmap image.</param>
+            <param name="targetType">Base 64 string.</param>
+            <param name="parameter">Object parameter.</param>
+            <param name="culture">Globalization culture information.</param>
+            <returns>Base 64 string</returns>
+            <remarks>Not implemented</remarks>
+            <exception cref="T:System.NotImplementedException">System.NotImplementedException</exception>
+        </member>
+        <member name="M:Syncfusion.RDL.Internal.Base64ImageConverter.ConvertToImage(System.Object)">
+            <summary>
+            Converts the Base 64 string to bitmap image
+            </summary>
+            <param name="imageData">Base 64 string.</param>
+            <returns>Bitmap Image.</returns>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportPathProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportPath"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerUrlProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerUrl"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerCredentialProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerCredential"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerFormsCredentialProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerFormsCredential"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.ProcessingModeProperty">
+            <summary>
+            Identifies the <see cref="!:Syncfusion.UI.Xaml.Reports.SfReportViewer.ViewMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.SfReportViewer.HasReportParametersProperty">
+            <summary>
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.HasReportParameters"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.GetHeaderFooter(Windows.UI.Xaml.Controls.Canvas,Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+            Gets the header footer.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.CreatePageViewHeader(Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+            Creates the page view header.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.CreatePageViewFooter(Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+            Creates the page view footer.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.MoveFirst">
+            <summary>
+            Navigates to the First possible page of the current report.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.MoveLast">
+            <summary>
+            Navigates to the Last possible page of the current report.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.MoveNext">
+            <summary>
+            Navigates to the Next page of the current report.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.MovePrevious">
+            <summary>
+            Navigates to the Previous page of the current report.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.GoTo(System.Int32)">
+            <summary>
+            Move to the specified page number in the report
+            </summary>
+            <param name="pageNo">Page Number Want to Go</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.AddReportParameters">
+            <summary>
+            Check the report parameter, if any, render in report parameter block
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.Refresh">
+            <summary>
+            Refresh the report and Navigates to the first possible page and refresh data of the report.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.UpdateReportModel">
+            <summary>
+            Updating the report model content collection
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.RefreshViewer">
+            <summary>
+            Refreshing the Viewer with Page Model
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.HideVisibility(Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+            Hides the visibility.
+            </summary>
+            <param name="canvasObj">The canvas obj.</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.DrawHeaderControls(Syncfusion.RDL.Data.ReportModelContentCollection,Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+            Draws controls in the given Header or Footer
+            </summary>
+            <param name="pageModelCollection">Page Model content collection of either Page header or Page footer</param>
+            <param name="canvasHeaderFooter">Header or Footer canvas</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.RaiseReportLoadedEvent">
+            <summary>
+            Raises to nofity loaded information.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.Paginate(System.Object,Windows.UI.Xaml.Printing.PaginateEventArgs)">
+            <summary>
+            This is the event handler for PrintDocument.Paginate. 
+            It fires when the PrintManager requests print preview
+            </summary>
+            <param name="sender">PrintDocument</param>
+            <param name="e">Paginate Event Arguments</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.GetPrintPreviewPage(System.Object,Windows.UI.Xaml.Printing.GetPreviewPageEventArgs)">
+            <summary>
+            This is the event handler for PrintDocument.GetPrintPreviewPage. It provides a specific print preview page,
+            in the form of an UIElement, to an instance of PrintDocument. PrintDocument subsequently converts the UIElement
+            into a page that the Windows print system can deal with.
+            </summary>
+            <param name="sender">PrintDocument</param>
+            <param name="e">Arguments containing the preview requested page</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.AddPrintPages(System.Object,Windows.UI.Xaml.Printing.AddPagesEventArgs)">
+            <summary>
+            This is the event handler for PrintDocument.AddPages. It provides all pages to be printed, in the form of
+            UIElements, to an instance of PrintDocument. PrintDocument subsequently converts the UIElements
+            into a pages that the Windows print system can deal with.
+            </summary>
+            <param name="sender">PrintDocument</param>
+            <param name="e">Add page event arguments containing a print task options reference</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Reports.SfReportViewer.PrintTaskRequested(Windows.Graphics.Printing.PrintManager,Windows.Graphics.Printing.PrintTaskRequestedEventArgs)">
+            <summary>
+            This is the event handler for PrintManager.PrintTaskRequested.
+            </summary>
+            <param name="sender">PrintManager</param>
+            <param name="e">PrintTaskRequestedEventArgs </param>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportLoaded">
+            <summary>
+            Occurs when report loaded for ReportViewer.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.SubreportProcessing">
+            <summary>
+            Occurs when subreport loaded in Local processing mode
+            </summary>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.RenderingBegin">
+            <summary>
+            Occurs when reporting rendering started with ReportViewer.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.RenderingCompleted">
+            <summary>
+            Occurs when reporting rendering completed with ReportViewer.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportError">
+            <summary>
+            Occurs when occur error with Reportloading.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.UI.Xaml.Reports.SfReportViewer.ViewButtonClick">
+            <summary>
+            When ReportParameter Cata
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportPath">
+            <summary>
+            Gets or sets RDL(C) report path. This initializes the report viewer.
+            </summary>
+            <value>The report path.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerUrl">
+            <summary>
+            Get or Set the Report Server Url.
+            </summary>
+            <value>The Report server url.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerCredential">
+            <summary>
+            Get or Set the Report Server Credential.
+            </summary>
+            <value>The Report server Credential.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServerFormsCredential">
+            <summary>
+            Get or Set the Report Server Forms Credential.
+            </summary>
+            <value>The Report server forms Credential.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ProcessingMode">
+            <summary>
+            Gets or sets a value for Whether RDLC support or not.
+            </summary>
+            <value><c>Local</c> if this instance is RDLC; otherwise, <c>Remote</c>.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ShowNavigationBar">
+            <summary>
+            Set the toolbar visibility
+            </summary>
+            <value>The toolbar.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ShowPageNavigation">
+            <summary>
+            Set the ShowPageNavigation visibility
+            </summary>
+            <value>The ShowPageNavigation.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ShowPageNotification">
+            <summary>
+            Set the ShowPageNotification visibility
+            </summary>
+            <value>The ShowPageNotification.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.DataSources">
+            <summary>
+            Gets the data sources.
+            </summary>
+            <value>The data sources.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.Assemblies">
+            <summary>
+            Gets or sets Assemblies
+            </summary>
+            <value>The Assemblies path.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.EnableVirtualEvaluation">
+            <summary>
+            Gets or sets a value indicating whether the reportItem Evaluation Mode.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ReportServiceURL">
+            <summary>
+            Get or Set the ReportServiceURL.
+            </summary>
+            <value>The URL of the RemoteServer.</value>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Reports.SfReportViewer.ExportMode">
+            <summary>
+            Get or Set the ExportMode.
+            </summary>
+            <value>The Mode for Export.</value>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.ExportMode.Server">
+            <summary>
+            If export from Server 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Reports.ExportMode.Local">
+            <summary>
+            If export from Local
+            </summary>
+            <remarks></remarks>
+        </member>
+    </members>
+</doc>

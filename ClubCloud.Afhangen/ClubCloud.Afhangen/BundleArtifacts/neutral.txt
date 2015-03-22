@@ -1,0 +1,4 @@
+MainPackage=D:\Projecten\ClubCloud.Afhangen\ClubCloud.Afhangen\ClubCloud.Afhangen\bin\Release\ClubCloud.Afhangen_1.0.0.6_Bundle\ClubCloud.Afhangen_1.0.0.6_AnyCPU.appx
+SymbolPackage=F:\ClubCloud.Afhangen_1.0.0.6_Test\ClubCloud.Afhangen_1.0.0.6_AnyCPU.appxsym
+ResourcePack=D:\Projecten\ClubCloud.Afhangen\ClubCloud.Afhangen\ClubCloud.Afhangen\bin\Release\ClubCloud.Afhangen_1.0.0.6_Bundle\ClubCloud.Afhangen_1.0.0.6_scale-140.appx
+ResourcePack=D:\Projecten\ClubCloud.Afhangen\ClubCloud.Afhangen\ClubCloud.Afhangen\bin\Release\ClubCloud.Afhangen_1.0.0.6_Bundle\ClubCloud.Afhangen_1.0.0.6_scale-180.appx

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34E224E1-C205-423E-9046-1B8D6C08FA0A}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClubCloud.Afhangen</RootNamespace>
+    <AssemblyName>ClubCloud.Afhangen</AssemblyName>
+    <DefaultLanguage>nl-NL</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>6D87F77AA417591F6AA2C7BC6762B30952D8AA55</PackageCertificateThumbprint>
+    <AppxBundle>Never</AppxBundle>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxPackageDir>F:\</AppxPackageDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\Behavior.cs" />
+    <Compile Include="Behaviors\ComboBoxKeyboardSelection.cs" />
+    <Compile Include="Behaviors\SetFocusAction.cs" />
+    <Compile Include="Behaviors\HighlightFormFieldOnErrors.cs" />
+    <Compile Include="Behaviors\HighlightSearchAction.cs" />
+    <Compile Include="Behaviors\NavigateToPageAction.cs" />
+    <Compile Include="Behaviors\NavigateWithEventArgsToPageAction.cs" />
+    <Compile Include="Behaviors\TimerTriggerBehavior.cs" />
+    <Compile Include="Behaviors\TriggerBehavior.cs" />
+    <Compile Include="Common\DependencyPropertyChangedHelper.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Converters\ReserveringStatusConverter.cs" />
+    <Compile Include="Converters\BooleanNegationToVisibilityConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ByteArrayImageConverter.cs" />
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\FirstErrorConverter.cs" />
+    <Compile Include="Converters\FormStatusToStyleConverter.cs" />
+    <Compile Include="Converters\FormStatusToVisibilityConverter.cs" />
+    <Compile Include="Converters\IsSignInInvalidConverter.cs" />
+    <Compile Include="Converters\NotNullToVisibleConverter.cs" />
+    <Compile Include="Converters\NullToGuidConverter.cs" />
+    <Compile Include="Converters\NullToVisibleConverter.cs" />
+    <Compile Include="Converters\BaanConverter.cs" />
+    <Compile Include="Converters\SpeelDatumConverter .cs" />
+    <Compile Include="Converters\SpelersConverter.cs" />
+    <Compile Include="Converters\SpeelTijdConverter.cs" />
+    <Compile Include="Converters\SpeelDuurConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\TextToHeaderVisibilityConverter.cs" />
+    <Compile Include="DesignViewModels\AboutDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\BaanschemaPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\CardPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\CardUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\OptionsFlyoutDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\ReserveringPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\SponsorPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\WeerPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\WeerUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\KlokUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\SpelersPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\SpelerUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\BaanUserControlDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\BanenPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\MainPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\ReserveringUserControlDesignViewModel.cs" />
+    <Compile Include="Events\FocusOnKeyboardInputChangedEvent.cs" />
+    <Compile Include="ExtendedSplashScreen.xaml.cs">
+      <DependentUpon>ExtendedSplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AboutFlyout.xaml.cs">
+      <DependentUpon>AboutFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SponsorsPage.xaml.cs">
+      <DependentUpon>SponsorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaanschemaPage.xaml.cs">
+      <DependentUpon>BaanschemaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardPage.xaml.cs">
+      <DependentUpon>CardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KlokUserControl.xaml.cs">
+      <DependentUpon>KlokUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpelerUserControlView.xaml.cs">
+      <DependentUpon>SpelerUserControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaanUserControl.xaml.cs">
+      <DependentUpon>BaanUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BanenPage.xaml.cs">
+      <DependentUpon>BanenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OptionsFlyout.xaml.cs">
+      <DependentUpon>OptionsFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReserveringPage.xaml.cs">
+      <DependentUpon>ReserveringPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReserveringUserControl.xaml.cs">
+      <DependentUpon>ReserveringUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpelersPage.xaml.cs">
+      <DependentUpon>SpelersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeerPage.xaml.cs">
+      <DependentUpon>WeerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeerUserControl.xaml.cs">
+      <DependentUpon>WeerUserControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Assets\Swipe\css\swipe-card.css.map">
+      <DependentUpon>swipe-card.css</DependentUpon>
+    </None>
+    <None Include="Assets\Swipe\css\swipe-card.less" />
+    <None Include="packages.config" />
+    <PRIResource Include="Strings\nl-NL\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\bulb.png" />
+    <Content Include="Assets\clubcloud_logo.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-140.png" />
+    <Content Include="Assets\Logo.scale-180.png" />
+    <Content Include="Assets\Logo.scale-80.png" />
+    <Content Include="Assets\placeHolderSponsor.png" />
+    <Content Include="Assets\placeHolderSpeler.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-140.png" />
+    <Content Include="Assets\SplashScreen.scale-180.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Swipe\css\swipe-card.css" />
+    <Content Include="Assets\Swipe\images\card.png" />
+    <Content Include="Assets\Swipe\images\swipe-left.png" />
+    <Content Include="Assets\Swipe\images\swipe-right.png" />
+    <Content Include="Assets\Swipe\swipe.html" />
+    <Content Include="Assets\Weather\Icon\01.png" />
+    <Content Include="Assets\Weather\Icon\02.png" />
+    <Content Include="Assets\Weather\Icon\03.png" />
+    <Content Include="Assets\Weather\Icon\04.png" />
+    <Content Include="Assets\Weather\Icon\05.png" />
+    <Content Include="Assets\Weather\Icon\06.png" />
+    <Content Include="Assets\Weather\Icon\07.png" />
+    <Content Include="Assets\Weather\Icon\08.png" />
+    <Content Include="Assets\Weather\Icon\11.png" />
+    <Content Include="Assets\Weather\Icon\12.png" />
+    <Content Include="Assets\Weather\Icon\13.png" />
+    <Content Include="Assets\Weather\Icon\14.png" />
+    <Content Include="Assets\Weather\Icon\15.png" />
+    <Content Include="Assets\Weather\Icon\16.png" />
+    <Content Include="Assets\Weather\Icon\17.png" />
+    <Content Include="Assets\Weather\Icon\18.png" />
+    <Content Include="Assets\Weather\Icon\19.png" />
+    <Content Include="Assets\Weather\Icon\20.png" />
+    <Content Include="Assets\Weather\Icon\21.png" />
+    <Content Include="Assets\Weather\Icon\22.png" />
+    <Content Include="Assets\Weather\Icon\23.png" />
+    <Content Include="Assets\Weather\Icon\24.png" />
+    <Content Include="Assets\Weather\Icon\25.png" />
+    <Content Include="Assets\Weather\Icon\26.png" />
+    <Content Include="Assets\Weather\Icon\29.png" />
+    <Content Include="Assets\Weather\Icon\30.png" />
+    <Content Include="Assets\Weather\Icon\31.png" />
+    <Content Include="Assets\Weather\Icon\32.png" />
+    <Content Include="Assets\Weather\Icon\33.png" />
+    <Content Include="Assets\Weather\Icon\34.png" />
+    <Content Include="Assets\Weather\Icon\35.png" />
+    <Content Include="Assets\Weather\Icon\36.png" />
+    <Content Include="Assets\Weather\Icon\37.png" />
+    <Content Include="Assets\Weather\Icon\38.png" />
+    <Content Include="Assets\Weather\Icon\39.png" />
+    <Content Include="Assets\Weather\Icon\40.png" />
+    <Content Include="Assets\Weather\Icon\41.png" />
+    <Content Include="Assets\Weather\Icon\42.png" />
+    <Content Include="Assets\Weather\Icon\43.png" />
+    <Content Include="Assets\Weather\Icon\44.png" />
+    <Content Include="Assets\Weather\UV\00.png" />
+    <Content Include="Assets\Weather\UV\01.png" />
+    <Content Include="Assets\Weather\UV\02.png" />
+    <Content Include="Assets\Weather\UV\03.png" />
+    <Content Include="Assets\Weather\UV\04.png" />
+    <Content Include="Assets\Weather\UV\05.png" />
+    <Content Include="Assets\Weather\UV\06.png" />
+    <Content Include="Assets\Weather\UV\07.png" />
+    <Content Include="Assets\Weather\UV\08.png" />
+    <Content Include="Assets\Weather\UV\09.png" />
+    <Content Include="Assets\Weather\UV\10.png" />
+    <Content Include="Assets\Weather\UV\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Converters\ConverterResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExtendedSplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ApplicationStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SponsorsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaanschemaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KlokUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpelerUserControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaanUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BanenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OptionsFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReserveringPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReserveringUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpelersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClubCloud.Afhangen.UILogic\ClubCloud.Afhangen.UILogic.csproj">
+      <Project>{69d1cd3e-bd67-4021-b501-74b294325476}</Project>
+      <Name>ClubCloud.Afhangen.UILogic</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+    <SDKReference Include="Syncfusion 8.1 controls for WinRT XAML, Version=12.4.0.24">
+      <Name>Syncfusion 8.1 Controls for WinRT XAML</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm.Store, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.PubSubEvents, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.PubSubEvents.1.1.2\lib\portable-sl5+windowsphone8+windows8+net40+wpa81\Microsoft.Practices.Prism.PubSubEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.SharedInterfaces, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.SharedInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.StoreApps.2.0.0\lib\windows8\Microsoft.Practices.Prism.StoreApps.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps.Windows, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.StoreApps.2.0.0\lib\windows8\Microsoft.Practices.Prism.StoreApps.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\win8\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WinRTXamlToolkit.Windows.1.8.1.0\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
