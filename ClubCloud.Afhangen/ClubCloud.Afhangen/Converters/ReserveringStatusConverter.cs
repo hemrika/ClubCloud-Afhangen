@@ -5,8 +5,7 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 
-
-using ClubCloud.Afhangen.UILogic.ClubCloudService;
+using ClubCloud.Afhangen.UILogic.Models;
 using Syncfusion.UI.Xaml.Schedule;
 using System;
 using System.Collections.Generic;

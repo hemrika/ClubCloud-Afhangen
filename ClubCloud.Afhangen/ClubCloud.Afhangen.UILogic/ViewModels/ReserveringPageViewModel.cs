@@ -111,7 +111,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private async void ReserveringBevestigen(Nullable<Guid> reserveringId)
         {
             Reservering reservering = await _reserveringRepository.GetReserveringByIdAsync(reserveringId.Value);
-            reservering.Soort = ClubCloudService.ReserveringSoort.Afhangen;
+            reservering.Soort = ReserveringSoort.Afhangen;
             reservering = await _reserveringRepository.SetReserveringAsync(reservering);
 
             Action navigateAction = null;
@@ -173,13 +173,25 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             await _reserveringRepository.ClearReserveringAsync();
         }
 
-        private bool KanBevestigen()
+        public bool KanBevestigen
         {
-            if (_reservering == null) return false;
+            get
+            {
+                if (_reservering == null) return false;
 
-            return (_reservering != null && _reservering.Spelers.Count > 0 && _reservering.Duur > TimeSpan.FromMinutes(0));
+                return (_reservering != null && _reservering.Spelers.Count > 0 && _reservering.Duur > TimeSpan.FromMinutes(0));
+            }
         }
 
+        public bool KanVerwijderen
+        {
+            get
+            {
+                if (_reservering == null) return false;
+
+                return (_reservering.Id != Guid.Empty);
+            }
+        }
         public ObservableCollection<Speler> Spelers
         {
             get { return _reservering.Spelers; }

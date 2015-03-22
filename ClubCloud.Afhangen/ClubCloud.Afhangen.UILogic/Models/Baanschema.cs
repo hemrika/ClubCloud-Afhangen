@@ -19,7 +19,7 @@ namespace ClubCloud.Afhangen.UILogic.Models
         public Guid? BaanId { get; set; }
 
         [DataMember]
-        public string Beschikbaar { get; set; }
+        public bool Beschikbaar { get; set; }
 
         [DataMember]
         public DayOfWeek Dag { get; set; }

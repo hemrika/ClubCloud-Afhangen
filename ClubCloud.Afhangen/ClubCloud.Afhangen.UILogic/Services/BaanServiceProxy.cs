@@ -1,4 +1,4 @@
-﻿using ClubCloud.Afhangen.UILogic.ClubCloudService;
+﻿using ClubCloud.Afhangen.UILogic.ClubCloudAfhangen;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class BaanServiceProxy : IBaanService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
+        private ClubCloudAfhangen.ClubCloudAfhangenClient client = new ClubCloudAfhangen.ClubCloudAfhangenClient(ClubCloudAfhangen.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
 
         public async Task<ObservableCollection<Models.Baanschema>> GetBaanschemaAsync(Guid verenigingId)
         {

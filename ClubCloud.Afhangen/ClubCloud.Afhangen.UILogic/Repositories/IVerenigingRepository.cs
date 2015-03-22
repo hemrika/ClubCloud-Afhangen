@@ -17,5 +17,8 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         System.Threading.Tasks.Task<global::Windows.ApplicationModel.Store.LicenseInformation> GetLicenseInformation();
         System.Threading.Tasks.Task<global::Windows.ApplicationModel.Store.ListingInformation> GetListingInformation();
+
+        Task<bool> UpdateStoreAgentAsync();
+        Task<bool> UpdateKioskModeAsync();
     } 
 }

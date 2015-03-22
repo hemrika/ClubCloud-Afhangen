@@ -17,6 +17,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
     public class KlokUserControlViewModel : ViewModel, INotifyPropertyChanged, IKlokUserControlViewModel, IView
     {
         private readonly INavigationService _navigationService;
+        private readonly IVerenigingRepository _verenigingRepository;
         private readonly IReserveringRepository _reserveringRepository;
         private readonly IResourceLoader _resourceLoader;
         private readonly IAlertMessageService _alertMessageService;
@@ -30,11 +31,12 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private DateTimeFormatter dateFormatter = new DateTimeFormatter(YearFormat.Full, MonthFormat.Full, DayFormat.Default, DayOfWeekFormat.None, HourFormat.None, MinuteFormat.None, SecondFormat.None, new[] { "nl-NL" }, "NL", CalendarIdentifiers.Gregorian, ClockIdentifiers.TwentyFourHour);
         private DateTimeFormatter timeFormatter = new DateTimeFormatter(YearFormat.None, MonthFormat.None, DayFormat.None, DayOfWeekFormat.None, HourFormat.Default, MinuteFormat.Default, SecondFormat.None, new[] { "nl-NL" }, "NL", CalendarIdentifiers.Gregorian, ClockIdentifiers.TwentyFourHour);
 
-        public KlokUserControlViewModel(INavigationService navigationService, IReserveringRepository reserveringRepository, IResourceLoader resourceLoader, IAlertMessageService alertMessageService,
+        public KlokUserControlViewModel(INavigationService navigationService, IVerenigingRepository verenigingRepository, IReserveringRepository reserveringRepository, IResourceLoader resourceLoader, IAlertMessageService alertMessageService,
                                          IEventAggregator eventAggregator)
         {
 
             _navigationService = navigationService;
+            _verenigingRepository = verenigingRepository;
             _reserveringRepository = reserveringRepository;
             _resourceLoader = resourceLoader;
             _alertMessageService = alertMessageService;
@@ -77,6 +79,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         {
             Date = dateFormatter.Format(DateTime.Now);
             Time = timeFormatter.Format(DateTime.Now);
+            _verenigingRepository.UpdateKioskModeAsync();
             //Date = DateTime.Now.ToString("dd MMMM, yyyy");
             //Time = DateTime.Now.ToString("HH:mm");
 

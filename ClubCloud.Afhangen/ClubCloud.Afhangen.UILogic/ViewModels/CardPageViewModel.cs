@@ -231,7 +231,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                     _verenigingsnummer = collection[10].Value;
                     _bondsnummer = collection[9].Value;
                 //}
-                
+                /*
                if (Index == 0)
                    _bondsnummer = "12073385";
                if (Index == 1)
@@ -240,7 +240,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                    _bondsnummer = "14788632";
                if (Index == 3)
                    _bondsnummer = "28403029";
-               
+               */
             }
                 await RetrieveSpeler();
         }

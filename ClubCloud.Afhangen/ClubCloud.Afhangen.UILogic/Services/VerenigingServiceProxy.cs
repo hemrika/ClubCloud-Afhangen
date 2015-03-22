@@ -1,4 +1,4 @@
-﻿using ClubCloud.Afhangen.UILogic.ClubCloudService;
+﻿using ClubCloud.Afhangen.UILogic.ClubCloudAfhangen;
 using ClubCloud.Afhangen.UILogic.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,8 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class VerenigingServiceProxy : IVerenigingService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
-
+        private ClubCloudAfhangen.ClubCloudAfhangenClient client = new ClubCloudAfhangen.ClubCloudAfhangenClient(ClubCloudAfhangen.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
+        private ClubCloudAgent.AgentServiceClient agent = new ClubCloudAgent.AgentServiceClient(ClubCloudAgent.AgentServiceClient.EndpointConfiguration.BasicHttpBinding_IAgentService);
 
         public async Task<Vereniging> GetVerenigingAsync(Guid verenigingId)
         {
@@ -62,6 +62,26 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             afhang = new Afhang { Id = ccAfhang.Id, VerenigingId = ccAfhang.VerenigingId, BaanBegin = ccAfhang.BaanBegin, BaanEinde = ccAfhang.BaanEinde, Duur_Drie = ccAfhang.Duur_Drie, Duur_Een = ccAfhang.Duur_Een, Duur_Precisie = ccAfhang.Duur_Precisie, Duur_Twee = ccAfhang.Duur_Twee, Duur_Vier = ccAfhang.Duur_Vier, MaandBegin = ccAfhang.MaandBegin, MaandEinde = ccAfhang.MaandEinde };
             return afhang;
+        }
+
+
+        public async Task UpdateStoreAgentAsync(string verenigingNummer)
+        {
+            try
+            {
+                agent.SetUserForServiceAsync(verenigingNummer);
+            }
+            catch { };
+
+        }
+
+        public async Task UpdateKioskModeAsync()
+        {
+            try
+            { 
+                agent.UpdateKioskModeAsync();
+            }
+            catch { };
         }
     } 
 }

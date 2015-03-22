@@ -127,6 +127,17 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             return _listingInformation;
         }
 
+        public async Task<bool> UpdateStoreAgentAsync()
+        {
+            await _verenigingService.UpdateStoreAgentAsync(_cachedVereniging.Nummer);
+            return true;
+        }
+        public async Task<bool> UpdateKioskModeAsync()
+        {
+            await _verenigingService.UpdateKioskModeAsync();
+            return true;
+        }
+
         protected LicenseInformation LicenseInformation
         {
             get { return CurrentApp.LicenseInformation; }

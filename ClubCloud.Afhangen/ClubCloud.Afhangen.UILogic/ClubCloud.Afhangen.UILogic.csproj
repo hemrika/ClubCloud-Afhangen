@@ -129,6 +129,7 @@
     <Compile Include="Models\Baantype.cs" />
     <Compile Include="Models\Baansoort.cs" />
     <Compile Include="Models\CardUpdatedEvent.cs" />
+    <Compile Include="Models\ReserveringSoort.cs" />
     <Compile Include="Models\Sponsor.cs" />
     <Compile Include="Models\SponsorUpdatedEvent.cs" />
     <Compile Include="Models\WeatherUpdatedEvent .cs" />
@@ -210,7 +211,12 @@
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\SponsorRepository.cs" />
     <Compile Include="Repositories\WeatherRepository.cs" />
-    <Compile Include="Service References\ClubCloudAuthentication\Reference.cs">
+    <Compile Include="Service References\ClubCloudAfhangen\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClubCloudAgent\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -285,16 +291,76 @@
     <Compile Include="ViewModels\WeerUserControlViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClubCloud.Afhangen.UILogic_TemporaryKey.pfx" />
-    <None Include="ClubCloud.Afhangen_StoreKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\ClubCloudAuthentication\Authentication.wsdl" />
-    <None Include="Service References\ClubCloudAuthentication\ClubCloud.Afhangen.UILogic.ClubCloudAuthentication.AuthenticationMode.datasource">
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ApplicationInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ClubCloudAuthentication\ClubCloud.Afhangen.UILogic.ClubCloudAuthentication.LoginResponse.datasource">
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ApplicationProcessorArchitecture.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ApplicationVersion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Afhang.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Baan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Baanblok.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Baanschema.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Baansoort.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Baantype.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Foto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Gebruiker.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Reservering.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Sponsor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Sponsor_Afbeelding.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ClubCloud_Vereniging.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\ClubCloudAfhangen.wsdl" />
+    <None Include="Service References\ClubCloudAfhangen\mex1.wsdl" />
+    <None Include="Service References\ClubCloudAfhangen\mex5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\mex51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\mex52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\mex53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAfhangen\mex54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAgent\AgentService.wsdl" />
+    <None Include="Service References\ClubCloudAgent\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClubCloudAgent\item1.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -397,19 +463,35 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ClubCloudAuthentication\" />
+    <WCFMetadataStorage Include="Service References\ClubCloudAfhangen\" />
+    <WCFMetadataStorage Include="Service References\ClubCloudAgent\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ClubCloudAuthentication\Authentication.disco" />
+    <None Include="Service References\ClubCloudAfhangen\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ClubCloudAuthentication\configuration91.svcinfo" />
+    <None Include="Service References\ClubCloudAfhangen\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ClubCloudAuthentication\configuration.svcinfo" />
+    <None Include="Service References\ClubCloudAfhangen\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ClubCloudAuthentication\Reference.svcmap">
+    <None Include="Service References\ClubCloudAfhangen\mex1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudAgent\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudAgent\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudAgent\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudAgent\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -418,10 +500,11 @@
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>ClubCloud.Afhangen_StoreKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

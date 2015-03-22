@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="61122Hemrika.ClubCloudAfhangen" Publisher="CN=542A37B3-3743-4D34-9831-A53802B37158" Version="1.1.0.1" />
+  <Identity Name="Hemrika.ClubCloud.Afhangen" Publisher="E=info@sharepresence.nl, CN=Rutger Hemrika, L=Utrecht, S=Utrecht, C=NL" Version="1.0.0.13" />
   <Properties>
     <DisplayName>ClubCloud Afhangen</DisplayName>
     <PublisherDisplayName>Hemrika</PublisherDisplayName>
@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ClubCloud.Afhangen.App">
-      <m2:VisualElements DisplayName="ClubCloud Afhangen" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="ClubCloud Afhangen" ForegroundText="light" BackgroundColor="#2582D3" ToastCapable="false">
+      <m2:VisualElements DisplayName="ClubCloud Afhangen" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="ClubCloud Afhangen beschrijving" ForegroundText="light" BackgroundColor="#2582D3" ToastCapable="false">
         <m2:DefaultTile ShortName="ClubCloud Afhangen">
         </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#2582D3" />
@@ -28,6 +28,14 @@
       <ApplicationContentUriRules>
         <Rule Match="https://*.clubcloud.nl" Type="include" />
       </ApplicationContentUriRules>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="clubcloud" m2:DesiredView="default">
+            <Logo>Assets\clubcloud_logo.png</Logo>
+            <DisplayName>ClubCloud afhangen</DisplayName>
+          </Protocol>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

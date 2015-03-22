@@ -34,6 +34,7 @@ namespace ClubCloud.Afhangen.DesignViewModels
             Soort = "soort";
             Type = "type";
             Verlichting = true;
+            ActionName = "Selecteer Baan";
 
             Baan baan = new Baan { Id = Id, Naam = Naam, Nummer = Nummer, Locatie = "Buiten", Soort = "soort", Type = "type", Verlichting = true };
         }
@@ -88,5 +89,7 @@ namespace ClubCloud.Afhangen.DesignViewModels
                 throw new NotImplementedException();
             }
         }
+
+        public string ActionName { get; private set; }
     }
 }

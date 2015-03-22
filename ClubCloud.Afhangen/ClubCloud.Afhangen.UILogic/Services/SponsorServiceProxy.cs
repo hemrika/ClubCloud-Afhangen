@@ -1,4 +1,4 @@
-﻿using ClubCloud.Afhangen.UILogic.ClubCloudService;
+﻿using ClubCloud.Afhangen.UILogic.ClubCloudAfhangen;
 using ClubCloud.Afhangen.UILogic.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 {
     public class SponsorServiceProxy : ISponsorService
     {
-        private ClubCloudService.ClubCloudAfhangenClient client = new ClubCloudService.ClubCloudAfhangenClient(ClubCloudService.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen11);
+        private ClubCloudAfhangen.ClubCloudAfhangenClient client = new ClubCloudAfhangen.ClubCloudAfhangenClient(ClubCloudAfhangen.ClubCloudAfhangenClient.EndpointConfiguration.BasicHttpBinding_ClubCloudAfhangen1);
 
         public async Task<Sponsor> GetSponsorAsync(Guid verenigingId, Guid sponsorId)
         {
@@ -30,7 +30,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
             List<Sponsor> sponsoren = new List<Sponsor>();
 
             
-            ObservableCollection<ClubCloudService.ClubCloud_Sponsor> ccsponsoren = await client.GetSponsorenByVerenigingIdAsync("00000000", verenigingId, false);
+            ObservableCollection<ClubCloudAfhangen.ClubCloud_Sponsor> ccsponsoren = await client.GetSponsorenByVerenigingIdAsync("00000000", verenigingId, false);
 
             foreach (ClubCloud_Sponsor ccsponsor in ccsponsoren)
             {

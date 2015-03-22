@@ -191,7 +191,8 @@
                                                        Converter={StaticResource NullToGuidConverter}}"
                             Content="Bevestigen"
                             FontSize="32"
-                            Foreground="White" />
+                            Foreground="White"
+                            IsEnabled="{Binding KanBevestigen}" />
                     <Button x:Uid="VerwijderenButton"
                             x:Name="VerwijderenButton"
                             Height="80"
@@ -204,7 +205,8 @@
                                                        Converter={StaticResource NullToGuidConverter}}"
                             Content="Verwijderen"
                             FontSize="32"
-                            Foreground="White" />
+                            Foreground="White"
+                            IsEnabled="{Binding KanBevestigen}" />
                     <Button x:Uid="AnnulerenButton"
                             x:Name="AnnulerenButton"
                             Height="80"

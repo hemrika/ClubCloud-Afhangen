@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://clubcloud.nl/" elementFormDefault="qualified" targetNamespace="http://clubcloud.nl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://afhangen.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://afhangen.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/ClubCloud.Model" />
+  <xs:import schemaLocation="https://afhangen.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc/mex?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetBaanById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q1:guid" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="baanId" type="q2:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaanByIdResult" nillable="true" type="q3:ClubCloud_Baan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByAccommodatieId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q4:guid" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="accommodatieId" type="q5:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByAccommodatieIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaanSchemaByAccommodatieIdResult" nillable="true" type="q6:ArrayOfClubCloud_Baanschema" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByVerenigingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q7:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByVerenigingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaanSchemaByVerenigingIdResult" nillable="true" type="q8:ArrayOfClubCloud_Baanschema" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q9:guid" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanSchemaByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaanSchemaByDateResult" nillable="true" type="q10:ArrayOfClubCloud_Baanschema" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanenByAccommodatieId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q11:guid" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="accommodatieId" type="q12:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanenByAccommodatieIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBanenByAccommodatieIdResult" nillable="true" type="q13:ArrayOfClubCloud_Baan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanenByVerenigingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q14:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanenByVerenigingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBanenByVerenigingIdResult" nillable="true" type="q15:ArrayOfClubCloud_Baan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanblokkenByAccommodatieId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q16:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="accommodatieId" type="q17:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaanblokkenByAccommodatieIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaanblokkenByAccommodatieIdResult" nillable="true" type="q18:ArrayOfClubCloud_Baanblok" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaansoortById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q19:guid" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="accommodatieId" type="q20:guid" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="baansoortId" type="q21:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaansoortByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaansoortByIdResult" nillable="true" type="q22:ClubCloud_Baansoort" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaantypeById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q23:guid" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="accommodatieId" type="q24:guid" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="BaantypeId" type="q25:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaantypeByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetBaantypeByIdResult" nillable="true" type="q26:ClubCloud_Baantype" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReservering">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q27:guid" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="reserveringId" type="q28:guid" />
+        <xs:element minOccurs="0" name="push" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReserveringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteReserveringResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikersByReserveringId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q29:guid" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="reserveringId" type="q30:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikersByReserveringIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetGebruikersByReserveringIdResult" nillable="true" type="q31:ArrayOfClubCloud_Gebruiker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringByReserveringId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q32:guid" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="reserveringId" type="q33:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringByReserveringIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetReserveringByReserveringIdResult" nillable="true" type="q34:ClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByBaanId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q35:guid" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="baanId" type="q36:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByBaanIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetReserveringenByBaanIdResult" nillable="true" type="q37:ArrayOfClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q38:guid" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetReserveringenByDateResult" nillable="true" type="q39:ArrayOfClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByBondsnummer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q40:guid" />
+        <xs:element minOccurs="0" name="nummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByBondsnummerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetReserveringenByBondsnummerResult" nillable="true" type="q41:ArrayOfClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByVerenigingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q42:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReserveringenByVerenigingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetReserveringenByVerenigingIdResult" nillable="true" type="q43:ArrayOfClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReservering">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q44:guid" />
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="baanId" type="q45:guid" />
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="gebruikers" nillable="true" type="q46:ArrayOfguid" />
+        <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Tijd" type="q47:duration" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Duur" type="q48:duration" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="Soort" type="q49:ReserveringSoort" />
+        <xs:element minOccurs="0" name="final" type="xs:boolean" />
+        <xs:element minOccurs="0" name="push" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReserveringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="SetReserveringResult" nillable="true" type="q50:ClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReservering">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q51:guid" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="reservering" nillable="true" type="q52:ClubCloud_Reservering" />
+        <xs:element minOccurs="0" name="final" type="xs:boolean" />
+        <xs:element minOccurs="0" name="push" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateReserveringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="UpdateReserveringResult" nillable="true" type="q53:ClubCloud_Reservering" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikerByNummer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q54:guid" />
+        <xs:element minOccurs="0" name="nummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikerByNummerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetGebruikerByNummerResult" nillable="true" type="q55:ClubCloud_Gebruiker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFotoByNummer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q56:guid" />
+        <xs:element minOccurs="0" name="nummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFotoByNummerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetFotoByNummerResult" nillable="true" type="q57:ClubCloud_Foto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFotoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q58:guid" />
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="gebruikerId" type="q59:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFotoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetFotoByIdResult" nillable="true" type="q60:ClubCloud_Foto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikerById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q61:guid" />
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="gebruikerId" type="q62:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikerByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetGebruikerByIdResult" nillable="true" type="q63:ClubCloud_Gebruiker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingByLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+        <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingByLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetVerenigingByLocationResult" nillable="true" type="q64:ClubCloud_Vereniging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingByNummer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="verenigingNummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingByNummerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetVerenigingByNummerResult" nillable="true" type="q65:ClubCloud_Vereniging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q66:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetVerenigingByIdResult" nillable="true" type="q67:ClubCloud_Vereniging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingAfhangSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q68:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerenigingAfhangSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetVerenigingAfhangSettingsResult" nillable="true" type="q69:ClubCloud_Afhang" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorenByVerenigingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q70="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q70:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorenByVerenigingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetSponsorenByVerenigingIdResult" nillable="true" type="q71:ArrayOfClubCloud_Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q72:guid" />
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="sponsorId" type="q73:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetSponsorByIdResult" nillable="true" type="q74:ClubCloud_Sponsor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorImageById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bondsnummer" nillable="true" type="xs:string" />
+        <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="verenigingId" type="q75:guid" />
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="afbeeldingId" type="q76:guid" />
+        <xs:element minOccurs="0" name="refresh" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorImageByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetSponsorImageByIdResult" nillable="true" type="q77:ClubCloud_Sponsor_Afbeelding" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetApplicationInfosResult" nillable="true" type="q78:ArrayOfApplicationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationInfoId" type="xs:int" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetApplicationVersionResult" nillable="true" type="q79:ApplicationVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationProcessorArchitectures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationVersionId" type="xs:int" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationProcessorArchitecturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ClubCloud.Model" minOccurs="0" name="GetApplicationProcessorArchitecturesResult" nillable="true" type="q80:ArrayOfApplicationProcessorArchitecture" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

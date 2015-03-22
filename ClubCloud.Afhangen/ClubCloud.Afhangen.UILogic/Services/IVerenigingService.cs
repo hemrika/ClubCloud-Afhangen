@@ -16,5 +16,9 @@ namespace ClubCloud.Afhangen.UILogic.Services
         Task<Vereniging> GetVerenigingByNummerAsync(string verenigingNummer);
 
         Task<Afhang> GetVerenigingSettingsAsync(Guid verenigingId);
+
+        Task UpdateStoreAgentAsync(string verenigingNummer);
+
+        Task UpdateKioskModeAsync();
     }
 }

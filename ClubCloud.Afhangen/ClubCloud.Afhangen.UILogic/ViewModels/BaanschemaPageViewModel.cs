@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Linq;
 using System;
 using Syncfusion.UI.Xaml.Schedule;
-using ClubCloud.Afhangen.UILogic.ClubCloudService;
+using ClubCloud.Afhangen.UILogic.ClubCloudAfhangen;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
@@ -139,7 +139,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             foreach (Baan baan in banen)
             {
                 banenResource.ResourceCollection.Add(new Resource { DisplayName = baan.Naam, ResourceName = baan.Naam, TypeName = "Banen" });
-
+                /*
                 int hours = new Random().Next(Afhang.BaanBegin.Hours, Afhang.BaanEinde.Hours);
                 int mins = new Random().Next(Afhang.Duur_Een, Afhang.Duur_Vier);
                 Reserveringen.Add(new ScheduleAppointment { StartTime = _date.AddHours(hours).AddMinutes(mins * -1), EndTime = _date.AddHours(hours).AddMinutes(mins), Location = "Baan 1", Status = new ScheduleAppointmentStatus { Status = ReserveringSoort.Les.ToString() }, ResourceCollection = new ObservableCollection<Resource> { new Resource() { ResourceName = baan.Naam, TypeName = "Banen" } }, Subject = "Afhangen", ReadOnly = true });
@@ -151,13 +151,18 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 hours = new Random().Next(Afhang.BaanBegin.Hours, Afhang.BaanEinde.Hours);
                 mins = new Random().Next(Afhang.Duur_Een, Afhang.Duur_Vier);
                 Reserveringen.Add(new ScheduleAppointment { StartTime = _date.AddHours(hours).AddMinutes(mins * -1), EndTime = _date.AddHours(hours).AddMinutes(mins), Location = "Baan 1", Status = new ScheduleAppointmentStatus { Status = ReserveringSoort.Competitie.ToString() }, ResourceCollection = new ObservableCollection<Resource> { new Resource() { ResourceName = baan.Naam, TypeName = "Banen" } }, Subject = "Afhangen", ReadOnly = true });
-
+                */
             }
 
             Banen = new ObservableCollection<ResourceType>();
             Banen.Add(banenResource);
 
-            ObservableCollection<Reservering> reserveringen = await _reserveringRepository.GetReserveringenByDateAsync(_date);            
+            ObservableCollection<Reservering> reserveringen = await _reserveringRepository.GetReserveringenByDateAsync(_date);
+
+            foreach (Reservering reservering in reserveringen)
+            {
+                Reserveringen.Add(new ScheduleAppointment { StartTime = reservering.Datum.Add(reservering.BeginTijd), EndTime = reservering.Datum.Add(reservering.EindTijd), Location = reservering.Baan.Naam, Status = new ScheduleAppointmentStatus { Status = reservering.Soort.ToString() }, ResourceCollection = new ObservableCollection<Resource> { new Resource() { ResourceName = reservering.Baan.Naam, TypeName = "Banen" } }, Subject = String.IsNullOrWhiteSpace(reservering.Beschrijving) ? reservering.Soort.ToString(): reservering.Beschrijving, ReadOnly = true });
+            }
         }
 
         public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)

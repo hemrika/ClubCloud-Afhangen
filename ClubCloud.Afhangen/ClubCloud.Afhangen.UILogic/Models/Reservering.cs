@@ -31,6 +31,9 @@ namespace ClubCloud.Afhangen.UILogic.Models
         public Baan Baan { get; set; }
 
         [DataMember]
+        public string Beschrijving { get; set; }
+
+        [DataMember]
         public System.Guid? BaanId { get; set; }
 
         [DataMember]
@@ -49,6 +52,7 @@ namespace ClubCloud.Afhangen.UILogic.Models
         public bool Final { get; set; }
 
         [DataMember]
-        public ClubCloudService.ReserveringSoort Soort { get; set; }
+        public ReserveringSoort Soort { get; set; }
+
     }
 }

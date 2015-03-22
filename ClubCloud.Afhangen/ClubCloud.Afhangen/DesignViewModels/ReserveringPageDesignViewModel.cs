@@ -22,6 +22,8 @@
             ReserveringType = "Reservering Maken";
         }
 
+        public bool KanBevestigen { get; private set; }
+        public bool KanVerwijderen { get; private set; }
         public string ReserveringType { get; private set; }
         public ObservableCollection<Speler> Spelers { get; private set; }
 

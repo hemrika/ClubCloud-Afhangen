@@ -21,9 +21,9 @@ namespace ClubCloud.Afhangen.Converters
 
             var dateTime = (DateTime)value;
 
-            var dateTimeFormatter = new DateTimeFormatter(YearFormat.Full,
-                MonthFormat.Full,
-                DayFormat.Default,
+            var dateTimeFormatter = new DateTimeFormatter(YearFormat.None,
+                MonthFormat.None,
+                DayFormat.None,
                 DayOfWeekFormat.None,
                 HourFormat.Default,
                 MinuteFormat.Default,
@@ -33,7 +33,8 @@ namespace ClubCloud.Afhangen.Converters
                 CalendarIdentifiers.Gregorian,
                 ClockIdentifiers.TwentyFourHour);
 
-            return dateTimeFormatter.Format(dateTime);
+            try { return "Bijgewerkt om "+dateTimeFormatter.Format(dateTime); }
+            catch { return null; }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter,
