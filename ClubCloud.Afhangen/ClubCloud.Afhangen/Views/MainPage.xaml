@@ -14,8 +14,6 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="MainPage"
                             x:Name="Main"
-                            Width="1680"
-                            Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:MainPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
@@ -37,32 +35,36 @@
                 <ColumnDefinition Width="120" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <Image x:Name="ClubCloud_Logo"
+                   HorizontalAlignment="Left"
+                   Source="ms-appx:///Assets/Square310x310Logo.png" />
             <StackPanel x:Name="ClubIndicator"
                         Grid.Column="1"
                         Orientation="Horizontal">
+
                 <TextBlock x:Name="Vereniging"
                            Margin="0,0,30,30"
                            VerticalAlignment="Bottom"
                            IsHitTestVisible="false"
-                           Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                           Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                            Text="{Binding Vereniging.Naam}"
                            TextWrapping="NoWrap" />
                 <TextBlock Margin="0,0,5,30"
                            VerticalAlignment="Bottom"
                            IsHitTestVisible="false"
-                           Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                           Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                            Text="(" />
                 <TextBlock x:Name="Nummer"
                            Margin="0,0,0,30"
                            VerticalAlignment="Bottom"
                            IsHitTestVisible="false"
-                           Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                           Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                            Text="{Binding Vereniging.Nummer}"
                            TextWrapping="NoWrap" />
                 <TextBlock Margin="0,0,5,30"
                            VerticalAlignment="Bottom"
                            IsHitTestVisible="false"
-                           Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                           Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                            Text=")" />
             </StackPanel>
         </Grid>
@@ -104,9 +106,17 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource ClubCloudHeaderBackground}"
-                        Content="Afhangen"
                         FontSize="36"
                         Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="80"
+                               HorizontalAlignment="Left"
+                               Source="ms-appx:///Assets/card.png" />
+                        <TextBlock Margin="20"
+                                   VerticalAlignment="Center"
+                                   FontSize="42"
+                                   Text="Afhangen" />
+                    </StackPanel>
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Tapped">
                             <Behaviors:NavigateToPageAction TargetPage="ClubCloud.Afhangen.Views.ReserveringPage" />
@@ -120,9 +130,17 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource ClubCloudHeaderBackground}"
-                        Content="Bekijken"
                         FontSize="36"
                         Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="80"
+                               HorizontalAlignment="Left"
+                               Source="ms-appx:///Assets/card.png" />
+                        <TextBlock Margin="20"
+                                   VerticalAlignment="Center"
+                                   FontSize="42"
+                                   Text="Bekijken" />
+                    </StackPanel>
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Tapped">
                             <Core:NavigateToPageAction Parameter="-1" TargetPage="ClubCloud.Afhangen.Views.CardPage" />
@@ -137,7 +155,7 @@
                             Orientation="Vertical">
                     <views:KlokUserControl x:Name="KlokUserControl"
                                            Height="120"
-                                           Margin="15,10,15,0"
+                                           Margin="20,10,20,0"
                                            HorizontalAlignment="Right"
                                            VerticalAlignment="Top" />
 
@@ -155,15 +173,31 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource ClubCloudHeaderBackground}"
-                        Content="Baanschema"
                         FontSize="36"
                         Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="80"
+                               HorizontalAlignment="Left"
+                               Source="ms-appx:///Assets/calender.png" />
+                        <TextBlock Margin="20"
+                                   VerticalAlignment="Center"
+                                   FontSize="42"
+                                   Text="Baanschema" />
+                    </StackPanel>
+
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Tapped">
                             <Behaviors:NavigateToPageAction TargetPage="ClubCloud.Afhangen.Views.BaanschemaPage" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
+                <TextBox Grid.Row="1"
+                         Grid.Column="0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         Text="{Binding Version,
+                                        Converter={StaticResource StringFormatConverter},
+                                        ConverterParameter='ClubCloud: v{0}'}" />
                 <Button Grid.Row="1"
                         Grid.Column="1"
                         Width="360"
@@ -171,9 +205,18 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource ClubCloudHeaderBackground}"
-                        Content="Sponsors"
                         FontSize="36"
                         Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="80"
+                               HorizontalAlignment="Left"
+                               Source="ms-appx:///Assets/info.png" />
+                        <TextBlock Margin="20"
+                                   VerticalAlignment="Center"
+                                   FontSize="42"
+                                   Text="Informatie" />
+                    </StackPanel>
+
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Tapped">
                             <Behaviors:NavigateToPageAction TargetPage="ClubCloud.Afhangen.Views.SponsorsPage" />

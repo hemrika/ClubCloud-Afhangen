@@ -21,12 +21,14 @@
              mc:Ignorable="d">
     <!--  Page content  -->
     <Grid x:Name="BaanGrid"
-          Width="320"
+          Width="300"
           Height="230"
-          Margin="20"
+          Margin="10"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
-          Background="{StaticResource ClubCloudHeaderBackground}">
+          Background="{StaticResource ClubCloudHeaderBackground}"
+          Visibility="{Binding Selectable,
+                               Converter={StaticResource BooleanToVisibilityConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -39,7 +41,7 @@
                    x:Name="OverviewLabel"
                    Grid.Row="0"
                    Grid.Column="0"
-                   Margin="0,5,0,5"
+                   Margin="0,4,0,0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="32"
@@ -72,7 +74,7 @@
                            VerticalAlignment="Center"
                            FontSize="24"
                            Foreground="{StaticResource ClubCloudHeaderBackground}"
-                           Text="Starttijd :"
+                           Text="Tijd :"
                            TextTrimming="WordEllipsis" />
                 <TextBlock x:Name="starttijd"
                            Grid.Row="0"
@@ -93,7 +95,7 @@
                            VerticalAlignment="Center"
                            FontSize="24"
                            Foreground="{StaticResource ClubCloudHeaderBackground}"
-                           Text="Speelduur :"
+                           Text="Duur :"
                            TextTrimming="WordEllipsis" />
                 <TextBlock x:Name="Speelduur"
                            Grid.Row="1"
@@ -139,6 +141,7 @@
             </Grid>
             <Button x:Uid="BaanSelecterenButton"
                     x:Name="BaanSelecterenButton"
+                    Height="40"
                     Margin="0,8,0,0"
                     HorizontalAlignment="Stretch"
                     AutomationProperties.AutomationId="BaanSelecterenButton"

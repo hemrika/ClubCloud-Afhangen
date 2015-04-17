@@ -70,7 +70,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         {
             get
             {
-                return "Baan"+_baan.Nummer; 
+                return "Baan "+_baan.Nummer; 
                 //return _baan.Naam;
             }
         }
@@ -141,6 +141,22 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 else
                 {
                     return "Verwijder Baan";
+                }
+            }
+        }
+
+        public bool Selectable
+        {
+            get
+            {
+                //Task.Run(async () => await UpdateBaanInfoAsync(_baan));
+                if (_reserveringCurrent == null || _baan.Id != _reserveringCurrent.BaanId)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -216,6 +232,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 _reserveringCurrent = await _reserveringRepository.GetReserveringAsync();
             }
             catch { }
+
         }
 
         private async void NavigateToBanen()
@@ -289,17 +306,6 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             {
                 _dataContext = value;
             }
-        }
-
-
-        public bool IsBaanSelected()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateBaanAsync(object notUsed)
-        {
-            throw new NotImplementedException();
         }
     }
 }

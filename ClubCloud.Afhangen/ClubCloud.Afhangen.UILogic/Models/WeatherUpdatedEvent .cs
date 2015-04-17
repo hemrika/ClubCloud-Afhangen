@@ -2,7 +2,7 @@
 
 namespace ClubCloud.Afhangen.UILogic.Models
 {
-    public class WeatherUpdatedEvent : PubSubEvent<bool>
+    public class CloudUpdatedEvent : PubSubEvent<bool>
     {
     }
 }

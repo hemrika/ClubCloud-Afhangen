@@ -14,6 +14,8 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="BaanschemaPage"
                             x:Name="Baanschema"
+                            Width="1680"
+                            Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:BaanschemaPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
@@ -58,7 +60,7 @@
                        Margin="0,0,5,30"
                        VerticalAlignment="Bottom"
                        IsHitTestVisible="false"
-                       Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                       Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                        Text="{StaticResource AppName}" />
         </Grid>
         <Schedule:SfSchedule x:Uid="BanenSchema"
@@ -83,7 +85,7 @@
                                                                       UpdateSourceTrigger=Default}"
                              ScheduleType="Day"
                              ShowAllDay="False"
-                             ShowNonWorkingHours="False"
+                             ShowNonWorkingHours="True"
                              TimeInterval="ThirtyMin"
                              TimeMode="TwentyFourHours"
                              WorkEndHour="{Binding Afhang.BaanEinde.Hours}"

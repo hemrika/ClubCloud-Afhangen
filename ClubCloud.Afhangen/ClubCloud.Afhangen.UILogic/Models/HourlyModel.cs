@@ -1,6 +1,8 @@
 using ClubCloud.Afhangen.UILogic.Models.Entities;
 using System;
 using System.Collections.Generic;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 namespace ClubCloud.Afhangen.UILogic.Models
 {
 	public class HourlyModel
@@ -145,5 +147,44 @@ namespace ClubCloud.Afhangen.UILogic.Models
 			get;
 			set;
 		}
-	}
+
+        public int UVIndex { get; set; }
+
+        public ImageSource UVImage
+        {
+            get
+            {
+                if (UVIndex != null)
+                {
+                    Uri image = null;
+                    if (UVIndex < 10)
+                        image = new Uri(string.Format("ms-appx:///Assets/Weather/UV/0{0}.png", UVIndex));
+                    else
+                        image = new Uri(string.Format("ms-appx:///Assets/Weather/UV/{0}.png", UVIndex));
+
+                    if (image != null)
+                        return new BitmapImage(image);
+                }
+                return null;
+            }
+        }
+
+        public ImageSource WeatherImage
+        {
+            get
+            {
+                if (WeatherCode != null)
+                {
+                    Uri image = null;
+                    if (WeatherCode < 10)
+                        image = new Uri(string.Format("ms-appx:///Assets/Weather/Icon/0{0}.png", WeatherCode));
+                    else
+                        image = new Uri(string.Format("ms-appx:///Assets/Weather/Icon/{0}.png", WeatherCode));
+                    if (image != null)
+                        return new BitmapImage(image);
+                }
+                return null;
+            }
+        }
+    }
 }

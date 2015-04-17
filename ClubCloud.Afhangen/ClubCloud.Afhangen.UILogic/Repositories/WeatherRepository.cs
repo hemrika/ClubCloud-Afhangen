@@ -549,7 +549,9 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                             hourlyModel.GustSpeed = num2.ToString();
                             hourlyModel.GustSpeedUnit = hourlyForecast.WindGust.Speed.Metric.Unit;
                         }
-                        
+
+                        hourlyModel.UVIndex = hourlyForecast.UVIndex.Value;
+
                         if (hourlyForecast.RelativeHumidity.HasValue)
                         {
                             hourlyModel.Humidity = hourlyForecast.RelativeHumidity.Value.ToString();
@@ -578,14 +580,17 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                         Double num3 = WeatherRepository.MathRound(hourlyForecast.RealFeelTemperature.NumericValue);
                         hourlyModel.PredictedRealFeel = num3.ToString();
                         hourlyModel.PredictedRealFeelUnit = hourlyForecast.RealFeelTemperature.Unit;
+
                         Double num4 = WeatherRepository.MathRound(hourlyForecast.Temperature.NumericValue);
                         hourlyModel.PredictedTemperature = num4.ToString();
                         hourlyModel.PredictedTemperatureUnit = hourlyForecast.Temperature.Unit;
+
                         if (hourlyForecast.PrecipitationProbability.HasValue)
                         {
                             Int32? precipitationProbability = hourlyForecast.PrecipitationProbability;
                             hourlyModel.ProbabilityOfPrecipation = String.Concat(precipitationProbability.Value, "%");
                         }
+
                         hourlyModel.ShortPhrase = hourlyForecast.IconPhrase;
                         hourlyModel.ShortTime = hourlyForecast.DateTime.ToString("HH tt");
                         DateTime date = hourlyForecast.DateTime.Date;

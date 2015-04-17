@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Controls;
             set { closeFlyout = value; }
         }
 
+        /*
         public object DataContext
         {
             get
@@ -30,6 +31,7 @@ using Windows.UI.Xaml.Controls;
                 throw new NotImplementedException();
             }
         }
+        */
         public AboutFlyout()
         {
             this.InitializeComponent();

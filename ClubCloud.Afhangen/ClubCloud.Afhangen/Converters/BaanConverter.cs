@@ -20,11 +20,14 @@ namespace ClubCloud.Afhangen.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value != null && value is string)
+            if (value != null )// && value is int)
             {
-                string baan = (string)value;
+                int nummer = 0;
+                int.TryParse(value.ToString(), out nummer);
 
-                if(string.IsNullOrWhiteSpace(baan))
+                string baan = "Baan " + nummer;
+
+                if (string.IsNullOrWhiteSpace(value.ToString()) || nummer == 0)
                     return string.Format("geen baan");
 
                 return baan;

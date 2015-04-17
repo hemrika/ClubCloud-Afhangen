@@ -18,7 +18,7 @@ namespace ClubCloud.Afhangen.DesignViewModels
         private void FillWithDummyData()
         {
             Sponsors = new ObservableCollection<Sponsor>(){
-                new Sponsor{ Id = Guid.NewGuid(), Naam = "Sponsor 1", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
+                new Sponsor{ Id = Guid.NewGuid(), Naam = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros ligula, interdum scelerisque lacus ut, mattis efficitur sapien. In erat purus, suscipit ut tortor nec, accumsan pretium metus. In id pharetra lacus. Phasellus quis viverra turpis. Vestibulum tempor risus eget vestibulum sollicitudin. Curabitur fringilla quam at elit pharetra porttitor. Quisque at tincidunt leo. Nulla nisi orci, finibus ut luctus eget, scelerisque at lectus. Nullam ultricies arcu eu odio euismod aliquam. Mauris nec dolor lacus. Nullam hendrerit augue vestibulum purus blandit, ac pulvinar elit posuere. ", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
                 new Sponsor{ Id = Guid.NewGuid(), Naam = "Sponsor 2", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
                 new Sponsor{ Id = Guid.NewGuid(), Naam = "Sponsor 3", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
                 new Sponsor{ Id = Guid.NewGuid(), Naam = "Sponsor 4", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},

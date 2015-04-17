@@ -19,7 +19,7 @@
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
     <prism:VisualStateAwarePage.Resources>
-        <x:String x:Key="AppName">Sponsoren</x:String>
+        <x:String x:Key="AppName">Informatie</x:String>
     </prism:VisualStateAwarePage.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
         <Grid.ChildrenTransitions>
@@ -54,7 +54,7 @@
                        Margin="0,0,5,30"
                        VerticalAlignment="Bottom"
                        IsHitTestVisible="false"
-                       Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                       Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                        Text="{StaticResource AppName}" />
         </Grid>
         <FlipView x:Name="SponsorView"
@@ -75,16 +75,23 @@
             <FlipView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Image HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               Source="{Binding Path}"
-                               Stretch="Uniform" />
-                        <Border VerticalAlignment="Bottom">
-                            <TextBlock FontFamily="Segoe UI"
+                        <Grid.Background>
+                            <ImageBrush AlignmentX="Center"
+                                        AlignmentY="Top"
+                                        ImageSource="{Binding Path}"
+                                        Stretch="None" />
+                        </Grid.Background>
+                        <Border VerticalAlignment="Bottom"
+                                Background="White"
+                                Opacity="0.8">
+                            <TextBlock VerticalAlignment="Top"
+                                       FontFamily="Segoe UI"
                                        FontSize="26.667"
                                        Foreground="#2582D3"
+                                       Opacity="1.0"
                                        Padding="15,20"
-                                       Text="{Binding Naam}" />
+                                       Text="{Binding Naam}"
+                                       TextWrapping="WrapWholeWords" />
                         </Border>
                     </Grid>
                 </DataTemplate>

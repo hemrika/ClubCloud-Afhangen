@@ -1,20 +1,41 @@
+using System.ComponentModel;
 using System.Runtime.Serialization;
 namespace ClubCloud.Afhangen.UILogic.Models
 {
 	[DataContract]
-	public class TemperatureRange
+	public class TemperatureRange :  INotifyPropertyChanged
 	{
-		[DataMember]
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        private void RaisePropertyChanged(string propName)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
+        private Measurement minimum;
+
+        [DataMember]
 		public Measurement Minimum
 		{
-			get;
-			set;
-		}
+            get { return minimum; }
+            set
+            {
+                minimum = value;
+                RaisePropertyChanged("Minimum");
+            }
+        }
+
+        private Measurement maximum;
+
 		[DataMember]
 		public Measurement Maximum
 		{
-			get;
-			set;
+            get { return maximum; }
+            set
+            {
+                maximum = value;
+                RaisePropertyChanged("Maximum");
+            }
 		}
 	}
 }

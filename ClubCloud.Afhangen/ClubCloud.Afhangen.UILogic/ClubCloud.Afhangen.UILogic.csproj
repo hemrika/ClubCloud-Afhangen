@@ -129,9 +129,13 @@
     <Compile Include="Models\Baantype.cs" />
     <Compile Include="Models\Baansoort.cs" />
     <Compile Include="Models\CardUpdatedEvent.cs" />
+    <Compile Include="Models\ClubPosition.cs" />
     <Compile Include="Models\ReserveringSoort.cs" />
     <Compile Include="Models\Sponsor.cs" />
     <Compile Include="Models\SponsorUpdatedEvent.cs" />
+    <Compile Include="Models\CloudImage.cs" />
+    <Compile Include="Models\UVIndex.cs" />
+    <Compile Include="Models\CloudUpdatedEvent.cs" />
     <Compile Include="Models\WeatherUpdatedEvent .cs" />
     <Compile Include="Models\CurrentConditions.cs" />
     <Compile Include="Models\CurrentConditionsModel.cs" />
@@ -254,6 +258,7 @@
     <Compile Include="ViewModels\ICardUserControlViewModel.cs" />
     <Compile Include="ViewModels\IKlokUserControlViewModel.cs" />
     <Compile Include="ViewModels\ISpelerUserControlViewModel.cs" />
+    <Compile Include="ViewModels\ICloudUserControlViewModel.cs" />
     <Compile Include="ViewModels\IWeerUserControlViewModel.cs" />
     <Compile Include="ViewModels\KlokUserControlViewModel.cs" />
     <Compile Include="ViewModels\SponsorsPageViewModel.cs" />
@@ -288,6 +293,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\ReserveringPageViewModel.cs" />
     <Compile Include="ViewModels\SpelersPageViewModel.cs" />
+    <Compile Include="ViewModels\CloudUserControlViewModel.cs" />
     <Compile Include="ViewModels\WeerUserControlViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -372,18 +378,6 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AstroSoft.WindowsStore.Common">
-      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.Common\AstroSoft.WindowsStore.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="AstroSoft.WindowsStore.Modules">
-      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.Modules\AstroSoft.WindowsStore.Modules.dll</HintPath>
-    </Reference>
-    <Reference Include="AstroSoft.WindowsStore.UI">
-      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.UI\AstroSoft.WindowsStore.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="AstroSoft.WindowsStore.UILogic">
-      <HintPath>..\..\packages\Prism.StoreApps.MvvmExtensions.1.0.3\lib\netcore451\AstroSoft.WindowsStore.UILogic\AstroSoft.WindowsStore.UILogic.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Mvvm">
       <HintPath>..\..\packages\Prism.Mvvm.1.1.1\lib\windows8\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
     </Reference>
@@ -427,36 +421,6 @@
     </Reference>
     <Reference Include="Prism.StoreApps.Extensions.ViewModel">
       <HintPath>..\..\packages\Prism.StoreApps.Extensions.Mvvm.1.0.6\lib\netcore451\Prism.StoreApps.Extensions.Mvvm\Prism.StoreApps.Extensions.ViewModel.dll</HintPath>
-    </Reference>
-    <Reference Include="ReactiveUI, Version=6.4.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\reactiveui-core.6.4.0.1\lib\Win8\ReactiveUI.dll</HintPath>
-    </Reference>
-    <Reference Include="Splat, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Splat.1.6.1\lib\NetCore45\Splat.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Core">
-      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\windows8\System.Reactive.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces">
-      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\windows8\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq">
-      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\windows8\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices">
-      <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\windows8\System.Reactive.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Windows.Threading">
-      <HintPath>..\..\packages\Rx-XAML.2.2.5\lib\windows8\System.Reactive.Windows.Threading.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.WindowsRuntime">
-      <HintPath>..\..\packages\Rx-WinRT.2.2.5\lib\windows8\System.Reactive.WindowsRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="WinRTXamlToolkit, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\WinRTXamlToolkit.Windows.1.8.1.0\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

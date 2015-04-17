@@ -70,8 +70,20 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public ObservableCollection<ResourceType> Banen
         {
-            get { return _banen; }
-            private set { SetProperty(ref _banen, value); }
+            get
+            {
+                if (_banen == null)
+                    _banen = new ObservableCollection<ResourceType>();
+
+                return _banen;
+            }
+            private set
+            {
+                if (_banen == null)
+                    _banen = new ObservableCollection<ResourceType>();
+
+                SetProperty(ref _banen, value);
+            }
         }
 
         public ObservableCollection<ScheduleAppointment> Reserveringen
@@ -100,6 +112,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         private async Task UpdateBanenInfoAsync()
         {
+            try
+            {
             if (_vereniging == null)
                 _vereniging = await _verenigingRepository.GetVerenigingAsync();
             if(_afhang == null)
@@ -114,12 +128,20 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 banenResource.ResourceCollection.Add(new Resource { DisplayName = baan.Naam, ResourceName = baan.Naam, TypeName = "Banen" });
             }
 
-            Banen = new ObservableCollection<ResourceType>();
             Banen.Add(banenResource);
+
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                throw;
+            }
         }
 
         private async void BanenSchema_VisibleDatesChanging(VisibleDatesChangingEventArgs e)
         {
+            try
+            { 
             ObservableCollection<DateTime> dates = e.NewValue as ObservableCollection<DateTime>;
             DateTime _date = DateTime.Now;
             if (dates.Count > 0)
@@ -154,14 +176,41 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 */
             }
 
-            Banen = new ObservableCollection<ResourceType>();
             Banen.Add(banenResource);
 
             ObservableCollection<Reservering> reserveringen = await _reserveringRepository.GetReserveringenByDateAsync(_date);
 
             foreach (Reservering reservering in reserveringen)
             {
-                Reserveringen.Add(new ScheduleAppointment { StartTime = reservering.Datum.Add(reservering.BeginTijd), EndTime = reservering.Datum.Add(reservering.EindTijd), Location = reservering.Baan.Naam, Status = new ScheduleAppointmentStatus { Status = reservering.Soort.ToString() }, ResourceCollection = new ObservableCollection<Resource> { new Resource() { ResourceName = reservering.Baan.Naam, TypeName = "Banen" } }, Subject = String.IsNullOrWhiteSpace(reservering.Beschrijving) ? reservering.Soort.ToString(): reservering.Beschrijving, ReadOnly = true });
+                reservering.Baan = banen.SingleOrDefault<Baan>(b => b.Id == reservering.BaanId);
+
+                if (reservering.Baan != null)
+                {
+                    //reservering.BaanId
+                    Reserveringen.Add(
+                        new ScheduleAppointment
+                        {
+                            StartTime = reservering.Datum.Add(reservering.BeginTijd),
+                            EndTime = reservering.Datum.Add(reservering.EindTijd),
+                            Location = reservering.Baan.Naam,
+                            Status = new ScheduleAppointmentStatus
+                            {
+                                Status = reservering.Soort.ToString()
+                            },
+                            ResourceCollection = new ObservableCollection<Resource> { 
+                                new Resource() { 
+                                    ResourceName = reservering.Baan.Naam, 
+                                    TypeName = "Banen" } },
+                            Subject = String.IsNullOrWhiteSpace(reservering.Beschrijving) ? reservering.Soort.ToString() : reservering.Beschrijving,
+                            ReadOnly = true
+                        });
+                }
+            }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                throw;
             }
         }
 

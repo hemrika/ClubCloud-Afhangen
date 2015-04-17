@@ -17,13 +17,14 @@
             <Color x:Key="AccentColor4">#FFA10518</Color>
             <Color x:Key="AccentColor5">#FF212121</Color>
             <Color x:Key="AccentColor6">#FF404040</Color>
+            <Color x:Key="CCColor">#297DED</Color>
 
-            <SolidColorBrush x:Key="SplashScreenBackgroundThemeBrush" Color="{StaticResource AccentColor1}" />
+            <SolidColorBrush x:Key="SplashScreenBackgroundThemeBrush" Color="{StaticResource CCColor}" />
             <SolidColorBrush x:Key="SplashScreenProgressForegorundThemeBrush" Color="White" />
             <SolidColorBrush x:Key="ApplicationAccentThemeBrush" Color="{StaticResource AccentColor4}" />
             <SolidColorBrush x:Key="SettingsFlyoutBackgroundThemeBrush" Color="White" />
             <SolidColorBrush x:Key="ApplicationFlyoutBorderBrush" Color="{StaticResource SystemColorWindowTextColor}" />
-            <SolidColorBrush x:Key="ClubCloudHeaderBackground" Color="{StaticResource AccentColor1}" />
+            <SolidColorBrush x:Key="ClubCloudHeaderBackground" Color="{StaticResource CCColor}" />
 
             <SolidColorBrush x:Key="BackButtonForegroundThemeBrush" Color="White" />
             <SolidColorBrush x:Key="BackButtonPressedForegroundThemeBrush" Color="White" />
@@ -47,7 +48,7 @@
         <Setter Property="Typography.CaseSensitiveForms" Value="True" />
     </Style>
 
-    <Style x:Key="ClubCLoudHeaderTextBlockStyle" TargetType="TextBlock">
+    <Style x:Key="ClubCloudHeaderTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="72" />
         <Setter Property="TextAlignment" Value="Left" />
@@ -183,33 +184,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="RootGrid">
-                        <Grid Margin="-1,-16,0,0">
-                            <TextBlock x:Name="BackgroundGlyph"
-                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
-                                       Text="" />
-                            <TextBlock x:Name="NormalGlyph"
-                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
-                                       Text="{StaticResource BackButtonGlyph}" />
-                            <TextBlock x:Name="ArrowGlyph"
-                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
-                                       Opacity="0"
-                                       Text="" />
-                        </Grid>
-                        <Rectangle x:Name="FocusVisualWhite"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="1.5"
-                                   StrokeEndLineCap="Square" />
-                        <Rectangle x:Name="FocusVisualBlack"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="0.5"
-                                   StrokeEndLineCap="Square" />
-
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -263,6 +237,33 @@
                                 <VisualState x:Name="PointerFocused" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="-1,-16,0,0">
+                            <TextBlock x:Name="BackgroundGlyph"
+                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
+                                       Text="" />
+                            <TextBlock x:Name="NormalGlyph"
+                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
+                                       Text="{StaticResource BackButtonGlyph}" />
+                            <TextBlock x:Name="ArrowGlyph"
+                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
+                                       Opacity="0"
+                                       Text="" />
+                        </Grid>
+                        <Rectangle x:Name="FocusVisualWhite"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="1.5"
+                                   StrokeEndLineCap="Square" />
+                        <Rectangle x:Name="FocusVisualBlack"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="0.5"
+                                   StrokeEndLineCap="Square" />
+
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -285,33 +286,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="RootGrid">
-                        <Grid Margin="-1,-16,0,0">
-                            <TextBlock x:Name="BackgroundGlyph"
-                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
-                                       Text="" />
-                            <TextBlock x:Name="NormalGlyph"
-                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
-                                       Text="{StaticResource BackButtonGlyph}" />
-                            <TextBlock x:Name="ArrowGlyph"
-                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
-                                       Opacity="0"
-                                       Text="" />
-                        </Grid>
-                        <Rectangle x:Name="FocusVisualWhite"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="1.5"
-                                   StrokeEndLineCap="Square" />
-                        <Rectangle x:Name="FocusVisualBlack"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="0.5"
-                                   StrokeEndLineCap="Square" />
-
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -365,6 +339,33 @@
                                 <VisualState x:Name="PointerFocused" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="-1,-16,0,0">
+                            <TextBlock x:Name="BackgroundGlyph"
+                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
+                                       Text="" />
+                            <TextBlock x:Name="NormalGlyph"
+                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
+                                       Text="{StaticResource BackButtonGlyph}" />
+                            <TextBlock x:Name="ArrowGlyph"
+                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
+                                       Opacity="0"
+                                       Text="" />
+                        </Grid>
+                        <Rectangle x:Name="FocusVisualWhite"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="1.5"
+                                   StrokeEndLineCap="Square" />
+                        <Rectangle x:Name="FocusVisualBlack"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="0.5"
+                                   StrokeEndLineCap="Square" />
+
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -387,33 +388,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="RootGrid">
-                        <Grid Margin="-1,-16,0,0">
-                            <TextBlock x:Name="BackgroundGlyph"
-                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
-                                       Text="" />
-                            <TextBlock x:Name="NormalGlyph"
-                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
-                                       Text="{StaticResource BackButtonGlyph}" />
-                            <TextBlock x:Name="ArrowGlyph"
-                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
-                                       Opacity="0"
-                                       Text="" />
-                        </Grid>
-                        <Rectangle x:Name="FocusVisualWhite"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="1.5"
-                                   StrokeEndLineCap="Square" />
-                        <Rectangle x:Name="FocusVisualBlack"
-                                   IsHitTestVisible="False"
-                                   Opacity="0"
-                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
-                                   StrokeDashArray="1,1"
-                                   StrokeDashOffset="0.5"
-                                   StrokeEndLineCap="Square" />
-
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -467,6 +441,33 @@
                                 <VisualState x:Name="PointerFocused" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="-1,-16,0,0">
+                            <TextBlock x:Name="BackgroundGlyph"
+                                       Foreground="{StaticResource BackButtonBackgroundThemeBrush}"
+                                       Text="" />
+                            <TextBlock x:Name="NormalGlyph"
+                                       Foreground="{StaticResource BackButtonForegroundThemeBrush}"
+                                       Text="{StaticResource BackButtonGlyph}" />
+                            <TextBlock x:Name="ArrowGlyph"
+                                       Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}"
+                                       Opacity="0"
+                                       Text="" />
+                        </Grid>
+                        <Rectangle x:Name="FocusVisualWhite"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="1.5"
+                                   StrokeEndLineCap="Square" />
+                        <Rectangle x:Name="FocusVisualBlack"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"
+                                   Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                                   StrokeDashArray="1,1"
+                                   StrokeDashOffset="0.5"
+                                   StrokeEndLineCap="Square" />
+
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

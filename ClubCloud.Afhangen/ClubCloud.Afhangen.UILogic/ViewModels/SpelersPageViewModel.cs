@@ -66,14 +66,19 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public ObservableCollection<SpelerUserControlViewModel> Spelers
         {
-            get { return _spelers; }
+            get {
+                if (_spelers == null)
+                    UpdateSpelersInfoAsync().Wait();
+
+                return _spelers; 
+            }
             private set { SetProperty(ref _spelers, value); }
         }
 
 
         public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
         {
-            _navigationService.Navigate("Main", null);
+            //_navigationService.Navigate("Main", null);
             base.OnNavigatedFrom(viewModelState, suspending);
         }
 
@@ -215,6 +220,5 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             }
         }
         */
-
     }
 }

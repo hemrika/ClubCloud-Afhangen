@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="ClubCloud.Afhangen.Views.CloudUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Behaviors="using:ClubCloud.Afhangen.Behaviors"
+             xmlns:Controls="using:ClubCloud.Afhangen.Controls"
+             xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+             xmlns:Infrastructure="using:Microsoft.Practices.Prism.StoreApps"
+             xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+             xmlns:ccbehaviors="using:ClubCloud.Afhangen.Behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designViewModels="using:ClubCloud.Afhangen.DesignViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mvvm="using:Microsoft.Practices.Prism.Mvvm"
+             xmlns:prism="using:Microsoft.Practices.Prism.StoreApps"
+             xmlns:views="using:ClubCloud.Afhangen.Views"
+             x:Uid="WeerUserControl"
+             x:Name="WeerControl"
+             d:DataContext="{d:DesignInstance designViewModels:CloudUserControlDesignViewModel,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="730"
+             d:DesignWidth="750"
+             mvvm:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
+    <!--  Page content  -->
+    <Grid x:Name="Clouds"
+          Width="750"
+          Height="730">
+        <Grid.Background>
+            <ImageBrush AlignmentX="Left"
+                        AlignmentY="Top"
+                        ImageSource="/Assets/Weather/kaart.gif"
+                        Stretch="UniformToFill" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image x:Name="image"
+               Width="750"
+               Height="750"
+               CacheMode="BitmapCache"
+               Opacity="0.7"
+               Source="{Binding Image,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=Default}"
+               Tag="{Binding Ticks,
+                             Mode=TwoWay,
+                             UpdateSourceTrigger=Default}" />
+        <Image x:Name="nextimage"
+               CacheMode="BitmapCache"
+               Source="{Binding NextImage,
+                                Mode=OneWay,
+                                UpdateSourceTrigger=Default}"
+               Stretch="Fill"
+               Visibility="Collapsed" />
+    </Grid>
+</UserControl>

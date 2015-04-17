@@ -22,8 +22,8 @@
 
     <!--  Page content  -->
     <Grid x:Name="Reservering"
-          Width="400"
-          Height="750"
+          MinHeight="750"
+          VerticalAlignment="Stretch"
           Background="{StaticResource ClubCloudHeaderBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -66,7 +66,7 @@
                        FontSize="30"
                        FontWeight="Bold"
                        Foreground="{StaticResource ClubCloudHeaderBackground}"
-                       Text="{Binding Baan.Naam,
+                       Text="{Binding Baan.Nummer,
                                       Converter={StaticResource BaanConverter}}"
                        TextTrimming="WordEllipsis" />
             <TextBlock x:Uid="Starttijdlbl"
@@ -139,7 +139,7 @@
                     AutomationProperties.AutomationId="BaanButton"
                     Background="{StaticResource ClubCloudHeaderBackground}"
                     Command="{Binding WijzigBaanCommand}"
-                    Content="Baan wijzigen"
+                    Content="Baan"
                     FontSize="32"
                     Foreground="White" />
             <Button x:Uid="SpelerButton"
@@ -150,7 +150,7 @@
                     AutomationProperties.AutomationId="SpelerButton"
                     Background="{StaticResource ClubCloudHeaderBackground}"
                     Command="{Binding WijzigSpelersCommand}"
-                    Content="Spelers wijzigen"
+                    Content="Spelers"
                     FontSize="32"
                     Foreground="White" />
             <Button x:Uid="ReserverenButton"

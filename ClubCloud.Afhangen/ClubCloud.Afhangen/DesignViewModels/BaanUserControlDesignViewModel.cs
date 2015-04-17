@@ -35,7 +35,7 @@ namespace ClubCloud.Afhangen.DesignViewModels
             Type = "type";
             Verlichting = true;
             ActionName = "Selecteer Baan";
-
+            Selectable = true;
             Baan baan = new Baan { Id = Id, Naam = Naam, Nummer = Nummer, Locatie = "Buiten", Soort = "soort", Type = "type", Verlichting = true };
         }
 
@@ -58,6 +58,8 @@ namespace ClubCloud.Afhangen.DesignViewModels
         public TimeSpan Duur { get; private set; }
 
         public TimeSpan BeginTijd { get; private set; }
+
+        public bool Selectable { get; private set; }
 
         /*
         public ObservableCollection<ReserveringViewModel> ReserveringViewModels

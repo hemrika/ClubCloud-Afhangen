@@ -58,6 +58,9 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
         public async Task<Reservering> SetReserveringAsync(Guid verenigingId, Reservering reservering)
         {
+            try
+            {
+
             ObservableCollection<Guid> spelers = new ObservableCollection<Guid>();
             foreach (Speler speler in reservering.Spelers)
             {
@@ -71,7 +74,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                 ClubCloud_Reservering _newreservering = new ClubCloud_Reservering
                 {
                     BaanId = reservering.BaanId,
-                    Beschrijving = "",
+                    Beschrijving = string.Empty,
                     Datum = reservering.Datum,
                     Duur = reservering.Duur,
                     Soort = (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort,
@@ -101,7 +104,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
             }
 
             if(reservering.Id == Guid.Empty)
-                ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort, true, false, "");
+                ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort, true, false, reservering.Soort.ToString());
 
             if (ccreservering != null)
             {
@@ -132,6 +135,12 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     _new.Spelers.Add(new Speler { Id = ccreservering.Gebruiker_Vier.Value });
                 return _new;
             }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+
             return null;
         }
 

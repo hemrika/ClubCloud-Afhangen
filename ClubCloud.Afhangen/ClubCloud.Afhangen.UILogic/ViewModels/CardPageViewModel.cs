@@ -227,22 +227,13 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 looking = true;
                 //if (DateTime.Today.Year >= int.Parse(collection[11].Value))
                 //{
-                    _jaar = int.Parse(collection[11].Value);
-                    _verenigingsnummer = collection[10].Value;
-                    _bondsnummer = collection[9].Value;
+                _jaar = int.Parse(collection[11].Value);
+                _verenigingsnummer = collection[10].Value;
+                _bondsnummer = collection[9].Value;
                 //}
-                /*
-               if (Index == 0)
-                   _bondsnummer = "12073385";
-               if (Index == 1)
-                   _bondsnummer = "19949820";
-               if (Index == 2)
-                   _bondsnummer = "14788632";
-               if (Index == 3)
-                   _bondsnummer = "28403029";
-               */
-            }
                 await RetrieveSpeler();
+            }
+                
         }
 
         private async Task RetrieveSpeler()
@@ -252,8 +243,9 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
                 Afhang afhang = await _verenigingRepository.GetVerenigingSettingsAsync();
                 int uitgavemaand = 4;
+                int uitgavejaar = DateTime.Today.Year - _jaar;
 
-                if((DateTime.Today.Year - _jaar) >= 1 && DateTime.Today.Month > uitgavemaand )
+                if( uitgavejaar > 3 || (uitgavejaar >= 3 && DateTime.Today.Month > uitgavemaand) )
                 {
                     _verenigingsnummer = string.Empty;
                     _bondsnummer = string.Empty;
@@ -332,8 +324,22 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                                 var navigationServiceReference = _navigationService;
 
                                 navigateAction = () => navigationServiceReference.Navigate("Spelers", null);
+
+                                navigateAction = async () =>
+                                {
+                                    //await reserveringRepositoryReference.SetReserveringAsync(reserveringReference);
+                                    navigationServiceReference.Navigate("Spelers", null);
+                                };
+
+                                navigateAction();
+                                /*
+                                Action navigateAction = null;
+                                var navigationServiceReference = _navigationService;
+
+                                navigateAction = () => navigationServiceReference.Navigate("Spelers", null);
                                 navigationServiceReference.Navigate("Spelers", null);
                                 navigateAction();
+                                */
                             }
 
                             _verenigingsnummer = string.Empty;

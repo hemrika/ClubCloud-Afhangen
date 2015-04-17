@@ -4,9 +4,11 @@
                             xmlns:Behaviors="using:ClubCloud.Afhangen.Behaviors"
                             xmlns:Charts="using:Syncfusion.UI.Xaml.Charts"
                             xmlns:Controls="using:ClubCloud.Afhangen.Controls"
+                            xmlns:Controls1="using:Callisto.Controls"
                             xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
                             xmlns:Infrastructure="using:Microsoft.Practices.Prism.StoreApps"
                             xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+                            xmlns:Maps="using:Syncfusion.UI.Xaml.Maps"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:designViewModels="using:ClubCloud.Afhangen.DesignViewModels"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,12 +17,14 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="WeerPage"
                             x:Name="Weer"
+                            Width="1680"
+                            Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:WeerPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"
                             mc:Ignorable="d">
     <prism:VisualStateAwarePage.Resources>
-        <x:String x:Key="AppName">Weer</x:String>
+        <x:String x:Key="AppName">Weer Details</x:String>
     </prism:VisualStateAwarePage.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
         <Grid.ChildrenTransitions>
@@ -32,10 +36,14 @@
             <RowDefinition Height="140" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Grid Background="#2582D3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton"
@@ -50,44 +58,134 @@
                     IsEnabled="{Binding Frame.CanGoBack,
                                         ElementName=Weer}"
                     Style="{StaticResource ClubCloudNavigationBackButtonNormalStyle}" />
-            <!--
-                IsEnabled="{Binding Frame.CanGoBack,
-                ElementName=Baanschema}"
-            -->
             <TextBlock x:Name="pageTitle"
                        Grid.Column="1"
-                       Margin="0,0,5,30"
+                       Margin="20,0,5,30"
                        VerticalAlignment="Bottom"
                        IsHitTestVisible="false"
-                       Style="{StaticResource ClubCLoudHeaderTextBlockStyle}"
+                       Style="{StaticResource ClubCloudHeaderTextBlockStyle}"
                        Text="{StaticResource AppName}" />
         </Grid>
-        <Charts:SfChart Grid.Row="1"
-                        Width="792"
-                        Height="266"
-                        Margin="10,10,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch">
-            <Charts:SfChart.PrimaryAxis>
-                <Charts:DateTimeAxis Name="Primary"
-                                     Header="Uur"
-                                     Interval="1"
-                                     IntervalType="Auto" />
-            </Charts:SfChart.PrimaryAxis>
-            <Charts:SfChart.SecondaryAxis>
-                <Charts:NumericalAxis Header="mm"
-                                      Interval="1"
-                                      Maximum="40"
-                                      Minimum="-20"
-                                      RangePadding="Round" />
-            </Charts:SfChart.SecondaryAxis>
-            <Charts:ColumnSeries HorizontalAlignment="Stretch"
-                                 VerticalAlignment="Stretch"
-                                 ItemsSource="{Binding HourlyModels}"
-                                 Label="Neerslag"
-                                 XBindingPath="Date"
-                                 YBindingPath="PredictedTemperature" />
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="750" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0"
+                      Grid.RowSpan="2"
+                      Grid.Column="0"
+                      Width="420"
+                      Margin="10,10,10,4"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      BorderBrush="{StaticResource ClubCloudHeaderBackground}"
+                      BorderThickness="0"
+                      ItemsSource="{Binding HourlyModels,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=Default}"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="400"
+                                    VerticalAlignment="Stretch"
+                                    Background="{StaticResource ClubCloudHeaderBackground}"
+                                    Orientation="Horizontal">
+                            <Image Height="60"
+                                   Margin="2"
+                                   Source="{Binding WeatherImage}"
+                                   Stretch="UniformToFill" />
+                            <Image Height="60"
+                                   Margin="2"
+                                   Source="{Binding UVImage}"
+                                   Stretch="UniformToFill" />
+                            <StackPanel Width="300"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource ClubCloudHeaderBackground}"
+                                        Orientation="Vertical">
+                                <TextBlock Margin="4,4,0,0"
+                                           Text="{Binding ShortPhrase}"
+                                           TextAlignment="Left"
+                                           TextWrapping="WrapWholeWords" />
+                                <StackPanel Background="{StaticResource ClubCloudHeaderBackground}" Orientation="Horizontal">
+                                    <TextBlock Margin="4,0,0,0" Text="{Binding PredictedTemperature, Converter={StaticResource StringFormatConverter}, ConverterParameter='Temperatuur: {0}°C'}" />
+                                    <TextBlock Margin="4,0,0,0" Text="{Binding PredictedRealFeel, Converter={StaticResource StringFormatConverter}, ConverterParameter='( {0}°C gevoels)'}" />
+                                </StackPanel>
+                                <TextBlock Margin="4,0,0,0" Text="{Binding ShortTime, Converter={StaticResource StringFormatConverter}, ConverterParameter='Tijd: {0}:00'}" />
+                                <StackPanel Background="{StaticResource ClubCloudHeaderBackground}" Orientation="Horizontal">
+                                    <TextBlock Margin="4,0,0,0" Text="{Binding PrecipationAmountRain, Converter={StaticResource StringFormatConverter}, ConverterParameter='Neerslag: {0} mm'}" />
+                                    <TextBlock Margin="4,0,0,0" Text="{Binding ProbabilityOfPrecipation, Converter={StaticResource StringFormatConverter}, ConverterParameter='( {0} kans )'}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
 
-        </Charts:SfChart>
+            </ListView>
+            <Canvas Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Left">
+
+                <views:CloudUserControl Width="750"
+                                        Height="730"
+                                        VerticalContentAlignment="Top" />
+                <Ellipse x:Name="Haversine"
+                         Width="10"
+                         Height="10"
+                         Fill="Red"
+                         Opacity=".8">
+                    <Ellipse.RenderTransform>
+                        <TranslateTransform X="{Binding HaversinePosition.X}" Y="{Binding HaversinePosition.Y}" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse x:Name="Flat"
+                         Width="10"
+                         Height="10"
+                         Fill="Yellow"
+                         Opacity=".8">
+                    <Ellipse.RenderTransform>
+                        <TranslateTransform X="{Binding FlatPosition.X}" Y="{Binding FlatPosition.Y}" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Canvas>
+            <ListView Grid.Row="0"
+                      Grid.RowSpan="2"
+                      Grid.Column="2"
+                      Width="420"
+                      Margin="10,10,10,4"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Top"
+                      BorderBrush="{StaticResource ClubCloudHeaderBackground}"
+                      BorderThickness="0"
+                      ItemsSource="{Binding UVIndexList,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=Default}"
+                      SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="400"
+                                    Margin="0"
+                                    Orientation="Horizontal">
+                            <Image Height="59"
+                                   Margin="2"
+                                   Source="{Binding Image}"
+                                   Stretch="UniformToFill" />
+                            <StackPanel Width="360" Orientation="Vertical">
+                                <TextBlock Width="360"
+                                           Margin="4,4,0,0"
+                                           Text="{Binding Description}"
+                                           TextAlignment="Left"
+                                           TextWrapping="WrapWholeWords" />
+                                <TextBlock Margin="4,0,0,0" Text="{Binding SPF, Converter={StaticResource StringFormatConverter}, ConverterParameter='Zonnebrand: {0}'}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </prism:VisualStateAwarePage>

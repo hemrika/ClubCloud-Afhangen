@@ -8,6 +8,7 @@
     using Microsoft.Practices.Prism.StoreApps.Interfaces;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Windows.ApplicationModel;
 
     public class MainPageViewModel : ViewModel, IView
     {
@@ -39,6 +40,17 @@
             get { return _vereniging; }
             private set { SetProperty(ref _vereniging, value); }
         }
+
+        public string Version
+        {
+            get
+            {
+                PackageVersion version = Package.Current.Id.Version;
+                string appVersion = string.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
+                return appVersion;
+            }
+        }
+
 
         private object _dataContext;
 
