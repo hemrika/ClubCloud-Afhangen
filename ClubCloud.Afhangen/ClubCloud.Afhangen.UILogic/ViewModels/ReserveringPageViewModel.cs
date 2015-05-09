@@ -389,7 +389,9 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
                 
             }
             ReserveringType = (_reservering.Id == Guid.Empty) ? "Reservering Maken" : "Reservering Wijzigen";
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         private object _dataContext;

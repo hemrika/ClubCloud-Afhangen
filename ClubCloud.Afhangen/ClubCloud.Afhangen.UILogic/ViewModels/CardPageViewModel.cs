@@ -451,7 +451,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
             }
             _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
     }
 }

@@ -11,9 +11,9 @@ namespace ClubCloud.Afhangen.UILogic.Services
     {
         Task<ObservableCollection<Models.Baanschema>> GetBaanschemaAsync(Guid verenigingId);
 
-        Task<Models.Baan> GetBaanAsync(Guid verenigingId, Guid _baanId);
+        Task<Models.Baan> GetBaanAsync(Guid verenigingId, Guid accommodatieId, Guid baanId);
 
-        Task<ObservableCollection<Models.Baan>> GetBanenAsync(Guid verenigingId);
+        Task<ObservableCollection<Models.Baan>> GetBanenAsync(Guid verenigingId, Guid accommodatieId);
 
         Task<ObservableCollection<Models.Baanblok>> GetBaanblokkenAsync(Guid verenigingId, Guid accommodatieId);
 

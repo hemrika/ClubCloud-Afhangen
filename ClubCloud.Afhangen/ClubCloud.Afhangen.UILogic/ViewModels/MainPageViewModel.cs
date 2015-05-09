@@ -75,7 +75,8 @@
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
             await _reserveringRepository.ClearReserveringAsync();
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
     }
 }

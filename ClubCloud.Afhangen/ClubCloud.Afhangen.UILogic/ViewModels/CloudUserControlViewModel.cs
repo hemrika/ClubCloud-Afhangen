@@ -174,7 +174,9 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+
         }
     }
 }

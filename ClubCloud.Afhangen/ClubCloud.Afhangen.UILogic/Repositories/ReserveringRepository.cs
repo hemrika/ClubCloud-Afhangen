@@ -86,7 +86,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 {
                     if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
                     {
-                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, reservering.BaanId.Value);
                         _cachedReserveringen.Add(reservering);
                     }
 
@@ -126,7 +126,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 {
                     if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
                     {
-                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id,vereniging.AccommodatieId, reservering.BaanId.Value);
                         _cachedReserveringen.Add(reservering);
                     }
 
@@ -150,7 +150,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             {
                 if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
                 {
-                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                    reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, reservering.BaanId.Value);
                     if(!_cachedReserveringen.Any(r => r.Id == reservering.Id))
                         _cachedReserveringen.Add(reservering);
                 }
@@ -177,7 +177,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 {
                     if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
                     {
-                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, reservering.BaanId.Value);
                         _cachedReserveringen.Add(reservering);
                     }
 
@@ -201,7 +201,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 {
                     if(_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
                     {
-                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, reservering.BaanId.Value);
+                        reservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, reservering.BaanId.Value);
                         _cachedReserveringen.Add(reservering);
                     }
                         
@@ -262,7 +262,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             if (_cachedReservering == null) CreateEmptyReservering();
 
             Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
-            Baan baan = await _baanRepository.GetBaanAsync(vereniging.Id, baanId);
+            Baan baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, baanId);
 
             if (_cachedReservering.Baan != baan || _cachedReservering.BaanId != baan.Id)
             {
@@ -348,7 +348,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
         {
             Vereniging vereniging = await _verenigingRepository.GetVerenigingAsync();
             _cachedReservering = await _reserveringService.SetReserveringAsync(vereniging.Id, reservering);
-            _cachedReservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, _cachedReservering.BaanId.Value);
+            _cachedReservering.Baan = await _baanRepository.GetBaanAsync(vereniging.Id, vereniging.AccommodatieId, _cachedReservering.BaanId.Value);
 
             if (_cachedReserveringen.Count(r => r.Id == reservering.Id) == 0)
             {

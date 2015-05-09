@@ -34,12 +34,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             _sessionStateService = sessionStateService;
         }
 
-        public async Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, DateTime date)
+        public async Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, Guid accommodatieId, DateTime date)
         {
             if (_cachedBanen == null)
             {
                 _cachedBanen = new List<Baan>();
-                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId, accommodatieId);
 
                 foreach (Baan baan in banen)
                 {
@@ -49,10 +49,10 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 }
             }
 
-            if (_cachedBaanblokken == null)
+            if (_cachedBaanblokken == null || _cachedBaanblokken.Count == 0)
             {
                 _cachedBaanblokken = new List<Baanblok>();
-                Guid accommodatieId = Guid.Empty;
+                //Guid accommodatieId = Guid.Empty;
                 foreach (Baan baan in _cachedBanen)
                 {
                     if (accommodatieId == Guid.Empty || accommodatieId != baan.AccommodatieId)
@@ -69,7 +69,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 }
             }
 
-            if (_cachedBaansoorten == null)
+            if (_cachedBaansoorten == null || _cachedBaansoorten.Count == 0 )
             {
                 _cachedBaansoorten = new List<Baansoort>();
 
@@ -87,7 +87,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
                 }
             }
 
-            if (_cachedBaantypes == null)
+            if (_cachedBaantypes == null || _cachedBaansoorten.Count == 0 )
             {
                 _cachedBaantypes = new List<Baantype>();
 
@@ -148,12 +148,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         }
 
-        public async Task<List<Baan>> GetBanenAsync(Guid verenigingId)
+        public async Task<List<Baan>> GetBanenAsync(Guid verenigingId, Guid accommodatieId)
         {
             if (_cachedBanen == null)
             {
                 _cachedBanen = new List<Baan>();
-                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId, accommodatieId);
 
                 foreach (Baan baan in banen)
                 {
@@ -166,7 +166,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             if (_cachedBaanblokken == null)
             {
                 _cachedBaanblokken = new List<Baanblok>();
-                Guid accommodatieId = Guid.Empty;
+                accommodatieId = Guid.Empty;
                 foreach (Baan baan in _cachedBanen)
                 {
                     if (accommodatieId == Guid.Empty || accommodatieId != baan.AccommodatieId)
@@ -261,12 +261,12 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             return _cachedBanen;
         }
 
-        public async Task<Baan> GetBaanAsync(Guid verenigingId, Guid baanId)
+        public async Task<Baan> GetBaanAsync(Guid verenigingId, Guid accommodatieId, Guid baanId)
         {
             if (_cachedBanen == null)
             {
                 _cachedBanen = new List<Baan>();
-                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId);
+                ObservableCollection<Baan> banen = await _baanService.GetBanenAsync(verenigingId, accommodatieId);
 
                 foreach (Baan baan in banen)
                 {
@@ -279,7 +279,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
             if (_cachedBaanblokken == null)
             {
                 _cachedBaanblokken = new List<Baanblok>();
-                Guid accommodatieId = Guid.Empty;
+                accommodatieId = Guid.Empty;
                 foreach (Baan baan in _cachedBanen)
                 {
                     if (accommodatieId == Guid.Empty || accommodatieId != baan.AccommodatieId)

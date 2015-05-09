@@ -145,7 +145,7 @@
                 while (vereniging == null) { };
 
                 BaanRepository baanRepository = (BaanRepository)_container.Resolve<IBaanRepository>();
-                await baanRepository.GetBanenAsync(vereniging.Id);
+                await baanRepository.GetBanenAsync(vereniging.Id, vereniging.AccommodatieId);
 
                 ReserveringRepository reserveringRepository = (ReserveringRepository)_container.Resolve<IReserveringRepository>();
                 await reserveringRepository.GetReserveringenAsync();

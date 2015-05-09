@@ -14,7 +14,9 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         Task<Speler> GetSpelerByNummerAsync(Guid verenigingId, string nummer);
 
+        /*
         Task<Models.Foto> GetFotoByNummerAsync(Guid verenigingId, string nummer);
+        */
 
         Task<Foto> GetFotoAsync(Guid verenigingId, Guid gebruikerId);
 

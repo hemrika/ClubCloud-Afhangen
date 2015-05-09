@@ -13,7 +13,9 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
         Task<Speler> GetSpelerByNummerAsync(Guid verenigingId, string nummer);
 
+        /*
         Task<Models.Foto> GetFotoByNummerAsync(Guid verenigingId, string nummer);
+        */
 
         Task<Models.Foto> GetFotoAsync(Guid verenigingId, Guid gebruikerId);
     }

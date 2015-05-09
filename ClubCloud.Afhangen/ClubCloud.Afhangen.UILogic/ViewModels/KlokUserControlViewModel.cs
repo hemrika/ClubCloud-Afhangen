@@ -6,6 +6,7 @@ using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.StoreApps.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Windows.Globalization;
@@ -118,6 +119,17 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             _eventAggregator.GetEvent<SponsorEvent>().Publish(null);
         }
 
+        public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
+        {
+            _navigationService.Navigate("Main", null);
+            base.OnNavigatedFrom(viewModelState, suspending);
+        }
+
+        public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
+        {
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+        }
 
         public object DataContext
         {

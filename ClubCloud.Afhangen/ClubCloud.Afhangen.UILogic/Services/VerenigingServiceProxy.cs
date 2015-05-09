@@ -2,6 +2,7 @@
 using ClubCloud.Afhangen.UILogic.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             ClubCloud_Vereniging ccVereniging = await client.GetVerenigingByIdAsync("00000000", verenigingId, false);
 
+            vereniging = new Vereniging { Id = ccVereniging.Id, Naam = ccVereniging.Naam, Nummer = ccVereniging.Nummer, AccommodatieId = ccVereniging.AccommodatieId.Value };
+
             return vereniging;
         }
 
@@ -30,7 +33,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             if (ccVereniging != null)
             {
-                vereniging = new Vereniging { Id = ccVereniging.Id, Naam = ccVereniging.Naam, Nummer = ccVereniging.Nummer };
+                vereniging = new Vereniging { Id = ccVereniging.Id, Naam = ccVereniging.Naam, Nummer = ccVereniging.Nummer, AccommodatieId = ccVereniging.AccommodatieId.Value };
             }
             else
             {
@@ -50,7 +53,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             ClubCloud_Vereniging ccVereniging = await client.GetVerenigingByNummerAsync("00000000", verenigingNummer, false);
 
-            vereniging = new Vereniging { Id = ccVereniging.Id };
+            vereniging = new Vereniging { Id = ccVereniging.Id, Naam = ccVereniging.Naam, Nummer = ccVereniging.Nummer, AccommodatieId = ccVereniging.AccommodatieId.Value };
             return vereniging;
         }
 
@@ -58,9 +61,13 @@ namespace ClubCloud.Afhangen.UILogic.Services
         {
             Afhang afhang = new Afhang { Id = Guid.NewGuid(), VerenigingId = verenigingId };
 
-            ClubCloud_Afhang ccAfhang = await client.GetVerenigingAfhangSettingsAsync("00000000", verenigingId, false);
+            ObservableCollection<ClubCloud_Afhang> ccAfhangen = await client.GetVerenigingAfhangSettingsAsync("00000000", verenigingId, false);
 
-            afhang = new Afhang { Id = ccAfhang.Id, VerenigingId = ccAfhang.VerenigingId, BaanBegin = ccAfhang.BaanBegin, BaanEinde = ccAfhang.BaanEinde, Duur_Drie = ccAfhang.Duur_Drie, Duur_Een = ccAfhang.Duur_Een, Duur_Precisie = ccAfhang.Duur_Precisie, Duur_Twee = ccAfhang.Duur_Twee, Duur_Vier = ccAfhang.Duur_Vier, MaandBegin = ccAfhang.MaandBegin, MaandEinde = ccAfhang.MaandEinde };
+            ClubCloud_Afhang ccAfhang = ccAfhangen.FirstOrDefault();
+
+            if(ccAfhang != null)
+                afhang = new Afhang { Id = ccAfhang.Id, VerenigingId = ccAfhang.VerenigingId, BaanBegin = ccAfhang.BaanBegin, BaanEinde = ccAfhang.BaanEinde, Duur_Drie = ccAfhang.Duur_Drie, Duur_Een = ccAfhang.Duur_Een, Duur_Precisie = ccAfhang.Duur_Precisie, Duur_Twee = ccAfhang.Duur_Twee, Duur_Vier = ccAfhang.Duur_Vier, MaandBegin = ccAfhang.MaandBegin, MaandEinde = ccAfhang.MaandEinde };
+            
             return afhang;
         }
 

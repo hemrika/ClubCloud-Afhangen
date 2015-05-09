@@ -42,6 +42,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
             return foto;
         }
 
+        /*
         public async Task<Models.Foto> GetFotoByNummerAsync(Guid verenigingId, string nummer)
         {
             Foto foto = new Foto();
@@ -51,5 +52,6 @@ namespace ClubCloud.Afhangen.UILogic.Services
 
             return foto;
         }
+        */
     }
 }

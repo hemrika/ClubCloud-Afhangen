@@ -178,7 +178,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             }
             */
 
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         private async void GoNext()

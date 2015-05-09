@@ -78,7 +78,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         {
             _vereniging = await _verenigingRepository.GetVerenigingAsync();
             _reservering =  await _reserveringRepository.GetReserveringAsync();
-            List<Baan> banen = await _baanRepository.GetBanenAsync(_vereniging.Id);
+            List<Baan> banen = await _baanRepository.GetBanenAsync(_vereniging.Id, _vereniging.AccommodatieId);
             
             ObservableCollection<BaanUserControlViewModel> UnorderedBanen = new ObservableCollection<BaanUserControlViewModel>();
             foreach (Baan baan in banen)
@@ -112,7 +112,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         private async void GoNext()

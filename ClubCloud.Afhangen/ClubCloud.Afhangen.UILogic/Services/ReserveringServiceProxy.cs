@@ -28,7 +28,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                 Id = ccreservering.Id,
                 BeginTijd = ccreservering.Tijd,
                 EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                 Beschrijving = ccreservering.Beschrijving,
                 Spelers = new ObservableCollection<Speler>(),
             };
@@ -77,7 +77,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     Beschrijving = string.Empty,
                     Datum = reservering.Datum,
                     Duur = reservering.Duur,
-                    Soort = (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort,
+                    ReserveringSoort = (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort,
                     Final = true,
                     Id = reservering.Id,
                     Tijd = reservering.BeginTijd
@@ -103,8 +103,15 @@ namespace ClubCloud.Afhangen.UILogic.Services
                 false);
             }
 
-            if(reservering.Id == Guid.Empty)
-                ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort, true, false, reservering.Soort.ToString());
+            if (reservering.Id == Guid.Empty)
+            {
+                ccreservering = await client.AddReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort, true, false, reservering.Soort.ToString());
+                //ccreservering = await client.SetReserveringAsync("00000000", verenigingId, reservering.Baan.Id, spelers, reservering.Datum, reservering.BeginTijd, reservering.Duur, (ClubCloud.Afhangen.UILogic.ClubCloudAfhangen.ReserveringSoort)reservering.Soort, true, false, reservering.Soort.ToString());
+            }
+            else
+            {
+                ccreservering = await client.UpdateReserveringAsync("00000000", verenigingId, ccreservering, true, false);
+            }
 
             if (ccreservering != null)
             {
@@ -117,7 +124,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     Id = ccreservering.Id,
                     BeginTijd = ccreservering.Tijd,
                     EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                     Beschrijving = ccreservering.Beschrijving,
                     Spelers = new ObservableCollection<Speler>(),
                 };
@@ -160,7 +167,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                 Id = ccreservering.Id,
                 BeginTijd = ccreservering.Tijd,
                 EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                 Beschrijving = ccreservering.Beschrijving,
                 Spelers = new ObservableCollection<Speler>(),
             };
@@ -198,7 +205,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     Id = ccreservering.Id,
                     BeginTijd = ccreservering.Tijd,
                     EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                     Beschrijving = ccreservering.Beschrijving,
                     Spelers = new ObservableCollection<Speler>(),
                 };
@@ -237,7 +244,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     Id = ccreservering.Id,
                     BeginTijd = ccreservering.Tijd,
                     EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                     Beschrijving = ccreservering.Beschrijving,
                     Spelers = new ObservableCollection<Speler>(),
                 };
@@ -278,7 +285,7 @@ namespace ClubCloud.Afhangen.UILogic.Services
                     Id = ccreservering.Id,
                     BeginTijd = ccreservering.Tijd,
                     EindTijd = ccreservering.Tijd.Add(ccreservering.Duur),
-                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.Soort,
+                    Soort = (ClubCloud.Afhangen.UILogic.Models.ReserveringSoort)ccreservering.ReserveringSoort,
                     Beschrijving = ccreservering.Beschrijving,
                     Spelers = new ObservableCollection<Speler>(),
                 };

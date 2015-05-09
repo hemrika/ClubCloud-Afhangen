@@ -119,7 +119,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             if(_afhang == null)
                 _afhang = await _verenigingRepository.GetVerenigingSettingsAsync();
             
-            List<Baan> banen = await _baanRepository.GetBanenByDateAsync(_vereniging.Id, DateTime.Now);
+            List<Baan> banen = await _baanRepository.GetBanenByDateAsync(_vereniging.Id, _vereniging.AccommodatieId, DateTime.Now);
 
             ResourceType banenResource = new ResourceType { TypeName = "Banen" };
 
@@ -152,7 +152,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             if (_afhang == null)
                 _afhang = await _verenigingRepository.GetVerenigingSettingsAsync();
 
-            List<Baan> banen = await _baanRepository.GetBanenByDateAsync(_vereniging.Id, _date);
+            List<Baan> banen = await _baanRepository.GetBanenByDateAsync(_vereniging.Id, _vereniging.AccommodatieId, _date);
 
             ResourceType banenResource = new ResourceType { TypeName = "Banen" };
             
@@ -222,7 +222,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if(navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         private object _dataContext;

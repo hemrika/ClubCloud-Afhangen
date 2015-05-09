@@ -238,7 +238,6 @@
     <Compile Include="Services\ApiServiceProvider.cs" />
     <Compile Include="Models\Baanblok.cs" />
     <Compile Include="Services\BaanServiceProxy.cs" />
-    <Compile Include="Services\ClubCloudService.cs" />
     <Compile Include="Services\DailyForecastQuery.cs" />
     <Compile Include="Services\DialogCommand.cs" />
     <Compile Include="Services\HourlyForecastQuery.cs" />
@@ -443,9 +442,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ClubCloudAfhangen\mex1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ClubCloudAgent\item.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -459,6 +455,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClubCloudAfhangen\mex1.disco" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

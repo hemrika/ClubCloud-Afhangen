@@ -69,6 +69,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
         }
 
+        /*
         public async Task<Models.Foto> GetFotoByNummerAsync(Guid verenigingId, string nummer)
         {
             Foto foto = new Foto();
@@ -114,6 +115,7 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 
             return foto;
         }
+        */
 
         public async Task<Foto> GetFotoAsync(Guid verenigingId, Guid gebruikerId)
         {

@@ -10,10 +10,10 @@ namespace ClubCloud.Afhangen.UILogic.Repositories
 {
     public interface IBaanRepository
     {
-        Task<Baan> GetBaanAsync(Guid verenigingId, Guid baanId);
+        Task<Baan> GetBaanAsync(Guid verenigingId, Guid accommodatieId, Guid baanId);
 
-        Task<List<Baan>> GetBanenAsync(Guid verenigingId);
+        Task<List<Baan>> GetBanenAsync(Guid verenigingId, Guid accommodatieId);
 
-        Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, DateTime date);
+        Task<List<Baan>> GetBanenByDateAsync(Guid verenigingId, Guid accommodatieId, DateTime date);
     } 
 }

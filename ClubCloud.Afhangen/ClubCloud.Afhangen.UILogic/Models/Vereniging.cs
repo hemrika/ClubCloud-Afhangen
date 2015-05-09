@@ -15,5 +15,8 @@ namespace ClubCloud.Afhangen.UILogic.Models
 
         [DataMember]
         public string Nummer { get; set; }
+
+        [DataMember]
+        public System.Guid AccommodatieId { get; set; }
     } 
 }

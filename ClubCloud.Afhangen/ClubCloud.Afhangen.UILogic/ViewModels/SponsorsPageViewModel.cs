@@ -60,15 +60,22 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         private int change = 1;
         void indexTimer_Tick(object sender, object e)
         {
-            // If we'd go out of bounds then reverse
-            int newIndex = _index + change;
-            if (newIndex >= Sponsors.Count || newIndex < 0)
+            if (Sponsors.Count == 1)
             {
-                change *= -1;
+                Index = 0;
             }
+            else
+            {
+                // If we'd go out of bounds then reverse
+                int newIndex = _index + change;
+                if (newIndex >= Sponsors.Count || newIndex < 0)
+                {
+                    change *= -1;
+                }
 
-            Index += change;
-
+                Index += change;
+            }
+            
             _eventAggregator.GetEvent<ActivityEvent>().Publish(DateTime.Now.TimeOfDay);
         }
 
@@ -93,17 +100,20 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         }
 
         private static Uri _baseUri = new Uri("ms-appdata:///temp/Sponsors/"); 
+
         private async Task UpdateSponsorsInfoAsync()
         {
             _vereniging = await _verenigingRepository.GetVerenigingAsync();
-            _sponsors = await _sponsorRepository.GetSponsorsAsync(_vereniging.Id);
+            Sponsors = await _sponsorRepository.GetSponsorsAsync(_vereniging.Id);
 
-            if (_sponsors == null || _sponsors.Count == 0)
+            if (Sponsors == null || Sponsors.Count == 0)
             {
-                _sponsors = new ObservableCollection<Sponsor>(){
-                new Sponsor{ Id = Guid.NewGuid(), Naam = "Er zijn momenteel geen sponsoren opgegeven.", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")},
-            };
+                if(Sponsors == null)
+                    Sponsors = new ObservableCollection<Sponsor>();
+                
+                Sponsors.Add(new Sponsor{ Id = Guid.NewGuid(), Naam = "Er zijn momenteel geen sponsoren opgegeven.", Type = "item", Path = new Uri("ms-appx:///Assets/placeHolderSponsor.png")});
             }
+            //Index = 0;
         }
 
         public override async void OnNavigatedFrom(Dictionary<string, object> viewModelState, bool suspending)
@@ -160,7 +170,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             }
             */
 
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
         }
 
         /*

@@ -221,6 +221,35 @@
             if (_afhang == null) _afhang = await _verenigingRepository.GetVerenigingSettingsAsync();
             if (_geoposition == null) _geoposition = await _locationRepository.GetLocationAsync();
             if (_locationModels == null) _locationModels = await _locationRepository.GetLocationsByLatLon(_geoposition.Coordinate.Point.Position.Latitude, _geoposition.Coordinate.Point.Position.Longitude);
+
+            foreach (LocationModel location in _locationModels)
+            {
+                CurrentConditions = await _weatherRepository.GetCurrentConditionsAsync(location.LocationId, update, true);
+                ObservableCollection<HourlyModel> hourly = await _weatherRepository.GetHourlyAsync(location.LocationId, update);
+
+                foreach (HourlyModel model in hourly)
+                {
+                    if (model.Date.Date == DateTime.Now.Date)
+                    {
+                        if (_afhang.BaanBegin.Hours <= (int.Parse(model.ShortTime)) && (int.Parse(model.ShortTime) <= _afhang.BaanEinde.Hours))
+                        {
+                            /*
+                            if (TemperatureRange.Maximum.Value < double.Parse(model.PredictedTemperature))
+                                TemperatureRange.Maximum.Value = double.Parse(model.PredictedTemperature);
+
+                            if (TemperatureRange.Minimum.Value > double.Parse(model.PredictedTemperature))
+                                TemperatureRange.Minimum.Value = double.Parse(model.PredictedTemperature);
+                            */
+                            HourlyModels.Add(model);
+                        }
+                    }
+                    //string time = model.ShortTime;
+
+                }
+                TemperatureRange.Maximum.Value++;
+                TemperatureRange.Minimum.Value--;
+            }
+
             /*
             var width = 750;
             var height = 750;
@@ -312,33 +341,7 @@
             //Position.X = 365;
             //Position.Y = 365;
      
-            foreach (LocationModel location in _locationModels)
-            {
-                CurrentConditions = await _weatherRepository.GetCurrentConditionsAsync(location.LocationId, update, true);
-                ObservableCollection<HourlyModel> hourly = await _weatherRepository.GetHourlyAsync(location.LocationId, update);
 
-                foreach (HourlyModel model in hourly)
-                {
-                    if (model.Date.Date == DateTime.Now.Date)
-                    {
-                        if (_afhang.BaanBegin.Hours <= (int.Parse(model.ShortTime)) && (int.Parse(model.ShortTime) <= _afhang.BaanEinde.Hours))
-                        {
-                            /*
-                            if (TemperatureRange.Maximum.Value < double.Parse(model.PredictedTemperature))
-                                TemperatureRange.Maximum.Value = double.Parse(model.PredictedTemperature);
-
-                            if (TemperatureRange.Minimum.Value > double.Parse(model.PredictedTemperature))
-                                TemperatureRange.Minimum.Value = double.Parse(model.PredictedTemperature);
-                            */
-                            HourlyModels.Add(model);
-                        }
-                    }
-                    //string time = model.ShortTime;
-                    
-                }
-                TemperatureRange.Maximum.Value++;
-                TemperatureRange.Minimum.Value--;
-            }
 
             //using (ClientContext clientCtx = new ClientContext("https://mijn.clubcloud.nl"))
             //{
@@ -381,7 +384,9 @@
         public override async void OnNavigatedTo(object navigationParameter, Windows.UI.Xaml.Navigation.NavigationMode navigationMode, Dictionary<string, object> viewModelState)
         {
             //await _reserveringRepository.ClearReserveringAsync();
-            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            if (navigationParameter != null)
+                base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+
         }
 
 
