@@ -15,9 +15,9 @@ namespace ClubCloud.Afhangen.UILogic.Models
 
         public Guid? VerenigingId { get; set; }
 
-        internal ClubCloudAfhangen.Month MaandEinde { get; set; }
+        internal ClubCloudAfhangen.MonthSoort MaandEinde { get; set; }
 
-        internal ClubCloudAfhangen.Month MaandBegin { get; set; }
+        internal ClubCloudAfhangen.MonthSoort MaandBegin { get; set; }
 
         public int Duur_Vier { get; set; }
 
