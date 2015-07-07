@@ -14,8 +14,6 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="BanenPage"
                             x:Name="Banen"
-                            Width="1680"
-                            Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:BanenPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="true"

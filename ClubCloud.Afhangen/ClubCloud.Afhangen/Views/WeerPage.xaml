@@ -17,8 +17,6 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="WeerPage"
                             x:Name="Weer"
-                            Width="1680"
-                            Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:WeerPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="True"

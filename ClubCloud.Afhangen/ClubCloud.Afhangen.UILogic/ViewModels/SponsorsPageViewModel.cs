@@ -83,7 +83,13 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
 
         public ObservableCollection<Sponsor> Sponsors
         {
-            get { return _sponsors; }
+            get
+            {
+                if (_sponsors == null)
+                    UpdateSponsorsAsync(null);
+
+                return _sponsors;
+            }
             private set { SetProperty(ref _sponsors, value); }
         }
 
