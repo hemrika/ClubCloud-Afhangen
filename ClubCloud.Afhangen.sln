@@ -14,9 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6E4E7E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubCloud.Core", "ClubCloud.Afhangen\ClubCloud.Core\ClubCloud.Core.csproj", "{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubCloud.Core.Unity", "ClubCloud.Afhangen\ClubCloud.Unity\ClubCloud.Core.Unity.csproj", "{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://hemrika.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -26,6 +30,12 @@ Global
 		SccProjectUniqueName2 = ClubCloud.Afhangen\\ClubCloud.Afhangen\\ClubCloud.Afhangen.csproj
 		SccProjectName2 = ClubCloud.Afhangen/ClubCloud.Afhangen
 		SccLocalPath2 = ClubCloud.Afhangen\\ClubCloud.Afhangen
+		SccProjectUniqueName3 = ClubCloud.Afhangen\\ClubCloud.Core\\ClubCloud.Core.csproj
+		SccProjectName3 = ClubCloud.Afhangen/ClubCloud.Core
+		SccLocalPath3 = ClubCloud.Afhangen\\ClubCloud.Core
+		SccProjectUniqueName4 = ClubCloud.Afhangen\\ClubCloud.Unity\\ClubCloud.Core.Unity.csproj
+		SccProjectName4 = ClubCloud.Afhangen/ClubCloud.Unity
+		SccLocalPath4 = ClubCloud.Afhangen\\ClubCloud.Unity
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +88,26 @@ Global
 		{EEB41983-C6A2-445C-8762-9FD2E43FE189}.Release|x64.Build.0 = Release|x64
 		{EEB41983-C6A2-445C-8762-9FD2E43FE189}.Release|x86.ActiveCfg = Release|x86
 		{EEB41983-C6A2-445C-8762-9FD2E43FE189}.Release|x86.Build.0 = Release|x86
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Release|x64.ActiveCfg = Release|Any CPU
+		{EE1F752C-1FAB-41AD-AD63-857D0E62AB6B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

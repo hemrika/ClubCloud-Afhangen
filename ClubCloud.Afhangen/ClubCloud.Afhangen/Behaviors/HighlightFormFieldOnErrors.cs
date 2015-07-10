@@ -8,7 +8,7 @@
 
 using System.Collections.ObjectModel;
 using System.Linq;
-using Microsoft.Practices.Prism.StoreApps;
+
 using Windows.UI.Xaml;
 
 namespace ClubCloud.Afhangen.Behaviors

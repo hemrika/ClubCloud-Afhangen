@@ -1,7 +1,7 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
 using ClubCloud.Afhangen.UILogic.ViewModels;
-using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Mvvm;
+using ClubCloud.Core.Prism.Commands;
+using ClubCloud.Core.Prism;
 using Syncfusion.UI.Xaml.Schedule;
 using System;
 using System.Collections.ObjectModel;

@@ -3,11 +3,11 @@
     using ClubCloud.Afhangen.UILogic.Models;
     using ClubCloud.Afhangen.UILogic.Repositories;
     using ClubCloud.Afhangen.UILogic.Services;
-    using Microsoft.Practices.Prism.Mvvm;
-    using Microsoft.Practices.Prism.Mvvm.Interfaces;
-    using Microsoft.Practices.Prism.PubSubEvents;
-    using Microsoft.Practices.Prism.StoreApps;
-    using Microsoft.Practices.Prism.StoreApps.Interfaces;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
+    using ClubCloud.Core.Prism.PubSubEvents;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -231,8 +231,8 @@
                 {
                     if (model.Date.Date == DateTime.Now.Date)
                     {
-                        if (_afhang.BaanBegin.Hours <= (int.Parse(model.ShortTime)) && (int.Parse(model.ShortTime) <= _afhang.BaanEinde.Hours))
-                        {
+                        //if (_afhang.BaanBegin.Hours <= (int.Parse(model.ShortTime)) && (int.Parse(model.ShortTime) <= _afhang.BaanEinde.Hours))
+                        //{
                             /*
                             if (TemperatureRange.Maximum.Value < double.Parse(model.PredictedTemperature))
                                 TemperatureRange.Maximum.Value = double.Parse(model.PredictedTemperature);
@@ -241,7 +241,7 @@
                                 TemperatureRange.Minimum.Value = double.Parse(model.PredictedTemperature);
                             */
                             HourlyModels.Add(model);
-                        }
+                        //}
                     }
                     //string time = model.ShortTime;
 

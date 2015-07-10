@@ -6,12 +6,10 @@
     using ClubCloud.Afhangen.UILogic.Services;
     using ClubCloud.Afhangen.UILogic.ViewModels;
     using ClubCloud.Afhangen.Views;
-    using Microsoft.Practices.Prism.Mvvm;
-    using Microsoft.Practices.Prism.Mvvm.Interfaces;
-    using Microsoft.Practices.Prism.PubSubEvents;
-    using Microsoft.Practices.Prism.StoreApps;
-    using Microsoft.Practices.Prism.StoreApps.Interfaces;
-    using Microsoft.Practices.Unity;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
+    using ClubCloud.Core.Prism.PubSubEvents;
+    using ClubCloud.Core.Unity;
     using System;
     using System.Collections.Generic;
     using System.Globalization;

@@ -1,5 +1,5 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.StoreApps;
+﻿using ClubCloud.Core.Prism;
+using ClubCloud.Core.Prism;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;

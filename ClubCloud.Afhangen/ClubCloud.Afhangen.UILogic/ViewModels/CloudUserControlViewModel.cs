@@ -1,22 +1,15 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
 using ClubCloud.Afhangen.UILogic.Repositories;
 using ClubCloud.Afhangen.UILogic.Services;
-using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.Mvvm.Interfaces;
-using Microsoft.Practices.Prism.PubSubEvents;
-using Microsoft.Practices.Prism.StoreApps;
-using Microsoft.Practices.Prism.StoreApps.Interfaces;
-using System.Runtime.InteropServices.WindowsRuntime;
+using ClubCloud.Core.Prism;
+using ClubCloud.Core.Prism.Interfaces;
+using ClubCloud.Core.Prism.PubSubEvents;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using Windows.Devices.Geolocation;
-using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
-using System.Collections.Generic;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Media;
 
 namespace ClubCloud.Afhangen.UILogic.ViewModels

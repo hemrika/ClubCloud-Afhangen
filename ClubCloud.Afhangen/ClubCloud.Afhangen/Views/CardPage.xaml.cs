@@ -1,8 +1,9 @@
-﻿using Microsoft.Practices.Prism.StoreApps;
+﻿
 
+using ClubCloud.Core.Prism;
 namespace ClubCloud.Afhangen.Views
 {
-    public sealed partial class CardPage : VisualStateAwarePage
+    public sealed partial class CardPage : VisualStateAwarePage, IView
     {
         public CardPage()
         {

@@ -1,4 +1,4 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using ClubCloud.Core.Prism;
 using Windows.UI.Xaml.Controls;
 
 namespace ClubCloud.Afhangen.Views

@@ -1,7 +1,7 @@
 ﻿namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
-    using Microsoft.Practices.Prism.Mvvm;
-    using Microsoft.Practices.Prism.Mvvm.Interfaces;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
     using System;
     using Windows.ApplicationModel;
 

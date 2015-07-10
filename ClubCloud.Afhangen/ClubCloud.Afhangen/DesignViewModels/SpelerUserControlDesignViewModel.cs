@@ -1,5 +1,5 @@
-﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Mvvm;
+﻿using ClubCloud.Core.Prism.Commands;
+using ClubCloud.Core.Prism;
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage;

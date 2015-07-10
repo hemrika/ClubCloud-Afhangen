@@ -1,11 +1,10 @@
 ﻿namespace ClubCloud.Afhangen.Views
 {
-    using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.Mvvm.Interfaces;
-using Microsoft.Practices.Prism.StoreApps.Interfaces;
-using System;
-using Windows.ApplicationModel;
-using Windows.UI.Xaml.Controls;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
+    using System;
+    using Windows.ApplicationModel;
+    using Windows.UI.Xaml.Controls;
 
     public sealed partial class AboutFlyout : SettingsFlyout, IFlyoutViewModel, IView
     {
@@ -39,7 +38,7 @@ using Windows.UI.Xaml.Controls;
             //var viewModel = this.DataContext as IFlyoutViewModel;
             //viewModel.CloseFlyout = () => this.Hide();
 
-                        var version = Package.Current.Id.Version;
+            var version = Package.Current.Id.Version;
             Version = String.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
 
         }

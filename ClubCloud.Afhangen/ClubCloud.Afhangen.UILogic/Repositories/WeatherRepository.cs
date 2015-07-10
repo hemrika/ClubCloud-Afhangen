@@ -1,7 +1,7 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
 using ClubCloud.Afhangen.UILogic.Models.Entities;
 using ClubCloud.Afhangen.UILogic.Services;
-using Microsoft.Practices.Prism.StoreApps.Interfaces;
+using ClubCloud.Core.Prism.Interfaces;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System;
 using System.Collections.Generic;

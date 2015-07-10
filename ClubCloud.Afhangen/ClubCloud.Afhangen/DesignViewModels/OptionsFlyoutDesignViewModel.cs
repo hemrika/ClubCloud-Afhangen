@@ -2,10 +2,10 @@
 {
     using ClubCloud.Afhangen.UILogic.Models;
     using ClubCloud.Afhangen.UILogic.Repositories;
-    using Microsoft.Practices.Prism.Mvvm;
-    using Microsoft.Practices.Prism.Mvvm.Interfaces;
-    using Microsoft.Practices.Prism.StoreApps;
-    using Microsoft.Practices.Prism.StoreApps.Interfaces;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
+    
+    
     using System;
     using System.Threading.Tasks;
 

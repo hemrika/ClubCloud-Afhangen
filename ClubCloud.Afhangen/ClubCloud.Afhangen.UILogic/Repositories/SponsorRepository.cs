@@ -1,7 +1,7 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
 using ClubCloud.Afhangen.UILogic.Services;
-using Microsoft.Practices.Prism.Mvvm.Interfaces;
-using Microsoft.Practices.Prism.PubSubEvents;
+using ClubCloud.Core.Prism.Interfaces;
+using ClubCloud.Core.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -6,7 +6,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved
 
 
-using Microsoft.Practices.Prism.PubSubEvents;
+using ClubCloud.Core.Prism.PubSubEvents;
 
 namespace ClubCloud.Afhangen.Events
 {

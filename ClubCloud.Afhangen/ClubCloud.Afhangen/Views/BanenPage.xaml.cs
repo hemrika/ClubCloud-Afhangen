@@ -1,5 +1,5 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.StoreApps;
+﻿using ClubCloud.Core.Prism;
+
 
 namespace ClubCloud.Afhangen.Views
 {

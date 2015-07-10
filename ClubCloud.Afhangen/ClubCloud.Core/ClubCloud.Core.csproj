@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC46B1F7-B2C8-4074-B6D1-8B702A58007E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClubCloud.Core</RootNamespace>
+    <AssemblyName>ClubCloud.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Prism\BindableBase.cs" />
+    <Compile Include="Prism\Commands\DelegateCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\Commands\DelegateCommandBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\ErrorsContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\IActiveAware.cs" />
+    <Compile Include="Prism\Commands\CompositeCommand.cs" />
+    <Compile Include="Prism\Commands\WeakEventHandlerManager.cs" />
+    <Compile Include="Prism\IView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\Mvvm\MvvmAppBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\Mvvm\ViewModelLocator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\PropertySupport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\PubSubEvents\BackgroundEventSubscription.cs" />
+    <Compile Include="Prism\PubSubEvents\DataEventArgs.cs" />
+    <Compile Include="Prism\PubSubEvents\DelegateReference.cs" />
+    <Compile Include="Prism\PubSubEvents\DispatcherEventSubscription.cs" />
+    <Compile Include="Prism\PubSubEvents\EventAggregator.cs" />
+    <Compile Include="Prism\PubSubEvents\EventBase.cs" />
+    <Compile Include="Prism\PubSubEvents\EventSubscription.cs" />
+    <Compile Include="Prism\PubSubEvents\IDelegateReference.cs" />
+    <Compile Include="Prism\PubSubEvents\IEventAggregator.cs" />
+    <Compile Include="Prism\PubSubEvents\IEventSubscription.cs" />
+    <Compile Include="Prism\PubSubEvents\PubSubEvent.cs" />
+    <Compile Include="Prism\PubSubEvents\SubscriptionToken.cs" />
+    <Compile Include="Prism\PubSubEvents\ThreadOption.cs" />
+    <Compile Include="Prism\AppManifestHelper.cs" />
+    <Compile Include="Prism\BindableValidator.cs" />
+    <Compile Include="Prism\Constants.cs" />
+    <Compile Include="Prism\FrameFacadeAdapter.cs" />
+    <Compile Include="Prism\FrameNavigationService.cs" />
+    <Compile Include="Prism\GlobalSuppressions.cs" />
+    <Compile Include="Prism\Interfaces\ICredentialStore.cs" />
+    <Compile Include="Prism\Interfaces\IFlyoutViewModel.cs" />
+    <Compile Include="Prism\Interfaces\IFrameFacade.cs" />
+    <Compile Include="Prism\Interfaces\INavigationAware.cs" />
+    <Compile Include="Prism\Interfaces\INavigationService.cs" />
+    <Compile Include="Prism\Interfaces\IResourceLoader.cs" />
+    <Compile Include="Prism\Interfaces\ISessionStateService.cs" />
+    <Compile Include="Prism\Interfaces\IValidatableBindableBase.cs" />
+    <Compile Include="Prism\MvvmNavigatedEventArgs.cs" />
+    <Compile Include="Prism\PrismConstants.cs" />
+    <Compile Include="Prism\ResourceLoaderAdapter.cs" />
+    <Compile Include="Prism\RestorableStateAttribute.cs" />
+    <Compile Include="Prism\SessionStateService.cs" />
+    <Compile Include="Prism\ValidatableBindableBase.cs" />
+    <Compile Include="Prism\ViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\ViewModelLocationProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Prism\VisualStateAwarePage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceLocation\ActivationException.cs" />
+    <Compile Include="ServiceLocation\IServiceLocator.cs" />
+    <Compile Include="ServiceLocation\ServiceLocator.cs" />
+    <Compile Include="ServiceLocation\ServiceLocatorImplBase.cs" />
+    <Compile Include="ServiceLocation\ServiceLocatorProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

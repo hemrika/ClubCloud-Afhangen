@@ -1,8 +1,8 @@
-﻿using Microsoft.Practices.Prism.StoreApps;
+﻿using ClubCloud.Core.Prism;
 
 namespace ClubCloud.Afhangen.Views
 {
-    public sealed partial class ReserveringPage : VisualStateAwarePage
+    public sealed partial class ReserveringPage : VisualStateAwarePage, IView
     {
         public ReserveringPage()
         {

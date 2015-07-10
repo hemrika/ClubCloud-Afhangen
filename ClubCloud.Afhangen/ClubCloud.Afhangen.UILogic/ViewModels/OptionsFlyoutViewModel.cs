@@ -1,7 +1,7 @@
 ﻿namespace ClubCloud.Afhangen.UILogic.ViewModels
 {
-    using Microsoft.Practices.Prism.StoreApps;
-    using Microsoft.Practices.Prism.StoreApps.Interfaces;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Interfaces;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -10,9 +10,9 @@
     using Windows.Globalization;
     using ClubCloud.Afhangen.UILogic.Models;
     using System.Linq;
-    using Microsoft.Practices.Prism.Mvvm;
-    using Microsoft.Practices.Prism.Commands;
-    using Microsoft.Practices.Prism.Mvvm.Interfaces;
+    using ClubCloud.Core.Prism;
+    using ClubCloud.Core.Prism.Commands;
+    using ClubCloud.Core.Prism.Interfaces;
     using Windows.Storage;
 
     public class OptionsFlyoutViewModel : ViewModel, IFlyoutViewModel, IView

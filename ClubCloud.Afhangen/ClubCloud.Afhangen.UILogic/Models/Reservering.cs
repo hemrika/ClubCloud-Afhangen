@@ -1,6 +1,6 @@
 ﻿using ClubCloud.Afhangen.UILogic.ViewModels;
-using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.StoreApps;
+using ClubCloud.Core.Prism;
+using ClubCloud.Core.Prism;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;

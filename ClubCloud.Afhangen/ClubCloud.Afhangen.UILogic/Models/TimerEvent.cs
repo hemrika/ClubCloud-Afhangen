@@ -1,4 +1,4 @@
-﻿using Microsoft.Practices.Prism.PubSubEvents;
+﻿using ClubCloud.Core.Prism.PubSubEvents;
 using System;
 
 namespace ClubCloud.Afhangen.UILogic.Models

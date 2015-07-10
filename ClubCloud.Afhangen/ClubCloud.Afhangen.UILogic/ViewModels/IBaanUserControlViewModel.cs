@@ -24,7 +24,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         bool Selectable { get; }
 
         //System.Collections.ObjectModel.ObservableCollection<ReserveringViewModel> ReserveringViewModels { get; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand SelecterenBaanCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand SelecterenBaanCommand { get; set; }
         TimeSpan BeginTijd { get; }
         //void UpdateBaanAsync(object notUsed);
     }

@@ -1,4 +1,4 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using ClubCloud.Core.Prism;
 using System;
 using System.Collections.Generic;
 using System.Linq;

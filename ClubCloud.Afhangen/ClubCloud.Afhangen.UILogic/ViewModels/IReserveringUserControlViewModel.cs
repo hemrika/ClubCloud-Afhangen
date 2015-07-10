@@ -1,5 +1,5 @@
 ﻿using ClubCloud.Afhangen.UILogic.Models;
-using Microsoft.Practices.Prism.Mvvm;
+using ClubCloud.Core.Prism;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +11,14 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
     public interface IReserveringUserControlViewModel
     {
         int AantalSpelers { get; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand Action { get; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand Action { get; }
         string Actionable { get; }
         string ActionName { get; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand AnnulerenCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand AnnulerenCommand { get; set; }
         ClubCloud.Afhangen.UILogic.Models.Baan Baan { get; }
         System.Threading.Tasks.Task BaanWijzigen();
         TimeSpan BeginTijd { get; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand BevestigenCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand BevestigenCommand { get; set; }
         TimeSpan Duur { get; }
         TimeSpan EindTijd { get; }
         bool IsBaanSelected();
@@ -28,8 +28,8 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
         System.Threading.Tasks.Task SpelersWijzigen();
         void UpdateReserveringAsync(object notUsed);
         bool ValidateForm();
-        Microsoft.Practices.Prism.Commands.DelegateCommand VerwijderenCommand { get; set; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand WijzigBaanCommand { get; set; }
-        Microsoft.Practices.Prism.Commands.DelegateCommand WijzigSpelersCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand VerwijderenCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand WijzigBaanCommand { get; set; }
+        ClubCloud.Core.Prism.Commands.DelegateCommand WijzigSpelersCommand { get; set; }
     }
 }
