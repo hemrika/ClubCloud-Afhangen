@@ -67,7 +67,7 @@
                       ItemsSource="{Binding Banen}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Toolkit:WrapPanel Margin="0,0,300,0" HorizontalAlignment="Stretch" />
+                    <Toolkit:WrapPanel Margin="0,0,300,0" HorizontalAlignment="Stretch" UseLayoutRounding="True" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
