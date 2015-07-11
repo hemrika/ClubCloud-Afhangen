@@ -14,6 +14,7 @@
                             xmlns:views="using:ClubCloud.Afhangen.Views"
                             x:Uid="BanenPage"
                             x:Name="Banen"
+                            Width="1650" Height="1050"
                             d:DataContext="{d:DesignInstance designViewModels:BanenPageDesignViewModel,
                                                              IsDesignTimeCreatable=True}"
                             mvvm:ViewModelLocator.AutoWireViewModel="true"
@@ -67,7 +68,7 @@
                       ItemsSource="{Binding Banen}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Toolkit:WrapPanel Margin="0,0,300,0" HorizontalAlignment="Stretch" UseLayoutRounding="True" />
+                    <Toolkit:WrapPanel Margin="0,0,420,0" HorizontalAlignment="Stretch" UseLayoutRounding="True" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>

@@ -210,7 +210,7 @@ namespace ClubCloud.Afhangen.UILogic.ViewModels
             catch (Exception ex)
             {
                 string message = ex.Message;
-                throw;
+                //throw;
             }
         }
 
