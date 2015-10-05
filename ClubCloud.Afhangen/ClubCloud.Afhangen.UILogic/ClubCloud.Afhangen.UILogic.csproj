@@ -372,6 +372,9 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
+    <SDKReference Include="Syncfusion 8.1 controls for WinRT XAML, Version=13.3.0.7">
+      <Name>Syncfusion 8.1 Controls for WinRT XAML</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -415,6 +418,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ClubCloudAfhangen\mex1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClubCloud.Core\ClubCloud.Core.csproj">
+      <Project>{ec46b1f7-b2c8-4074-b6d1-8b702a58007e}</Project>
+      <Name>ClubCloud.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

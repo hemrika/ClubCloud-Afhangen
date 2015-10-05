@@ -6,12 +6,9 @@
     using ClubCloud.Core.Prism;
     using ClubCloud.Core.Prism.Interfaces;
     using ClubCloud.Core.Prism.PubSubEvents;
-    using ClubCloud.Core.Prism;
-    using ClubCloud.Core.Prism.Interfaces;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Drawing;
     using System.Threading.Tasks;
     using Windows.Devices.Geolocation;
 

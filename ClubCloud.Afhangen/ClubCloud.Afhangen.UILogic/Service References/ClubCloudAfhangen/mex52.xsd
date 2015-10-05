@@ -5,7 +5,7 @@
   <xs:complexType name="ClubCloud_Baan">
     <xs:sequence>
       <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="BaanblokId" nillable="true" type="ser:guid" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Keuring" nillable="true" type="xs:dateTime" />
@@ -13,25 +13,38 @@
       <xs:element minOccurs="0" name="Nummer" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Baan" nillable="true" type="tns:ClubCloud_Baan" />
-  <xs:complexType name="ClubCloud_Baanblok">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BaansoortId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="BaantypeId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Locatie" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Verlichting" type="xs:boolean" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Baanblok" nillable="true" type="tns:ClubCloud_Baanblok" />
+  <xs:simpleType name="ActiefSoort">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Onbekend">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Actief">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Inactief">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ActiefSoort" nillable="true" type="tns:ActiefSoort" />
   <xs:complexType name="ClubCloud_Reservering">
     <xs:sequence>
       <xs:element minOccurs="0" name="BaanId" nillable="true" type="ser:guid" />
@@ -47,8 +60,6 @@
       <xs:element minOccurs="0" name="ReserveringSoort" type="tns:ReserveringSoort" />
       <xs:element minOccurs="0" name="Tijd" type="ser:duration" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Reservering" nillable="true" type="tns:ClubCloud_Reservering" />
   <xs:simpleType name="ReserveringSoort">
@@ -118,285 +129,11 @@
     </xs:list>
   </xs:simpleType>
   <xs:element name="ReserveringSoort" nillable="true" type="tns:ReserveringSoort" />
-  <xs:complexType name="ClubCloud_Gebruiker">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Aanhef" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AanhefAttentie" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AanhefBrief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Achternaam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Achtervoegsel" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AddressGeheim" type="xs:boolean" />
-      <xs:element minOccurs="0" name="BankIban" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BankNummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BankPlaats" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beroep" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailGeheim" type="xs:boolean" />
-      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailOverig" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailWebSite" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FTPsite" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FotoId" type="xs:int" />
-      <xs:element minOccurs="0" name="Geboortedatum" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Geboorteplaats" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Geslacht" type="tns:GeslachtSoort" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Kinderen" type="xs:boolean" />
-      <xs:element minOccurs="0" name="KinderenAantal" type="xs:int" />
-      <xs:element minOccurs="0" name="Mobiel" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NationaliteitId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="OverlijdensDatum" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Roepnaam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonGeheim" type="xs:boolean" />
-      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonOverig" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tussenvoegsel" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Volledigenaam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Voorletters" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Voornaam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Voornamen" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Gebruiker" nillable="true" type="tns:ClubCloud_Gebruiker" />
-  <xs:simpleType name="GeslachtSoort">
-    <xs:list>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="Onbekend">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="Man">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="Vrouw">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:list>
-  </xs:simpleType>
-  <xs:element name="GeslachtSoort" nillable="true" type="tns:GeslachtSoort" />
-  <xs:complexType name="ClubCloud_Profiel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Dubbel_Rating_Actueel" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Dubbel_Rating_Eindejaar" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Dubbel_Speelsterkte" type="xs:int" />
-      <xs:element minOccurs="0" name="Dubbel_Speelsterkte_Vorig" type="xs:int" />
-      <xs:element minOccurs="0" name="Dubbel_aantal" type="xs:int" />
-      <xs:element minOccurs="0" name="Enkel_Aantal" type="xs:int" />
-      <xs:element minOccurs="0" name="Enkel_Rating_Actueel" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Enkel_Rating_Eindejaar" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Enkel_Speelsterkte" type="xs:int" />
-      <xs:element minOccurs="0" name="Enkel_Speelsterkte_Vorig" type="xs:int" />
-      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Profiel" nillable="true" type="tns:ClubCloud_Profiel" />
-  <xs:complexType name="ClubCloud_Lidmaatschap">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Autorisatie" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Begin" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Einde" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="InternNummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LidmaatschapsoortId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Opzegging" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="PasDatum" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="PasNieuw" type="xs:boolean" />
-      <xs:element minOccurs="0" name="PasNood" type="xs:boolean" />
-      <xs:element minOccurs="0" name="PasNoodDatum" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="PasTypeId" type="ser:guid" />
-      <xs:element minOccurs="0" name="PasTypeNaam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PasVolgnummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PasWedstrijd" type="xs:boolean" />
-      <xs:element minOccurs="0" name="SpeelsterkteDubbel" type="xs:int" />
-      <xs:element minOccurs="0" name="SpeelsterkteEnkel" type="xs:int" />
-      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Lidmaatschap" nillable="true" type="tns:ClubCloud_Lidmaatschap" />
-  <xs:complexType name="ClubCloud_Address">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AddressGeheim" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Gemeente" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Entity.Spatial" minOccurs="0" name="GeoLocation" nillable="true" type="q1:DbGeography" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="LandId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
-      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
-      <xs:element minOccurs="0" name="Naam" type="tns:AddressSoort" />
-      <xs:element minOccurs="0" name="Nummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParentId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Postbus" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Provincie" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Stad" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Straat" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonPrimair" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonSecundair" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonTertiair" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Toevoeging" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Address" nillable="true" type="tns:ClubCloud_Address" />
-  <xs:simpleType name="AddressSoort">
-    <xs:list>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="Bezoekadres" />
-          <xs:enumeration value="Postadres" />
-          <xs:enumeration value="Onbekend">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:list>
-  </xs:simpleType>
-  <xs:element name="AddressSoort" nillable="true" type="tns:AddressSoort" />
-  <xs:complexType name="ClubCloud_Vereniging">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BankIban" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BankNummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BankPlaats" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailOverig" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailWebSite" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Erkenning" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FTPsite" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Gestopt" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="KvKnummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="KvKplaats" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Maanden" type="xs:int" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Oprichting" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="RechtsvormId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="RegioId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonOverig" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Vereniging" nillable="true" type="tns:ClubCloud_Vereniging" />
-  <xs:complexType name="ClubCloud_Functionaris">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Autorisatie" type="xs:boolean" />
-      <xs:element minOccurs="0" name="BestuursorgaanId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="FunctieId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="TermijnBegin" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="TermijnEinde" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Functionaris" nillable="true" type="tns:ClubCloud_Functionaris" />
-  <xs:complexType name="ClubCloud_Functie">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Toegang" type="xs:boolean" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Functie" nillable="true" type="tns:ClubCloud_Functie" />
-  <xs:complexType name="ClubCloud_District">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RegioId" nillable="true" type="ser:guid" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_District" nillable="true" type="tns:ClubCloud_District" />
-  <xs:complexType name="ClubCloud_Regio">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Regio" nillable="true" type="tns:ClubCloud_Regio" />
   <xs:complexType name="ClubCloud_Accommodatie">
     <xs:sequence>
       <xs:element minOccurs="0" name="AantalParkeerplaatsen" type="xs:int" />
       <xs:element minOccurs="0" name="AantalParkeerplaatsenMindervalide" type="xs:int" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="BanenAantal" type="xs:int" />
       <xs:element minOccurs="0" name="BanenAantalBinnen" type="xs:int" />
       <xs:element minOccurs="0" name="BanenAantalBuiten" type="xs:int" />
@@ -436,166 +173,98 @@
       <xs:element minOccurs="0" name="WasruimteClubhuisAanwezig" type="xs:boolean" />
       <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Accommodatie" nillable="true" type="tns:ClubCloud_Accommodatie" />
-  <xs:complexType name="ClubCloud_Lidmaatschapsoort">
+  <xs:complexType name="ClubCloud_Baanblok">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="BaansoortId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="BaantypeId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Locatie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Verlichting" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Baanblok" nillable="true" type="tns:ClubCloud_Baanblok" />
+  <xs:complexType name="ClubCloud_Baansoort">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="BaantypeId" nillable="true" type="ser:guid" />
       <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contributie" type="xs:boolean" />
-      <xs:element minOccurs="0" name="DagBegin" type="ser:duration" />
-      <xs:element minOccurs="0" name="DagEinde" type="ser:duration" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tarief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ClubCloud_Lidmaatschapsoort" nillable="true" type="tns:ClubCloud_Lidmaatschapsoort" />
-  <xs:complexType name="ClubCloud_Baanschema">
+  <xs:element name="ClubCloud_Baansoort" nillable="true" type="tns:ClubCloud_Baansoort" />
+  <xs:complexType name="ClubCloud_Baantype">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BaanId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Beschikbaar" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Dag" type="tns:DaysSoort" />
-      <xs:element minOccurs="0" name="DagBegin" type="ser:duration" />
-      <xs:element minOccurs="0" name="DagEinde" type="ser:duration" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="MaandBegin" type="tns:MonthSoort" />
-      <xs:element minOccurs="0" name="MaandEinde" type="tns:MonthSoort" />
-      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ClubCloud_Baanschema" nillable="true" type="tns:ClubCloud_Baanschema" />
-  <xs:simpleType name="DaysSoort">
+  <xs:element name="ClubCloud_Baantype" nillable="true" type="tns:ClubCloud_Baantype" />
+  <xs:complexType name="ClubCloud_Gebruiker">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aanhef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AanhefAttentie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AanhefBrief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Achternaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Achtervoegsel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="AddressGeheim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BankIban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankNummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankPlaats" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Beroep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailGeheim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailOverig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailWebSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTPsite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FotoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Geboortedatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Geboorteplaats" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Geslacht" type="tns:GeslachtSoort" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Kinderen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KinderenAantal" type="xs:int" />
+      <xs:element minOccurs="0" name="Mobiel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationaliteitId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="OverlijdensDatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Roepnaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonGeheim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonOverig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tussenvoegsel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Volledigenaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voorletters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voornaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voornamen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Gebruiker" nillable="true" type="tns:ClubCloud_Gebruiker" />
+  <xs:simpleType name="GeslachtSoort">
     <xs:list>
       <xs:simpleType>
         <xs:restriction base="xs:string">
-          <xs:enumeration value="maandag" />
-          <xs:enumeration value="dinsdag" />
-          <xs:enumeration value="woensdag">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="donderdag">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="vrijdag">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="zaterdag">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="zondag">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:list>
-  </xs:simpleType>
-  <xs:element name="DaysSoort" nillable="true" type="tns:DaysSoort" />
-  <xs:simpleType name="MonthSoort">
-    <xs:list>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="januari" />
-          <xs:enumeration value="februari" />
-          <xs:enumeration value="maart">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="april">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="mei">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="juni">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="juli">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="augustus">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="september">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="oktober">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="november">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="december">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
           <xs:enumeration value="Onbekend">
             <xs:annotation>
               <xs:appinfo>
@@ -603,11 +272,33 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="Man">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Vrouw">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
   </xs:simpleType>
-  <xs:element name="MonthSoort" nillable="true" type="tns:MonthSoort" />
+  <xs:element name="GeslachtSoort" nillable="true" type="tns:GeslachtSoort" />
+  <xs:complexType name="ClubCloud_Nationaliteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Nationaliteit" nillable="true" type="tns:ClubCloud_Nationaliteit" />
   <xs:complexType name="ClubCloud_Setting">
     <xs:sequence>
       <xs:element minOccurs="0" name="Access" type="xs:boolean" />
@@ -627,8 +318,6 @@
       <xs:element minOccurs="0" name="twitter_oauth_token_secret" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="twitter_setting" type="tns:Twitter" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Setting" nillable="true" type="tns:ClubCloud_Setting" />
   <xs:simpleType name="Facebook">
@@ -793,51 +482,323 @@
     </xs:list>
   </xs:simpleType>
   <xs:element name="Twitter" nillable="true" type="tns:Twitter" />
-  <xs:complexType name="ClubCloud_Land">
+  <xs:complexType name="ClubCloud_Vereniging">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="BankIban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankNummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankPlaats" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailOverig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailWebSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Erkenning" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FTPsite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gestopt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="KvKnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KvKplaats" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Maanden" type="xs:int" />
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oprichting" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RechtsvormId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RegioId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonOverig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ClubCloud_Land" nillable="true" type="tns:ClubCloud_Land" />
-  <xs:complexType name="ClubCloud_Nationaliteit">
+  <xs:element name="ClubCloud_Vereniging" nillable="true" type="tns:ClubCloud_Vereniging" />
+  <xs:complexType name="ClubCloud_Lidmaatschap">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Autorisatie" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Einde" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternNummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LidmaatschapsoortId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Opzegging" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PasDatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PasNieuw" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PasNood" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PasNoodDatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PasTypeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PasTypeNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasVolgnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasWedstrijd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SpeelsterkteDubbel" type="xs:int" />
+      <xs:element minOccurs="0" name="SpeelsterkteEnkel" type="xs:int" />
+      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ClubCloud_Nationaliteit" nillable="true" type="tns:ClubCloud_Nationaliteit" />
-  <xs:complexType name="ClubCloud_Baantype">
+  <xs:element name="ClubCloud_Lidmaatschap" nillable="true" type="tns:ClubCloud_Lidmaatschap" />
+  <xs:complexType name="ClubCloud_Lidmaatschapsoort">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contributie" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DagBegin" type="ser:duration" />
+      <xs:element minOccurs="0" name="DagEinde" type="ser:duration" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tarief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
-  <xs:element name="ClubCloud_Baantype" nillable="true" type="tns:ClubCloud_Baantype" />
+  <xs:element name="ClubCloud_Lidmaatschapsoort" nillable="true" type="tns:ClubCloud_Lidmaatschapsoort" />
+  <xs:complexType name="ClubCloud_District">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegioId" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_District" nillable="true" type="tns:ClubCloud_District" />
+  <xs:complexType name="ClubCloud_Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="AddressGeheim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gemeente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Entity.Spatial" minOccurs="0" name="GeoLocation" nillable="true" type="q1:DbGeography" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LandId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Naam" type="tns:AddressSoort" />
+      <xs:element minOccurs="0" name="Nummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Postbus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provincie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Stad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Straat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonPrimair" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonSecundair" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonTertiair" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Toevoeging" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Address" nillable="true" type="tns:ClubCloud_Address" />
+  <xs:simpleType name="AddressSoort">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Bezoekadres" />
+          <xs:enumeration value="Postadres" />
+          <xs:enumeration value="Onbekend">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="AddressSoort" nillable="true" type="tns:AddressSoort" />
+  <xs:complexType name="ClubCloud_Functionaris">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Autorisatie" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BestuursorgaanId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="DistrictId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="FunctieId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="TermijnBegin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TermijnEinde" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Functionaris" nillable="true" type="tns:ClubCloud_Functionaris" />
+  <xs:complexType name="ClubCloud_Baanschema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaanId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Beschikbaar" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Dag" type="tns:DaysSoort" />
+      <xs:element minOccurs="0" name="DagBegin" type="ser:duration" />
+      <xs:element minOccurs="0" name="DagEinde" type="ser:duration" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="MaandBegin" type="tns:MonthSoort" />
+      <xs:element minOccurs="0" name="MaandEinde" type="tns:MonthSoort" />
+      <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Baanschema" nillable="true" type="tns:ClubCloud_Baanschema" />
+  <xs:simpleType name="DaysSoort">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="maandag" />
+          <xs:enumeration value="dinsdag" />
+          <xs:enumeration value="woensdag">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="donderdag">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="vrijdag">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="zaterdag">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="zondag">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="DaysSoort" nillable="true" type="tns:DaysSoort" />
+  <xs:simpleType name="MonthSoort">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="januari" />
+          <xs:enumeration value="februari" />
+          <xs:enumeration value="maart">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="april">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="mei">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="juni">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="juli">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="augustus">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="september">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="oktober">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="november">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="december">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Onbekend">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="MonthSoort" nillable="true" type="tns:MonthSoort" />
+  <xs:complexType name="ClubCloud_Regio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="EmailKNLTB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonAvond" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoonOverdag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Regio" nillable="true" type="tns:ClubCloud_Regio" />
   <xs:complexType name="ClubCloud_BaanSpeciaal">
     <xs:sequence>
       <xs:element minOccurs="0" name="AccommodatieId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="Baansoort" type="tns:BaanSoort" />
       <xs:element minOccurs="0" name="BaantoplaagId" nillable="true" type="ser:guid" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_BaanSpeciaal" nillable="true" type="tns:ClubCloud_BaanSpeciaal" />
   <xs:simpleType name="BaanSoort">
@@ -879,51 +840,41 @@
     </xs:list>
   </xs:simpleType>
   <xs:element name="BaanSoort" nillable="true" type="tns:BaanSoort" />
-  <xs:complexType name="ClubCloud_Baansoort">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BaantypeId" nillable="true" type="ser:guid" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Baansoort" nillable="true" type="tns:ClubCloud_Baansoort" />
-  <xs:complexType name="ClubCloud_Baantoplaag">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Baantoplaag" nillable="true" type="tns:ClubCloud_Baantoplaag" />
   <xs:complexType name="ClubCloud_Bestuursorgaan">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Groep" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Bestuursorgaan" nillable="true" type="tns:ClubCloud_Bestuursorgaan" />
+  <xs:complexType name="ClubCloud_Functie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Toegang" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Functie" nillable="true" type="tns:ClubCloud_Functie" />
+  <xs:complexType name="ClubCloud_Land">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Land" nillable="true" type="tns:ClubCloud_Land" />
   <xs:complexType name="ClubCloud_Rechtsvorm">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Actief" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
       <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
@@ -931,10 +882,20 @@
       <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Rechtsvorm" nillable="true" type="tns:ClubCloud_Rechtsvorm" />
+  <xs:complexType name="ClubCloud_Baantoplaag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Baantoplaag" nillable="true" type="tns:ClubCloud_Baantoplaag" />
   <xs:complexType name="ClubCloud_Afhang">
     <xs:sequence>
       <xs:element minOccurs="0" name="BaanBegin" type="ser:duration" />
@@ -949,10 +910,29 @@
       <xs:element minOccurs="0" name="MaandEinde" type="tns:MonthSoort" />
       <xs:element minOccurs="0" name="VerenigingId" nillable="true" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Afhang" nillable="true" type="tns:ClubCloud_Afhang" />
+  <xs:complexType name="ClubCloud_Profiel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Bondsnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Dubbel_Rating_Actueel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dubbel_Rating_Eindejaar" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dubbel_Speelsterkte" type="xs:int" />
+      <xs:element minOccurs="0" name="Dubbel_Speelsterkte_Vorig" type="xs:int" />
+      <xs:element minOccurs="0" name="Dubbel_aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="Enkel_Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="Enkel_Rating_Actueel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Enkel_Rating_Eindejaar" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Enkel_Speelsterkte" type="xs:int" />
+      <xs:element minOccurs="0" name="Enkel_Speelsterkte_Vorig" type="xs:int" />
+      <xs:element minOccurs="0" name="GebruikerId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Profiel" nillable="true" type="tns:ClubCloud_Profiel" />
   <xs:complexType name="ClubCloud_Sponsor">
     <xs:sequence>
       <xs:element minOccurs="0" name="AfbeeldingId" nillable="true" type="ser:guid" />
@@ -961,8 +941,6 @@
       <xs:element minOccurs="0" name="Tekst" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VerenigingId" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Sponsor" nillable="true" type="tns:ClubCloud_Sponsor" />
   <xs:complexType name="ClubCloud_Sponsor_Afbeelding">
@@ -970,10 +948,31 @@
       <xs:element minOccurs="0" name="Afbeelding" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="ClubCloud_Sponsor_Afbeelding" nillable="true" type="tns:ClubCloud_Sponsor_Afbeelding" />
+  <xs:complexType name="ClubCloud_Bouwaard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actief" type="tns:ActiefSoort" />
+      <xs:element minOccurs="0" name="Beschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Meervoud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Bouwaard" nillable="true" type="tns:ClubCloud_Bouwaard" />
+  <xs:complexType name="ClubCloud_Foto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContentData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ContentLength" type="xs:double" />
+      <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FotoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClubCloud_Foto" nillable="true" type="tns:ClubCloud_Foto" />
   <xs:complexType name="ArrayOfClubCloud_Baanschema">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ClubCloud_Baanschema" nillable="true" type="tns:ClubCloud_Baanschema" />
@@ -1004,19 +1003,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfClubCloud_Reservering" nillable="true" type="tns:ArrayOfClubCloud_Reservering" />
-  <xs:complexType name="ClubCloud_Foto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ContentData" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="ContentLength" type="xs:double" />
-      <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FotoId" type="xs:int" />
-      <xs:element minOccurs="0" name="Gewijzigd" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="ClubCloud_Foto" nillable="true" type="tns:ClubCloud_Foto" />
   <xs:complexType name="ArrayOfClubCloud_Afhang">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ClubCloud_Afhang" nillable="true" type="tns:ClubCloud_Afhang" />

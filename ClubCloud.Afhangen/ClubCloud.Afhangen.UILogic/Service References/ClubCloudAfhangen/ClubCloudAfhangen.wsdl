@@ -306,7 +306,7 @@
     <wsdl:port name="BasicHttpBinding_ClubCloudAfhangen" binding="i0:BasicHttpBinding_ClubCloudAfhangen">
       <soap:address location="http://development.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_ClubCloudAfhangen1" binding="i0:BasicHttpBinding_ClubCloudAfhangen3">
+    <wsdl:port name="BasicHttpBinding_ClubCloudAfhangen1" binding="i0:BasicHttpBinding_ClubCloudAfhangen2">
       <soap:address location="https://development.clubcloud.nl/_vti_bin/ClubCloud.Afhangen/Afhangen.svc" />
     </wsdl:port>
   </wsdl:service>
