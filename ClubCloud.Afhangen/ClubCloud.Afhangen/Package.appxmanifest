@@ -28,7 +28,6 @@
         <m2:InitialRotationPreference>
           <m2:Rotation Preference="landscape" />
         </m2:InitialRotationPreference>
-        <m2:ApplicationView MinWidth="default" />
       </m2:VisualElements>
       <ApplicationContentUriRules>
         <Rule Match="https://*.clubcloud.nl" Type="include" />

@@ -42,7 +42,7 @@
             {
                 await this.LoadAppResources();
             }
-
+            
             NavigationService.Navigate("Main", null);
         }
 
@@ -79,7 +79,6 @@
             {
 
                 var rootFrame = await InitializeFrameAsync(args);
-
                 string tileId = AppManifestHelper.GetApplicationId();
 
                 if (rootFrame != null)
